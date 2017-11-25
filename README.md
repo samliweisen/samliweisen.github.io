@@ -24,3 +24,7 @@ http://voky.com.ua/frittata/light-colored.html#page=portfolio
 　　　　　　 ﾚ'ヽL__|___i,___,ンﾚ|ノ
 　　　　　 　　　ﾄ-,/　|___./
 　　　　　 　　　'ｰ'　　!_,.:
+
+
+ng build --prod --base-href "https://porfolio-a09liweis.c9users.io/angular/"
+ng build --prod --base-href "https://samliweisen.bitbucket.io/angular/"
