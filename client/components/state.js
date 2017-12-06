@@ -26,6 +26,27 @@ export const experiences = [
     }
 ];
 
+export const projects = [
+    {
+        name: 'La Promesse',
+        type: 'Admin Dashboard',
+        steps: [
+            'Create SPA with react and react router',
+            'Build reusable and extensible react components',
+            'Implement Bulma CSS framework with flexbox'
+        ]
+    },
+    {
+        name: 'Site Favourite',
+        type: 'Web Application',
+        steps: [
+            'Create restful api using Postgresql with ruby on rails',
+            'Implement model relationships',
+            'Write reusable react components on Rails'
+        ]
+    }
+];
+
 export const skills = [
     {
         category: 'Basic',

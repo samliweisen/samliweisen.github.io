@@ -5,7 +5,7 @@ http://toutiao.io/
 http://www.vicinityrewards.ca/
 
 
-http://voky.com.ua/frittata/light-colored.html#page=portfolio
+https://lisa-gringl.com/#all
 
 く__,.ヘヽ.　　　　/　,ー､ 〉
 　　　　　＼ ', !-─‐-i　/　/´

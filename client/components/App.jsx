@@ -1,5 +1,5 @@
 import React from 'react';
-import {userInfo, experiences, skills} from './state.js';
+import {userInfo, experiences, projects, skills} from './state.js';
 
 export default class App extends React.Component {
     render() {
@@ -11,13 +11,30 @@ export default class App extends React.Component {
                     </li>
                 );
             });
-            return (<div key={i}>
+            return (<div className="experience" key={i}>
                         <h3>{e.company} - {e.title}</h3>
-                        <h4>{e.date}</h4>
+                        <h4 className="experience__date">{e.date}</h4>
                         <ul>
                             {duties}
                         </ul>
                     </div>
+            );
+        });
+        const pros = projects.map((p, i) => {
+            const steps = p.steps.map((s, j) => {
+                return (
+                    <li key={j}>
+                        {s}
+                    </li>
+                );
+            });
+            return (
+                <div className="project" key={i}>
+                    <h3 className="project__title">{p.name} - <span className="project__type">{p.type}</span></h3>
+                    <ul>
+                        {steps}
+                    </ul>
+                </div>
             );
         });
         const sks = skills.map((s, i) => {
@@ -27,15 +44,21 @@ export default class App extends React.Component {
         });
         return (
             <div className="container">
-                <div className="columns">
-                    <div className="column">
-                        <h1>{userInfo.name}</h1>
-                        <p>{userInfo.title}</p>
+                <div className="box" id="basic">
+                    <h1>{userInfo.name}</h1>
+                    <p>{userInfo.title}</p>
+                </div>
+                <div className="experiences box">
+                    <h2 className="box__title">Experiences</h2>
+                    <div className="box__body">
+                    {exs}
                     </div>
                 </div>
-                <div className="experiences">
-                    <h2>Experiences</h2>
-                    {exs}
+                <div className="projects box">
+                    <h2 className="box__title">Projects</h2>
+                    <div className="box__body">
+                    {pros}
+                    </div>
                 </div>
             </div>
         );
