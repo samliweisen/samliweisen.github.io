@@ -12,6 +12,9 @@ ul li {
 ul li:hover {
     transform: translateX(3px);
 }
+.fa {
+    margin-right: 10px;
+}
 .container {
     max-width: 768px;
     width: 100%;

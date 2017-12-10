@@ -44,6 +44,15 @@ export const projects = [
             'Implement model relationships',
             'Write reusable react components on Rails'
         ]
+    },
+    {
+        name: 'Events Toronto',
+        type: 'Web Application',
+        steps: [
+            'Retrieve data from Toronto open source with cron job daily',
+            'Implement Google Oauth with authentication',
+            'Increase user experience with AngularJS'
+        ]
     }
 ];
 

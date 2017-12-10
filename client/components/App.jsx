@@ -49,13 +49,13 @@ export default class App extends React.Component {
                     <p>{userInfo.title}</p>
                 </div>
                 <div className="experiences box">
-                    <h2 className="box__title">Experiences</h2>
+                    <h2 className="box__title"><i className="fa fa-briefcase" aria-hidden="true"></i>Experiences</h2>
                     <div className="box__body">
                     {exs}
                     </div>
                 </div>
                 <div className="projects box">
-                    <h2 className="box__title">Projects</h2>
+                    <h2 className="box__title"><i className="fa fa-tasks" aria-hidden="true"></i>Projects</h2>
                     <div className="box__body">
                     {pros}
                     </div>
