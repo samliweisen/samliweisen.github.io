@@ -13,7 +13,7 @@ export default class App extends React.Component {
             });
             return (<div className="experience" key={i}>
                         <h3>{e.company} - {e.title}</h3>
-                        <h4 className="experience__date">{e.date}</h4>
+                        <h4 className="experience__date"><i className="fa fa-calendar" aria-hidden="true"></i>{e.date}</h4>
                         <ul>
                             {duties}
                         </ul>

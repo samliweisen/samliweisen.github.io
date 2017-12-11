@@ -1,5 +1,5 @@
 body {
-    background-color: #f2f2f2;
+    background-color: #d8edc8c4;
     font-family: 'Quicksand', sans-serif;
 }
 h1,h2,h3,h4 {
@@ -66,9 +66,12 @@ ul li:hover {
 .project {
     padding-left: 20px;
     border-left: 3px solid #FF9C9C;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 .experience__date {
-    font-size: 12px;
+    margin-top: 10px;
+    font-size: 14px;
     font-weight: lighter;
     color: #919c7d;
 }
