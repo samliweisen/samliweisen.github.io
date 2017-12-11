@@ -2,6 +2,7 @@ Code Learning Website:
 http://www.nowamagic.net/
 http://toutiao.io/
 
+https://dribbble.com/shots/2380700-New-Portfolio-Site-Live/attachments/458038
 http://www.vicinityrewards.ca/
 
 

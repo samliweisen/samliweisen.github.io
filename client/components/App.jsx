@@ -30,7 +30,7 @@ export default class App extends React.Component {
             });
             return (
                 <div className="project" key={i}>
-                    <h3 className="project__title">{p.name} - <span className="project__type">{p.type}</span></h3>
+                    <h3 className="project__title"><a className="link" target="_blank" href={p.link}><i className="fa fa-link" aria-hidden="true"></i>{p.name}</a> - <span className="project__type">{p.type}</span></h3>
                     <ul>
                         {steps}
                     </ul>
@@ -45,7 +45,7 @@ export default class App extends React.Component {
         return (
             <div className="container">
                 <div className="box" id="basic">
-                    <h1>{userInfo.name}</h1>
+                    <h1>Hey, I am {userInfo.name}</h1>
                     <p>{userInfo.title}</p>
                 </div>
                 <div className="experiences box">

@@ -38,6 +38,7 @@ export const projects = [
     },
     {
         name: 'Site Favourite',
+        link: 'https://favourite-site.herokuapp.com/',
         type: 'Web Application',
         steps: [
             'Create restful api using Postgresql with ruby on rails',
@@ -47,6 +48,7 @@ export const projects = [
     },
     {
         name: 'Events Toronto',
+        link: 'http://events-toronto.herokuapp.com/',
         type: 'Web Application',
         steps: [
             'Retrieve data from Toronto open source with cron job daily',

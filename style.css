@@ -12,6 +12,22 @@ ul li {
 ul li:hover {
     transform: translateX(3px);
 }
+.link {
+    color: #000000;
+    text-decoration: none;
+    transition: 0.3s ease-in;
+}
+.link:hover {
+    text-decoration: underline;
+    color: #749e6c;
+}
+.btn {
+    background-color: #fa8e21;
+    color: #ffffff;
+    padding: 10px;
+    text-decoration: none;
+    display: inline-block;
+}
 .fa {
     margin-right: 10px;
 }
@@ -34,7 +50,7 @@ ul li:hover {
 }
 .box__title {
     padding: 20px;
-    background-color: #9e6c6c;
+    background-color: #749e6c;
     color: #ffffff;
     font-weight: lighter;
 }
@@ -43,6 +59,8 @@ ul li:hover {
 }
 #basic {
     padding: 20px;
+    background-color: #749e6c;
+    color: #ffffff;
 }
 .experience,
 .project {
