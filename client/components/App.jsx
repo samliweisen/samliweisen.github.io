@@ -38,28 +38,53 @@ export default class App extends React.Component {
             );
         });
         const sks = skills.map((s, i) => {
+            const techs = s.techs.map((t, j) => 
+                <span className="skill" key={j} style={{backgroundColor: t.color}}>{t.name}</span>
+            );
             return (
-                <div></div>
+                <div className="skills__group" key={i}>
+                    <h3 className="skills__title">{s.category}</h3>
+                    {techs}
+                </div>
             );
         });
         return (
-            <div className="container">
-                <div className="box" id="basic">
-                    <h1>Hey, I am {userInfo.name}</h1>
-                    <p>{userInfo.title}</p>
-                </div>
-                <div className="experiences box">
-                    <h2 className="box__title"><i className="fa fa-briefcase" aria-hidden="true"></i>Experiences</h2>
-                    <div className="box__body">
-                    {exs}
+            <div className="container flex-wrap">
+                <main id="main">
+                    <div className="box" id="basic">
+                        <h1>Hey, I am {userInfo.name}</h1>
+                        <p>{userInfo.title}</p>
                     </div>
-                </div>
-                <div className="projects box">
-                    <h2 className="box__title"><i className="fa fa-tasks" aria-hidden="true"></i>Projects</h2>
-                    <div className="box__body">
-                    {pros}
+                    <div className="experiences box">
+                        <h2 className="box__title">
+                            <i className="fa fa-briefcase" aria-hidden="true"></i>
+                            <span>Experiences</span>
+                        </h2>
+                        <div className="box__body">
+                        {exs}
+                        </div>
                     </div>
-                </div>
+                    <div className="projects box">
+                        <h2 className="box__title">
+                            <i className="fa fa-tasks" aria-hidden="true"></i>
+                            <span>Projects</span>
+                        </h2>
+                        <div className="box__body">
+                        {pros}
+                        </div>
+                    </div>
+                </main>
+                <aside id="aside">
+                    <div className="skills box">
+                        <h2 className="box__title">
+                            <i className="fa fa-pencil" aria-hidden="true"></i>
+                            <span>Skills</span>
+                        </h2>
+                        <div className="box__body">
+                        {sks}
+                        </div>
+                    </div>
+                </aside>
             </div>
         );
     }

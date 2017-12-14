@@ -61,33 +61,122 @@ export const projects = [
 export const skills = [
     {
         category: 'Basic',
-        techs: ['HTML5', 'CSS3', 'JS(ES6)']
+        techs: [
+            {
+                name: 'HTML5',
+                color: '#f16528'
+            },
+            {
+                name: 'CSS3',
+                color: '#0e72b8'
+            },
+            {
+                name: 'JS(ES6)',
+                color: '#fadf1c'
+            }
+        ]
     },
     {
         category: 'CSS Framework',
-        techs: ['Bootstrap', 'Bulma']
+        techs: [
+            {
+                name: 'Bootstrap',
+                color: '#60408e'
+            },
+            {
+                name: 'Bulma',
+                color: '#04d1b2'
+            }
+        ]
     },
     {
         category: 'JS Framework',
-        techs: ['ReactJS', 'Angular', 'VueJS', 'jQuery']
+        techs: [
+            {
+                name: 'ReactJS',
+                color: '#60dafb'
+            },
+            {
+                name: 'VueJs',
+                color: '#01bf7f'
+            },
+            {
+                name: 'Angular',
+                color: '#c40030'
+            },
+        ]
     },
     {
         category: 'Package Manager',
-        techs: ['npm', 'yarn', 'webpack'],
-    },{
+        techs: [
+            {
+                name: 'Webpack',
+                color: '#1b78c0'
+            },
+            {
+                name: 'npm',
+                color: '#cc0000'
+            }
+        ]
+    },
+    {
         category: 'Version Control',
-        techs: ['github', 'gitlab', 'bitbucket']
+        techs: [
+            {
+                name: 'GitHub',
+                color: '#010101'
+            },
+            {
+                name: 'Bitbucket',
+                color: '#284870'
+            }
+        ]
     },
     {
         category: 'Project Manager Tools',
-        techs: ['Jira', 'Trello', 'Asana']
+        techs: [
+            {
+                name: 'Asana',
+                color: '#fc7865'
+            },
+            {
+                name: 'Trello',
+                color: '#017fcb'
+            },
+            {
+                name: 'JIRA',
+                color: '#003365'
+            }
+        ]
     },
     {
         category: 'Backend Framework',
-        techs: ['Laravel', 'Django', 'Ruby on Rails']
+        techs: [
+            {
+                name: 'Laravel',
+                color: '#fb4f3c'
+            },
+            {
+                name: 'Django',
+                color: '#0e3e2e'
+            },
+            {
+                name: 'Ruby on Rails',
+                color: '#cc0000'
+            }
+        ]
     },
     {
         category: 'Programming Language',
-        techs: ['PHP', 'Python']
+        techs: [
+            {
+                name: 'PHP',
+                color: '#777ab3'
+            },
+            {
+                name: 'Python',
+                color: '#306897'
+            }
+        ]
     }
 ];

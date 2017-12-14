@@ -4,6 +4,7 @@ http://toutiao.io/
 
 https://dribbble.com/shots/2380700-New-Portfolio-Site-Live/attachments/458038
 http://www.vicinityrewards.ca/
+https://www.uplabs.com/posts/minimal-resume-design-for-personal-website
 
 
 https://lisa-gringl.com/#all
