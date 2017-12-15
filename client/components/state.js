@@ -133,7 +133,7 @@ export const skills = [
         ]
     },
     {
-        category: 'Project Manager Tools',
+        category: 'Project Management Tools',
         techs: [
             {
                 name: 'Asana',

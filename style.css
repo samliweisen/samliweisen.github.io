@@ -105,3 +105,10 @@ ul li:hover {
     font-size: 12px;
     display: inline-block;
 }
+
+@media (max-width: 425px) {
+    #main,
+    #aside {
+        width: 100%;
+    }
+}
