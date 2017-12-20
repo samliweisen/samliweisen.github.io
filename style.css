@@ -53,20 +53,7 @@ ul li:hover {
 #aside {
     width: 30%;
 }
-.box {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
-    transform: translate3d(0,0,0);
-    transition: 0.3s ease;
-    margin-bottom: 20px;
-}
-.box__title {
-    padding: 20px;
-    background-color: #06A763;
-    color: #ffffff;
-    font-weight: lighter;
-}
+
 .box__body {
     padding: 20px;
 }
@@ -98,13 +85,6 @@ ul li:hover {
 }
 .skills__title {
     margin-bottom: 10px;
-}
-.skill {
-    padding: 6px;
-    color: #ffffff;
-    margin-right: 5px;
-    font-size: 12px;
-    display: inline-block;
 }
 
 @media (max-width: 425px) {

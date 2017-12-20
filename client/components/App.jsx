@@ -1,5 +1,29 @@
 import React from 'react';
+import styled from 'styled-components';
 import {userInfo, experiences, projects, skills} from './state.js';
+
+const Box = styled.div`
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+    transform: translate3d(0,0,0);
+    transition: 0.3s ease;
+    margin-bottom: 20px;
+`;
+const BoxTitle = styled.h2`
+    padding: 20px;
+    background-color: #06A763;
+    color: #ffffff;
+    font-weight: lighter;
+`;
+const Skill = styled.span`
+    background-color: ${props => props.bg};
+    padding: 6px;
+    color: #ffffff;
+    margin-right: 5px;
+    font-size: 12px;
+    display: inline-block;
+`;
 
 export default class App extends React.Component {
     render() {
@@ -39,7 +63,7 @@ export default class App extends React.Component {
         });
         const sks = skills.map((s, i) => {
             const techs = s.techs.map((t, j) => 
-                <span className="skill" key={j} style={{backgroundColor: t.color}}>{t.name}</span>
+                <Skill bg={t.color} key={j}>{t.name}</Skill>
             );
             return (
                 <div className="skills__group" key={i}>
@@ -51,39 +75,39 @@ export default class App extends React.Component {
         return (
             <div className="container flex-wrap">
                 <main id="main">
-                    <div className="box" id="basic">
+                    <Box id="basic">
                         <h1>Hey, I am {userInfo.name}</h1>
                         <p>{userInfo.title}</p>
-                    </div>
-                    <div className="experiences box">
-                        <h2 className="box__title">
+                    </Box>
+                    <Box className="experiences">
+                        <BoxTitle>
                             <i className="fa fa-briefcase" aria-hidden="true"></i>
                             <span>Experiences</span>
-                        </h2>
+                        </BoxTitle>
                         <div className="box__body">
                         {exs}
                         </div>
-                    </div>
-                    <div className="projects box">
-                        <h2 className="box__title">
+                    </Box>
+                    <Box className="projects">
+                        <BoxTitle>
                             <i className="fa fa-tasks" aria-hidden="true"></i>
                             <span>Projects</span>
-                        </h2>
+                        </BoxTitle>
                         <div className="box__body">
                         {pros}
                         </div>
-                    </div>
+                    </Box>
                 </main>
                 <aside id="aside">
-                    <div className="skills box">
-                        <h2 className="box__title">
+                    <Box className="skills">
+                        <BoxTitle>
                             <i className="fa fa-pencil" aria-hidden="true"></i>
                             <span>Skills</span>
-                        </h2>
+                        </BoxTitle>
                         <div className="box__body">
                         {sks}
                         </div>
-                    </div>
+                    </Box>
                 </aside>
             </div>
         );
