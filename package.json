@@ -6,7 +6,7 @@
   "author": "samliweisen <liweisen007@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "webpack -p --watch",
+    "dev": "webpack -d --watch",
     "build": "webpack -p"
   },
   "dependencies": {

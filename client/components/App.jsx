@@ -1,21 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import Clock from './Clock.jsx';
+import {Box, BoxTitle, ExperienceDate} from './style.jsx';
 import {userInfo, experiences, projects, skills} from './state.js';
 
-const Box = styled.div`
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
-    transform: translate3d(0,0,0);
-    transition: 0.3s ease;
-    margin-bottom: 20px;
-`;
-const BoxTitle = styled.h2`
-    padding: 20px;
-    background-color: #06A763;
-    color: #ffffff;
-    font-weight: lighter;
-`;
 const Skill = styled.span`
     background-color: ${props => props.bg};
     padding: 6px;
@@ -23,12 +11,6 @@ const Skill = styled.span`
     margin-right: 5px;
     font-size: 12px;
     display: inline-block;
-`;
-const ExperienceDate = styled.h4`
-    margin-top: 10px;
-    font-size: 14px;
-    font-weight: lighter;
-    color: #919c7d;
 `;
 
 export default class App extends React.Component {
@@ -105,6 +87,7 @@ export default class App extends React.Component {
                     </Box>
                 </main>
                 <aside id="aside">
+                    <Clock />
                     <Box className="skills">
                         <BoxTitle>
                             <i className="fa fa-pencil" aria-hidden="true"></i>
