@@ -24,6 +24,12 @@ const Skill = styled.span`
     font-size: 12px;
     display: inline-block;
 `;
+const ExperienceDate = styled.h4`
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: lighter;
+    color: #919c7d;
+`;
 
 export default class App extends React.Component {
     render() {
@@ -37,7 +43,7 @@ export default class App extends React.Component {
             });
             return (<div className="experience" key={i}>
                         <h3>{e.company} - {e.title}</h3>
-                        <h4 className="experience__date"><i className="fa fa-calendar" aria-hidden="true"></i>{e.date}</h4>
+                        <ExperienceDate><i className="fa fa-calendar" aria-hidden="true"></i>{e.date}</ExperienceDate>
                         <ul>
                             {duties}
                         </ul>

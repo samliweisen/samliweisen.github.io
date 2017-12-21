@@ -69,12 +69,6 @@ ul li:hover {
     border-radius: 5px;
     margin-bottom: 10px;
 }
-.experience__date {
-    margin-top: 10px;
-    font-size: 14px;
-    font-weight: lighter;
-    color: #919c7d;
-}
 .project__type {
     font-size: 14px;
     opacity: 0.7;
