@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Clock from './Clock.jsx';
+import Weather from './Weather.jsx';
 import {Box, BoxTitle, ExperienceDate} from './style.jsx';
 import {userInfo, experiences, projects, skills} from './state.js';
 
@@ -87,6 +88,7 @@ export default class App extends React.Component {
                     </Box>
                 </main>
                 <aside id="aside">
+                    <Weather />
                     <Clock />
                     <Box className="skills">
                         <BoxTitle>
