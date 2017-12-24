@@ -21,7 +21,8 @@ export default class Weather extends React.Component {
             lon:'',
             city: '',
             temp: '',
-            icon: ''
+            icon: '',
+            loading: true
         };
     }
     componentDidMount() {
@@ -48,7 +49,8 @@ export default class Weather extends React.Component {
             this.setState({
                 city: response.data.name,
                 temp: response.data.main.temp,
-                icon: 'http://openweathermap.org/img/w/' + response.data.weather[0].icon + '.png'
+                icon: 'http://openweathermap.org/img/w/' + response.data.weather[0].icon + '.png',
+                loading: false
             });
         })
         .catch(function (error) {
@@ -64,10 +66,13 @@ export default class Weather extends React.Component {
                     <i className="fa fa-clock-o" aria-hidden="true"></i>
                     <span>Weather</span>
                 </BoxTitle>
+                {this.state.loading ?
+                <i className="fa fa-spinner loading" aria-hidden="true"></i>
+                :
                 <div className="box__body">
                     <City>{this.state.city}</City>
                     <Temp><img src={this.state.icon} /> {this.state.temp} <sup>o</sup>C</Temp>
-                </div>
+                </div>}
             </Box>
         );
     }
