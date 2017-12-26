@@ -81,7 +81,7 @@ ul li:hover {
     margin-bottom: 10px;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 625px) {
     #main,
     #aside {
         width: 100%;
