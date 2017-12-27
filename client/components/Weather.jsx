@@ -49,7 +49,7 @@ export default class Weather extends React.Component {
             this.setState({
                 city: response.data.name,
                 temp: response.data.main.temp,
-                icon: 'http://openweathermap.org/img/w/' + response.data.weather[0].icon + '.png',
+                icon: 'https://openweathermap.org/img/w/' + response.data.weather[0].icon + '.png',
                 loading: false
             });
         })

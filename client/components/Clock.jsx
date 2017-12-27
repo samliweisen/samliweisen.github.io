@@ -4,29 +4,43 @@ import {Box, BoxTitle} from './style.jsx';
 
 const Time = styled.span`
     font-size: 30px;
+    color: #${props => props.time}
 `;
 
 export default class Clock extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            time: new Date().toLocaleTimeString()
+            time: new Date().toLocaleTimeString(),
+            hour: '',
+            min: '',
+            sec: ''
+            
         };
     }
     componentDidMount() {
+        this.tick();
         this.intervalId = setInterval(
             () => this.tick(), 1000
         );
     }
     tick() {
+        const date = new Date();
+        const hour = date.getHours() > 9 ? date.getHours() : '0' + date.getHours();
+        const min = date.getMinutes() > 9 ? date.getMinutes() : '0' + date.getMinutes();
+        const sec = date.getSeconds() > 9 ? date.getSeconds() : '0' + date.getSeconds();
         this.setState({
-            time: new Date().toLocaleTimeString()
+            time: new Date().toLocaleTimeString(),
+            hour: hour,
+            min: min,
+            sec: sec
         });
     }
     componentWillUnmount() {
         this.intervalId.clearInterval();
     }
     render() {
+        const {hour, min, sec} = this.state;
         return (
             <Box>
                 <BoxTitle>
@@ -34,7 +48,7 @@ export default class Clock extends React.Component {
                     <span>Clock</span>
                 </BoxTitle>
                 <div className="box__body">
-                    <Time>{this.state.time}</Time>
+                    <Time time={[hour, min, sec].join('')}>{hour} : {min} : {sec}</Time>
                 </div>
             </Box>
         );
