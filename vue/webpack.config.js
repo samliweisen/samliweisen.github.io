@@ -26,7 +26,7 @@ if (env === 'production') {
 
   appName = appName + '.min.js';
 } else {
-  appName = appName + '.js';
+  appName = appName + '.min.js';
 }
 
 // Main Settings config
