@@ -1,19 +1,26 @@
 import Vue from 'vue';
 import VueSource from 'vue-resource';
+import MuseUI from 'muse-ui';
 import router from './router/router.js';
 import store from './store/store.js';
-import App from './App.vue';
-import Home from './views/Home.vue';
 
+import App from './App.vue';
+
+Vue.use(MuseUI);
 Vue.use(VueSource);
+
+const http =  {
+    emulateJSON: true,
+    emulateHTTP: true
+};
+
+Vue.http.options.emulateJSON = true;
 
 Vue.config.productionTip = true;
 new Vue({
-    //router,
+    http,
+    router,
     store,
-    // template: '<App />',
-    // components: { App },
     el: '#app',
-    render: h => h(Home)
-})
-//.$mount('#app');
+    render: h => h(App)
+});
