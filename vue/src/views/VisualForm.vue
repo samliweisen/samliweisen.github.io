@@ -17,11 +17,17 @@
         </mu-row>
         <button v-on:click="renderDouban">Get Douban Data</button>
         <mu-row gutter>
-            <mu-col width="100" tablet="50" desktop="50">
+            <mu-col width="100" tablet="50" desktop="25">
                 <mu-text-field fullWidth label="IMDB ID" labelFloat v-model="visual.imdb_id" />
             </mu-col>
-            <mu-col width="100" tablet="50" desktop="50">
+            <mu-col width="100" tablet="50" desktop="25">
                 <mu-text-field fullWidth label="IMDB Rating" labelFloat v-model="visual.imdb_rating" />
+            </mu-col>
+            <mu-col width="100" tablet="50" desktop="25">
+                <mu-text-field fullWidth label="Episodes" labelFloat v-model="visual.episodes" />
+            </mu-col>
+            <mu-col width="100" tablet="50" desktop="25">
+                <mu-text-field fullWidth label="Current Episode" labelFloat v-model="visual.current_episode" />
             </mu-col>
         </mu-row>
         <mu-row>
