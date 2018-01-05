@@ -15,7 +15,7 @@
                 <mu-text-field fullWidth label="Douban Rating" labelFloat v-model="visual.douban_rating" />
             </mu-col>
         </mu-row>
-        <button v-on:click="renderDouban">Get Douban Data</button>
+        <mu-raised-button label="Get Douban Data" class="demo-raised-button" v-on:click="renderDouban" secondary/>
         <mu-row gutter>
             <mu-col width="100" tablet="50" desktop="25">
                 <mu-text-field fullWidth label="IMDB ID" labelFloat v-model="visual.imdb_id" />
@@ -132,7 +132,7 @@
                 const options = {
                     params: {
                         i: this.visual.imdb_id,
-                        apikey: 'BanMePlz'
+                        apikey: '6ad10fa5'
                     }
                 };
                 this.$http.jsonp('https://www.omdbapi.com/', options).then(res => {
