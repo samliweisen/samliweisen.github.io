@@ -1,8 +1,9 @@
 <template>
     <div>
         <h2>List Visual</h2>
-        <mu-row gutter>
-            <mu-col class="visual" v-for="v in list" :key="v.id" desktop="25">
+        <mu-circular-progress :size="90" color="red" v-if="list.length == 0"/>
+        <mu-row gutter v-if="list.length > 0">
+            <mu-col class="visual" v-for="v in list" :key="v.id" desktop="25" tablet="50" mobile="50">
                 <mu-card>
                     <mu-card-media :title="v.title" subTitle="">
                         <img :src="v.poster" />
@@ -19,7 +20,8 @@
     export default {
         data() {
             return {
-                list: []
+                list: [],
+                loading: true
             };
         },
         mounted() {
@@ -29,6 +31,7 @@
             getVisuals() {
                 this.$http.get(this.$store.state.api.visualList).then(res => {
                     this.list = res.body.results;
+                    this.loading = false;
                 });
             }
         }
