@@ -1,10 +1,45 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<a routerLink="/" routerLinkActive="active">Home</a>
-<a routerLink="/about" routerLinkActive="active">About</a>
-<router-outlet></router-outlet>
+<nz-layout>
+    <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
+        <div class="logo">
+            <ul nz-menu [nzTheme]="'dark'" [nzMode]="isCollapsed?'vertical':'inline'">
+                <li nz-submenu>
+                    <span title>
+                        <i class="anticon anticon-user"></i>
+                        <a class="nav-text" routerLink="/" routerLinkActive="active">Home</a>
+                    </span>
+                </li>
+                <li nz-menu-item>
+                    <span>
+                        <i class="anticon anticon-file"></i>
+                        <a class="nav-text" routerLink="/about" routerLinkActive="active">About</a>
+                    </span>
+                </li>
+                <li nz-menu-item>
+                    <span>
+                        <i class="anticon anticon-file"></i>
+                        <a class="nav-text" routerLink="/add" routerLinkActive="active">Add</a>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </nz-sider>
+    <nz-layout>
+        <nz-header style="background: #fff; padding:0;">
+            <i class="anticon trigger" [class.anticon-menu-fold]="!isCollapsed" [class.anticon-menu-unfold]="isCollapsed" (click)="isCollapsed=!isCollapsed"></i>
+        </nz-header>
+        <nz-content style="margin:0 16px;">
+            <nz-breadcrumb style="margin:12px 0;">
+                <nz-breadcrumb-item>
+                    Example1
+                </nz-breadcrumb-item>
+                <nz-breadcrumb-item>
+                    Example2
+                </nz-breadcrumb-item>
+            </nz-breadcrumb>
+            <div style="padding:24px; background: #fff; min-height: 360px;">
+                <router-outlet></router-outlet>
+            </div>
+        </nz-content>
+        <nz-footer style="text-align: center;">Ant Design ©2017 Implement By Angular</nz-footer>
+    </nz-layout>
+</nz-layout>
