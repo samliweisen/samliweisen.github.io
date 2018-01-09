@@ -33,7 +33,8 @@ export const projects = [
         steps: [
             'Create SPA with react and react router',
             'Build reusable and extensible react components',
-            'Implement Bulma CSS framework with flexbox'
+            'Implement Bulma CSS framework with flexbox',
+            'Create RESTful API with PHP'
         ]
     },
     {
