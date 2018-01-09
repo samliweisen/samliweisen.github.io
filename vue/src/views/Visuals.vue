@@ -12,6 +12,8 @@
                         <div>豆瓣: {{v.douban_rating}}</div>
                         <div>IMDB: {{v.imdb_rating}}</div>
                         <div>Rotten Tomato: {{v.rotten_rating}}</div>
+                        <div>Total Episodes: {{v.episodes}}</div>
+                        <div>Current Episode: {{v.current_episode}}</div>
                         <router-link :to="{ name: 'edit', params: { id: v.id }}">Edit</router-link>
                     </mu-card-actions>
                 </mu-card>
