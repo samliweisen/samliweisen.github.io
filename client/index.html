@@ -25,5 +25,12 @@
     border-bottom: #ffa500;
     border-left: #ffa500;"><p style="color:white;">Sorry, you need to enable javascript for this page to function properly.</p></noscript>
         </div>
+        <script>
+            if('serviceWorker' in navigator) {
+              navigator.serviceWorker
+                       .register('/sw.js')
+                       .then(function() { console.log("Service Worker Registered"); });
+            }
+</script>
     </body>
 </html>
