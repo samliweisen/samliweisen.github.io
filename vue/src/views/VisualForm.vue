@@ -70,7 +70,7 @@
                     poster: '',
                     summary: '',
                     online_source: '',
-                    episodes: 0,
+                    episodes: 1,
                     current_episode: 0,
                     visual_type: 'movie'
                 }
