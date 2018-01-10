@@ -11,7 +11,6 @@ export default class Clock extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            time: new Date().toLocaleTimeString(),
             hour: '',
             min: '',
             sec: ''
@@ -30,7 +29,6 @@ export default class Clock extends React.Component {
         const min = date.getMinutes() > 9 ? date.getMinutes() : '0' + date.getMinutes();
         const sec = date.getSeconds() > 9 ? date.getSeconds() : '0' + date.getSeconds();
         this.setState({
-            time: new Date().toLocaleTimeString(),
             hour: hour,
             min: min,
             sec: sec
