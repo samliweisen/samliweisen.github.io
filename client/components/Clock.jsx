@@ -11,6 +11,9 @@ export default class Clock extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            year: new Date().getFullYear(),
+            month: new Date().getMonth() + 1,
+            date: new Date().getDate(),
             hour: '',
             min: '',
             sec: ''
@@ -38,7 +41,7 @@ export default class Clock extends React.Component {
         this.intervalId.clearInterval();
     }
     render() {
-        const {hour, min, sec} = this.state;
+        const {year, month, date, hour, min, sec} = this.state;
         return (
             <Box>
                 <BoxTitle>
@@ -46,6 +49,7 @@ export default class Clock extends React.Component {
                     <span>Clock</span>
                 </BoxTitle>
                 <div className="box__body">
+                    <div>{year}-{month}-{date}</div>
                     <Time time={[hour, min, sec].join('')}>{hour} : {min} : {sec}</Time>
                 </div>
             </Box>
