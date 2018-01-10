@@ -7,7 +7,7 @@ const Time = styled.span`
     color: #${props => props.time}
 `;
 const Dates = styled.div`
-    font-size: 20px;
+    font-size: 35px;
 `;
 
 export default class Clock extends React.Component {
