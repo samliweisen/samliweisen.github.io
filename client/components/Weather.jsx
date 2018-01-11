@@ -71,7 +71,7 @@ export default class Weather extends React.Component {
                 :
                 <div className="box__body">
                     <City>{this.state.city}</City>
-                    <Temp><img src={this.state.icon} /> {Math.ceil(this.state.temp)} <sup>o</sup>C</Temp>
+                    <Temp><img alt="weather-icon" src={this.state.icon} /> {Math.ceil(this.state.temp)} <sup>o</sup>C</Temp>
                 </div>}
             </Box>
         );

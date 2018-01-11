@@ -30,6 +30,7 @@ export const projects = [
     {
         name: 'La Promesse',
         type: 'Admin Dashboard',
+        link: 'http://lapromesseca.com',
         steps: [
             'Create SPA with react and react router',
             'Build reusable and extensible react components',
