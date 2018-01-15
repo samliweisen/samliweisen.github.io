@@ -13,9 +13,113 @@
         
         <link rel="manifest" href="/manifest.json">
         
-        <link href="https://fonts.googleapis.com/css?family=Dosis|Josefin+Sans" rel="stylesheet">
-        <script src="https://use.fontawesome.com/d77c11b5dd.js"></script>
-        <link rel="stylesheet" href="style.css?v=1.0.8" type="text/css" />
+        <style type="text/css">
+            * {
+                box-sizing: border-box;
+            }
+            body {
+                background-color: #f5f5f5;
+                font-family: 'Dosis', sans-serif;
+            }
+            h1,h2,h3,h4 {
+                margin: 0;
+                font-family: 'Josefin Sans', sans-serif;
+            }
+            ul li {
+                line-height: 25px;
+                transition: 0.2s ease-in-out;
+            }
+            ul li:hover {
+                transform: translateX(3px);
+            }
+            .link {
+                color: #000000;
+                text-decoration: none;
+                transition: 0.3s ease-in;
+            }
+            .link:hover {
+                text-decoration: underline;
+                color: #06A763;
+            }
+            .btn {
+                background-color: #fa8e21;
+                color: #ffffff;
+                padding: 10px;
+                text-decoration: none;
+                display: inline-block;
+            }
+            .fa {
+                margin-right: 10px;
+            }
+            .container {
+                max-width: 1200px;
+                width: 100%;
+                margin: auto;
+            }
+            .flex-wrap {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            #main, #aside {
+                padding: 0 10px;
+            }
+            #main {
+                width: 70%;
+            }
+            #aside {
+                width: 30%;
+            }
+            
+            .box__body {
+                padding: 20px;
+            }
+            #basic {
+                padding: 20px;
+                background-color: #06A763;
+                color: #ffffff;
+            }
+            .experience,
+            .project {
+                padding-left: 20px;
+                border-left: 3px solid #FF9C9C;
+                border-radius: 5px;
+                margin-bottom: 10px;
+            }
+            .project__type {
+                font-size: 14px;
+                opacity: 0.7;
+                font-style: italic;
+            }
+            .skills__group {
+                margin-bottom: 20px;
+            }
+            .skills__title {
+                margin-bottom: 10px;
+            }
+            
+            @media (max-width: 625px) {
+                #main,
+                #aside {
+                    width: 100%;
+                }
+            }
+            
+            .loading {
+                animation-name: spin;
+                animation-duration: 4000ms;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+            }
+            
+            @keyframes spin {
+                from {
+                    transform:rotate(0deg);
+                }
+                to {
+                    transform:rotate(360deg);
+                }
+            }
+        </style>
     </head>
     <body>
         <div id="root">
@@ -25,6 +129,8 @@
     border-bottom: #ffa500;
     border-left: #ffa500;"><p style="color:white;">Sorry, you need to enable javascript for this page to function properly.</p></noscript>
         </div>
+        <link href="https://fonts.googleapis.com/css?family=Dosis|Josefin+Sans" rel="stylesheet">
+        <script src="https://use.fontawesome.com/d77c11b5dd.js"></script>
         <script>
             if('serviceWorker' in navigator) {
               navigator.serviceWorker
