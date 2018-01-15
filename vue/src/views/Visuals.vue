@@ -9,15 +9,18 @@
                         <img class="visual__poster" :src="v.poster" />
                     </mu-card-media>
                     <mu-card-actions>
-                        <div>
+                        <a class="visual__rating link" v-on:click="openLink(v, 'douban')">
                             <img class="visual__rating icon" src="https://img3.doubanio.com/f/talion/2f3c0bc0f35b031d4535fd993ae3936f4e40e6c8/pics/icon/dou32.png" alt="douban icon" />
                             <span class="visual__rating">{{v.douban_rating}}</span>
-                        </div>
-                        <div>
-                            <img class="visual__rating icon" src="http://icons.iconarchive.com/icons/danleech/simple/512/imdb-icon.png" alt="imdb icon" />
+                        </a>
+                        <a>
+                            <img class="visual__rating icon" src="https://icons.iconarchive.com/icons/danleech/simple/512/imdb-icon.png" alt="imdb icon" />
                             <span class="visual__rating">{{v.imdb_rating}}</span>
-                        </div>
-                        <div>Rotten Tomato: {{v.rotten_rating}}</div>
+                        </a>
+                        <a>
+                            <img class="visual__rating icon" src="https://vignette.wikia.nocookie.net/greatest-movies/images/1/16/Rotten_Tomatoes_fresh_rating_icon.png/revision/latest?cb=20170918174417" alt="Rotten Tomatoes Icon" />
+                            <span class="visual__rating">{{v.rotten_rating}}</span>
+                        </a>
                         <div>Total Episodes: {{v.episodes}}</div>
                         <div>Current Episode: {{v.current_episode}}</div>
                         <router-link :to="{ name: 'edit', params: { id: v.id }}">Edit</router-link>
@@ -44,6 +47,14 @@
                     this.list = res.body.results;
                     this.loading = false;
                 });
+            },
+            openLink(v, type) {
+                console.log(v.douban_id);
+                let url = '';
+                if (type == 'douban') {
+                    url = 'https://movie.douban.com/subject/' + v.douban_id;
+                }
+                window.open(url, '_blank');
             }
         }
     };
