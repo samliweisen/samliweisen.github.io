@@ -9,8 +9,14 @@
                         <img class="visual__poster" :src="v.poster" />
                     </mu-card-media>
                     <mu-card-actions>
-                        <div>豆瓣: {{v.douban_rating}}</div>
-                        <div>IMDB: {{v.imdb_rating}}</div>
+                        <div>
+                            <img class="visual__rating icon" src="https://img3.doubanio.com/f/talion/2f3c0bc0f35b031d4535fd993ae3936f4e40e6c8/pics/icon/dou32.png" alt="douban icon" />
+                            <span class="visual__rating">{{v.douban_rating}}</span>
+                        </div>
+                        <div>
+                            <img class="visual__rating icon" src="http://icons.iconarchive.com/icons/danleech/simple/512/imdb-icon.png" alt="imdb icon" />
+                            <span class="visual__rating">{{v.imdb_rating}}</span>
+                        </div>
                         <div>Rotten Tomato: {{v.rotten_rating}}</div>
                         <div>Total Episodes: {{v.episodes}}</div>
                         <div>Current Episode: {{v.current_episode}}</div>
@@ -48,5 +54,14 @@
     }
     .visual__poster {
         border-radius: 4px;
+    }
+    .visual__rating {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .visual__rating.icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
     }
 </style>
