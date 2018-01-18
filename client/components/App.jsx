@@ -5,6 +5,14 @@ import Weather from './Weather.jsx';
 import {Box, BoxTitle, ExperienceDate} from './style.jsx';
 import {userInfo, experiences, projects, skills} from './state.js';
 
+const Container = styled.div`
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+`;
+
 const Skill = styled.span`
     background-color: ${props => props.bg};
     padding: 6px;
@@ -12,6 +20,21 @@ const Skill = styled.span`
     margin-right: 5px;
     font-size: 12px;
     display: inline-block;
+`;
+
+const Link = styled.a`
+    color: #000000;
+    text-decoration: none;
+    transition: 0.3s ease-in;
+    &:hover {
+        text-decoration: underline;
+        color: #06A763;
+    }
+`;
+const Intro = styled.div`
+    padding: 20px;
+    background-color: #06A763;
+    color: #ffffff;
 `;
 
 export default class App extends React.Component {
@@ -44,7 +67,7 @@ export default class App extends React.Component {
             return (
                 <div className="project" key={i}>
                     <h3 className="project__title">
-                        <a className="link" target="_blank" href={p.link}><i className="fa fa-link" aria-hidden="true"></i>{p.name}</a> - <span className="project__type">{p.type}</span></h3>
+                        <Link target="_blank" href={p.link}><i className="fa fa-link" aria-hidden="true"></i>{p.name}</Link> - <span className="project__type">{p.type}</span></h3>
                     <ul>
                         {steps}
                     </ul>
@@ -63,11 +86,13 @@ export default class App extends React.Component {
             );
         });
         return (
-            <div className="container flex-wrap">
+            <Container>
                 <main id="main">
-                    <Box id="basic">
+                    <Box>
+                        <Intro>
                         <h1>Hey, I am {userInfo.name}</h1>
                         <p>{userInfo.title}</p>
+                        </Intro>
                     </Box>
                     <Box className="experiences">
                         <BoxTitle>
@@ -101,7 +126,7 @@ export default class App extends React.Component {
                         </div>
                     </Box>
                 </aside>
-            </div>
+            </Container>
         );
     }
 }

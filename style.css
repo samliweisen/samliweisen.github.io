@@ -16,33 +16,8 @@ ul li {
 ul li:hover {
     transform: translateX(3px);
 }
-.link {
-    color: #000000;
-    text-decoration: none;
-    transition: 0.3s ease-in;
-}
-.link:hover {
-    text-decoration: underline;
-    color: #06A763;
-}
-.btn {
-    background-color: #fa8e21;
-    color: #ffffff;
-    padding: 10px;
-    text-decoration: none;
-    display: inline-block;
-}
 .fa {
     margin-right: 10px;
-}
-.container {
-    max-width: 1200px;
-    width: 100%;
-    margin: auto;
-}
-.flex-wrap {
-    display: flex;
-    flex-wrap: wrap;
 }
 #main, #aside {
     padding: 0 10px;
@@ -56,11 +31,6 @@ ul li:hover {
 
 .box__body {
     padding: 20px;
-}
-#basic {
-    padding: 20px;
-    background-color: #06A763;
-    color: #ffffff;
 }
 .experience,
 .project {
