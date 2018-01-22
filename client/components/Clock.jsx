@@ -2,10 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import {Box, BoxTitle} from './style.jsx';
 
-const Time = styled.span`
-    font-size: 30px;
-    color: #${props => props.time}
-`;
 const Dates = styled.div`
     font-size: 35px;
 `;
@@ -53,7 +49,7 @@ export default class Clock extends React.Component {
                 </BoxTitle>
                 <div className="box__body">
                     <Dates>{year}-{month > 9 ? month: '0' + month}-{date > 9 ? date : '0' + date}</Dates>
-                    <Time time={[hour, min, sec].join('')}>{hour} : {min} : {sec}</Time>
+                    <span style={{fontSize: '30px', color: '#' + [hour, min, sec].join('') }}>{hour} : {min} : {sec}</span>
                 </div>
             </Box>
         );
