@@ -67,7 +67,7 @@ export default class App extends React.Component {
             return (
                 <div className="project" key={i}>
                     <h3 className="project__title">
-                        <Link target="_blank" href={p.link}><i className="fa fa-link" aria-hidden="true"></i>{p.name}</Link> - <span className="project__type">{p.type}</span></h3>
+                        <Link target="_blank" rel="noopener" href={p.link}><i className="fa fa-link" aria-hidden="true"></i>{p.name}</Link> - <span className="project__type">{p.type}</span></h3>
                     <ul>
                         {steps}
                     </ul>
