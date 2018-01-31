@@ -1,9 +1,11 @@
 import React from 'react';
+
+import Experiences from './Experiences.jsx';
 import styled from 'styled-components';
 import Clock from './Clock.jsx';
 import Weather from './Weather.jsx';
-import {Box, BoxTitle, ExperienceDate} from './style.jsx';
-import {userInfo, experiences, projects, skills} from './state.js';
+import {Box, BoxTitle} from './style.jsx';
+import {userInfo, projects, skills} from './state.js';
 
 const Container = styled.div`
     max-width: 1200px;
@@ -39,23 +41,6 @@ const Intro = styled.div`
 
 export default class App extends React.Component {
     render() {
-        const exs = experiences.map((e, i) => {
-            const duties = e.duty.map((d, j) => {
-                return (
-                    <li key={j}>
-                        {d}
-                    </li>
-                );
-            });
-            return (<div className="experience" key={i}>
-                        <h3>{e.company} - {e.title}</h3>
-                        <ExperienceDate><i className="fa fa-calendar" aria-hidden="true"></i>{e.date}</ExperienceDate>
-                        <ul>
-                            {duties}
-                        </ul>
-                    </div>
-            );
-        });
         const pros = projects.map((p, i) => {
             const steps = p.steps.map((s, j) => {
                 return (
@@ -94,15 +79,7 @@ export default class App extends React.Component {
                         <p>{userInfo.title}</p>
                         </Intro>
                     </Box>
-                    <Box className="experiences">
-                        <BoxTitle>
-                            <i className="fa fa-briefcase" aria-hidden="true"></i>
-                            <span>Experiences</span>
-                        </BoxTitle>
-                        <div className="box__body">
-                        {exs}
-                        </div>
-                    </Box>
+                    <Experiences />
                     <Box className="projects">
                         <BoxTitle>
                             <i className="fa fa-tasks" aria-hidden="true"></i>
