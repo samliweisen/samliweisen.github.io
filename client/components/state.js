@@ -39,6 +39,15 @@ export const projects = [
         ]
     },
     {
+        name: 'Movie Paradise',
+        type: 'Angular App',
+        link: 'https://movie-angular.herokuapp.com/',
+        steps: [
+            'Build with Angular',
+            'Use themoviedb api to popular movie data'
+        ]
+    },
+    {
         name: 'Site Favourite',
         link: 'https://favourite-site.herokuapp.com/',
         type: 'Web Application',
