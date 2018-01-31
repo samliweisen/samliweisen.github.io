@@ -1,11 +1,12 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import Experiences from './Experiences.jsx';
-import styled from 'styled-components';
+import Skills from './Skills.jsx';
 import Clock from './Clock.jsx';
 import Weather from './Weather.jsx';
 import {Box, BoxTitle} from './style.jsx';
-import {userInfo, projects, skills} from './state.js';
+import {userInfo, projects} from './state.js';
 
 const Container = styled.div`
     max-width: 1200px;
@@ -13,15 +14,6 @@ const Container = styled.div`
     margin: auto;
     display: flex;
     flex-wrap: wrap;
-`;
-
-const Skill = styled.span`
-    background-color: ${props => props.bg};
-    padding: 6px;
-    color: #ffffff;
-    margin-right: 5px;
-    font-size: 12px;
-    display: inline-block;
 `;
 
 const Link = styled.a`
@@ -59,17 +51,7 @@ export default class App extends React.Component {
                 </div>
             );
         });
-        const sks = skills.map((s, i) => {
-            const techs = s.techs.map((t, j) => 
-                <Skill bg={t.color} key={j}>{t.name}</Skill>
-            );
-            return (
-                <div className="skills__group" key={i}>
-                    <h3 className="skills__title">{s.category}</h3>
-                    {techs}
-                </div>
-            );
-        });
+        
         return (
             <Container>
                 <main id="main">
@@ -93,15 +75,7 @@ export default class App extends React.Component {
                 <aside id="aside">
                     <Weather />
                     <Clock />
-                    <Box className="skills">
-                        <BoxTitle>
-                            <i className="fa fa-pencil" aria-hidden="true"></i>
-                            <span>Skills</span>
-                        </BoxTitle>
-                        <div className="box__body">
-                        {sks}
-                        </div>
-                    </Box>
+                    <Skills />
                 </aside>
             </Container>
         );
