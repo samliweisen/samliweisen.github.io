@@ -44,7 +44,8 @@ export const projects = [
         link: 'https://movie-angular.herokuapp.com/',
         steps: [
             'Build with Angular',
-            'Use themoviedb api to popular movie data'
+            'Use themoviedb api to popular movie data',
+            'Use Nodejs as backend host on Heroku'
         ]
     },
     {
