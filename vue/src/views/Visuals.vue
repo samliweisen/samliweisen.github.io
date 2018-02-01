@@ -23,6 +23,7 @@
                         </a>
                         <div>Total Episodes: {{v.episodes}}</div>
                         <div>Current Episode: {{v.current_episode}}</div>
+                        <mu-linear-progress mode="determinate" :value="getProgress(v)"/>
                         <router-link :to="{ name: 'edit', params: { id: v.id }}">Edit</router-link>
                     </mu-card-actions>
                 </mu-card>
@@ -52,6 +53,9 @@
                 if (type == 'douban') {
                     return 'https://movie.douban.com/subject/' + v.douban_id;
                 }
+            },
+            getProgress(v) {
+                return (v.current_episode/v.episodes) * 100;
             }
         }
     };
