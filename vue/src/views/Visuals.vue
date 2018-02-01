@@ -21,9 +21,11 @@
                             <img class="visual__rating icon" src="https://vignette.wikia.nocookie.net/greatest-movies/images/1/16/Rotten_Tomatoes_fresh_rating_icon.png/revision/latest?cb=20170918174417" alt="Rotten Tomatoes Icon" />
                             <span class="visual__rating">{{v.rotten_rating}}</span>
                         </a>
-                        <div>Total Episodes: {{v.episodes}}</div>
-                        <div>Current Episode: {{v.current_episode}}</div>
-                        <mu-linear-progress mode="determinate" :value="getProgress(v)"/>
+                        <div class="visual__progress">
+                            <span class="visual__progress-episode current">{{v.current_episode}}</span>
+                            <span class="visual__progress-episode total">{{v.episodes}}</span>
+                            <mu-linear-progress mode="determinate" :value="getProgress(v)"/>
+                        </div>
                         <router-link :to="{ name: 'edit', params: { id: v.id }}">Edit</router-link>
                     </mu-card-actions>
                 </mu-card>
@@ -75,5 +77,15 @@
         width: 20px;
         height: 20px;
         margin-right: 5px;
+    }
+    .visual__progress {
+        position: relative;
+        margin: 15px 0;
+    }
+    .visual__progress-episode {
+        position: absolute;
+    }
+    .visual__progress-episode.total {
+        right: 0;
     }
 </style>
