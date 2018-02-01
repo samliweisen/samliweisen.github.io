@@ -22,8 +22,8 @@
                             <span class="visual__rating">{{v.rotten_rating}}</span>
                         </a>
                         <div class="visual__progress">
-                            <span class="visual__progress-episode current">{{v.current_episode}}</span>
-                            <span class="visual__progress-episode total">{{v.episodes}}</span>
+                            <span class="visual__progress-episode current" v-bind:style="{left: getProgress(v) + '%'}">{{v.current_episode}}</span>
+                            <!--<span class="visual__progress-episode total">{{v.episodes}}</span>-->
                             <mu-linear-progress mode="determinate" :value="getProgress(v)"/>
                         </div>
                         <router-link :to="{ name: 'edit', params: { id: v.id }}">Edit</router-link>
@@ -57,6 +57,9 @@
                 }
             },
             getProgress(v) {
+                if (v.current_episode == v.episodes) {
+                    return 100;
+                }
                 return (v.current_episode/v.episodes) * 100;
             }
         }
