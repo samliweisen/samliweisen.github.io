@@ -9,6 +9,7 @@ const Skill = styled.span`
     padding: 6px;
     color: #ffffff;
     margin-right: 5px;
+    margin-bottom: 5px;
     font-size: 12px;
     display: inline-block;
 `;
