@@ -16,7 +16,7 @@ self.addEventListener('install', function(e) {
                 
                 '/style.css',
                 
-                '/index_bundlejs',
+                '/index_bundle.js',
             
             ]);
         
