@@ -35,13 +35,13 @@
     border-bottom: #ffa500;
     border-left: #ffa500;"><p style="color:white;">Sorry, you need to enable javascript for this page to function properly.</p></noscript>
         </div>
-        <script type="text/javascript" src="/cache-pollify.js"></script>
         <script>
             if('serviceWorker' in navigator) {
-              navigator.serviceWorker
-                       .register('/sw.js')
-                       .then(function() { console.log("Service Worker Registered"); });
+                navigator.serviceWorker.register('/sw.js').then(function(registration) {
+                    console.log("Service Worker Registered");
+                    console.log(registration);
+                });
             }
         </script>
-    <script type="text/javascript" src="index_bundle.js?v=933"></script></body>
+    <script type="text/javascript" src="index_bundle.js?v=466"></script></body>
 </html>
