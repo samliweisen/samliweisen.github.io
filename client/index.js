@@ -1,8 +1,37 @@
 import React from 'react';
 import {render} from 'react-dom';
-import { Provider } from 'react-redux';
-import {createStore} from 'redux';
+import { createStore,bindActionCreators } from 'redux';
+import { Provider ,connect} from 'react-redux';
 
 import App from './components/App.jsx';
 
-render(<App />, document.getElementById('root'));
+//reducer
+const initialState = {
+    text: 'Hello'
+};
+function myApp(state = initialState, action) {
+    switch (action.type) {
+        case 'CHANGE_TEXT':
+            return {
+                text:state.text=='Hello'?'Stark':'Hello'
+            };
+        case 'BUTTON_CLICK':
+            return {
+                text: 'You just click button'
+            };
+        default:
+            return {
+                text:'Hello'
+            };
+    }
+}
+
+//store
+let store = createStore(myApp);
+
+render(
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById('root')
+);
