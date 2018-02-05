@@ -19,6 +19,10 @@
         <meta name="description" content="Portfolio website for Full Stack Web Developer">
         <meta name="author" content="Sam Li">
         <meta name="theme-color" content="#06A763">
+        <!-- Tell the browser it's a PWA -->
+        <meta name="mobile-web-app-capable" content="yes">
+        <!-- Tell iOS it's a PWA -->
+        <meta name="apple-mobile-web-app-capable" content="yes">
         <meta charset="utf-8">
         
         <link rel="manifest" href="/manifest.json">
@@ -36,11 +40,18 @@
     border-left: #ffa500;"><p style="color:white;">Sorry, you need to enable javascript for this page to function properly.</p></noscript>
         </div>
         <script>
-            if('serviceWorker' in navigator) {
-                navigator.serviceWorker.register('/sw.js').then(function(registration) {
-                    console.log("Service Worker Registered");
-                    console.log(registration);
+            if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('sw.js').then(function(registration) {
+                    console.log('Worker registration successful', registration.scope);
+                }, function(err) {
+                    console.log('Worker registration failed', err);
+                }).catch(function(err) {
+                    console.log(err);
                 });
+            });
+            } else {
+                console.log('Service Worker is not supported by browser.');
             }
         </script>
     </body>

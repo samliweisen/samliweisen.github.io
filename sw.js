@@ -1,49 +1,55 @@
-(function() {
-    'use strict';
-    var staticFilesToCache = [
-        '.',
-        'index.html',
-        'index_bundle.js',
-        'style.css'
-    ];
-    
-    var staticCaches = 'my-appshell-cache';
-    var apiCaches = 'my-api-cache';
-    
-    self.addEventListener('install', function(event) {
-        console.info('sw intend to intsall and cache file');
-        event.waitUntil(
-            caches.open(staticCaches).then(function(cache) {
-                return cache.addAll(staticFilesToCache);
+// Flag for enabling cache in production
+var doCache = true;
+
+var CACHE_NAME = 'pwa-app-cache';
+
+// Delete old caches
+self.addEventListener('activate', event => {
+  const currentCachelist = [CACHE_NAME];
+  event.waitUntil(
+    caches.keys()
+      .then(keyList =>
+        Promise.all(keyList.map(key => {
+          if (!currentCachelist.includes(key)) {
+            return caches.delete(key);
+          }
+        }))
+      )
+  );
+});
+
+// This triggers when user starts the app
+self.addEventListener('install', function(event) {
+  if (doCache) {
+    event.waitUntil(
+      caches.open(CACHE_NAME)
+        .then(function(cache) {
+          fetch('manifest.json')
+            .then(response => {
+              response.json();
             })
-        );
-    });
-    
-    self.addEventListener('active', function(event) {
-        console.info('active new service work');
-        var cacheWhiteList = [staticCaches, apiCaches];
-        event.waitUntil(
-            caches.keys().then(function(cacheNames) {
-                return Promise.all(
-                    cacheNames.map(function(cacheName) {
-                        if (cacheWhiteList.indexOf(cacheName) === -1) {
-                            return caches.delete(cacheName);
-                        }
-                    })
-                )
+            .then(assets => {
+              // We will cache initial page and the main.js
+              // We could also cache assets like CSS and images
+              const urlsToCache = [
+                '/index.html',
+                '/index_bundle.js',
+                '/style.css'
+              ];
+              cache.addAll(urlsToCache);
             })
-        )
-    });
-    
-    self.addEventListener('fetch', function(event) {
-        event.respondWith(
-            caches.match(event.request).then(function(response) {
-                if (response) {
-                    console.log('Found' + event.request.url + 'in cache');
-                    return response;
-                }
-                
-            })
-        )
-    })
-})
+        })
+    );
+  }
+});
+
+// Here we intercept request and serve up the matching files
+self.addEventListener('fetch', function(event) {
+  if (doCache) {
+    event.respondWith(
+      caches.match(event.request).then(function(response) {
+        return response || fetch(event.request);
+      })
+    );
+  }
+});

@@ -8,12 +8,12 @@
             "sizes": "512x512"
         },
         {
-            "src": "http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons-256/blue-metallic-orbs-icons-alphanumeric/069689-blue-metallic-orb-icon-alphanumeric-letter-s.png",
+            "src": "launcher-icon-4x.png",
             "type": "image/png",
             "sizes": "256x256"
         },
         {
-            "src": "http://icons.iconarchive.com/icons/sicons/basic-round-social/128/facebook-icon.png",
+            "src": "launcher-icon-4x.png",
             "type": "image/png",
             "sizes": "128x128"
         }
