@@ -30,7 +30,7 @@ export const projects = [
     {
         name: 'La Promesse',
         type: 'Admin Dashboard',
-        link: 'http://lapromesseca.com',
+        link: 'http://lapromesseca.com/admin',
         steps: [
             'Create SPA with react and react router',
             'Build reusable and extensible react components',
@@ -58,16 +58,16 @@ export const projects = [
             'Write reusable react components on Rails'
         ]
     },
-    {
-        name: 'Events Toronto',
-        link: 'http://events-toronto.herokuapp.com/',
-        type: 'Web Application',
-        steps: [
-            'Retrieve data from Toronto open source with cron job daily',
-            'Implement Google Oauth with authentication',
-            'Increase user experience with AngularJS'
-        ]
-    }
+    // {
+    //     name: 'Events Toronto',
+    //     link: 'http://events-toronto.herokuapp.com/',
+    //     type: 'Web Application',
+    //     steps: [
+    //         'Retrieve data from Toronto open source with cron job daily',
+    //         'Implement Google Oauth with authentication',
+    //         'Increase user experience with AngularJS'
+    //     ]
+    // }
 ];
 
 export const skills = [
