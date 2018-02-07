@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Box, BoxTitle} from './style.jsx';
+import {Box, BoxTitle, BoxBody} from './style.jsx';
 
 const Dates = styled.div`
     font-size: 35px;
@@ -47,10 +47,10 @@ export default class Clock extends React.Component {
                     <i className="fa fa-clock-o" aria-hidden="true"></i>
                     <span>Clock</span>
                 </BoxTitle>
-                <div className="box__body">
+                <BoxBody>
                     <Dates>{year}-{month > 9 ? month: '0' + month}-{date > 9 ? date : '0' + date}</Dates>
                     <span style={{fontSize: '30px', color: '#' + [hour, min, sec].join('') }}>{hour} : {min} : {sec}</span>
-                </div>
+                </BoxBody>
             </Box>
         );
     }

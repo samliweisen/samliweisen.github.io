@@ -1,6 +1,6 @@
 import React from 'react';
 import {experiences} from './state.js';
-import {Box, BoxTitle, ExperienceDate} from './style.jsx';
+import {Box, BoxTitle, BoxBody, ExperienceDate} from './style.jsx';
 
 export default class Experiences extends React.Component {
     render() {
@@ -27,9 +27,9 @@ export default class Experiences extends React.Component {
                     <i className="fa fa-briefcase" aria-hidden="true"></i>
                     <span>Experiences</span>
                 </BoxTitle>
-                <div className="box__body">
+                <BoxBody>
                 {exs}
-                </div>
+                </BoxBody>
             </Box>
         );
     }

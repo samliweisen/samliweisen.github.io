@@ -14,6 +14,9 @@ export const BoxTitle = styled.h2`
     color: #ffffff;
     font-weight: lighter;
 `;
+export const BoxBody = styled.div`
+    padding: 20px;
+`;
 
 export const ExperienceDate = styled.h4`
     margin-top: 10px;

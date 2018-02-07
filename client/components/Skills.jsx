@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import {skills} from './state.js';
-import {Box, BoxTitle} from './style.jsx';
+import {Box, BoxTitle, BoxBody} from './style.jsx';
 
 const Skill = styled.span`
     background-color: ${props => props.bg};
@@ -33,9 +33,9 @@ export default class Skills extends React.Component {
                     <i className="fa fa-pencil" aria-hidden="true"></i>
                     <span>Skills</span>
                 </BoxTitle>
-                <div className="box__body">
+                <BoxBody>
                 {sks}
-                </div>
+                </BoxBody>
             </Box>
         );
     }

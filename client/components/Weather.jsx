@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
-import {Box, BoxTitle} from './style.jsx';
+import {Box, BoxTitle, BoxBody} from './style.jsx';
 
 const Temp = styled.span`
     font-size: 20px;
@@ -69,10 +69,10 @@ export default class Weather extends React.Component {
                 {this.state.loading ?
                 <i className="fa fa-spinner loading" aria-hidden="true"></i>
                 :
-                <div className="box__body">
+                <BoxBody>
                     <City>{this.state.city}</City>
                     <Temp><img alt="weather-icon" src={this.state.icon} /> {Math.ceil(this.state.temp)} <sup>o</sup>C</Temp>
-                </div>}
+                </BoxBody>}
             </Box>
         );
     }

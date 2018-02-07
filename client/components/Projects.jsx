@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import {projects} from './state.js';
-import {Box, BoxTitle} from './style.jsx';
+import {Box, BoxTitle, BoxBody} from './style.jsx';
 
 const Link = styled.a`
     color: #000000;
@@ -40,9 +40,9 @@ export default class Projects extends React.Component {
                     <i className="fa fa-tasks" aria-hidden="true"></i>
                     <span>Projects</span>
                 </BoxTitle>
-                <div className="box__body">
+                <BoxBody>
                 {pros}
-                </div>
+                </BoxBody>
             </Box>
         );
     }
