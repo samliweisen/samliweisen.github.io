@@ -14,7 +14,7 @@
                             <span class="visual__rating">{{v.douban_rating}}</span>
                         </a>
                         <a>
-                            <img class="visual__rating icon" src="https://icons.iconarchive.com/icons/danleech/simple/512/imdb-icon.png" alt="imdb icon" />
+                            <img class="visual__rating icon" src="https://a4.mzstatic.com/us/r30/Purple71/v4/eb/6a/9d/eb6a9d94-4631-194c-3e24-852a06dc4ced/icon175x175.jpeg" alt="imdb icon" />
                             <span class="visual__rating">{{v.imdb_rating}}</span>
                         </a>
                         <a>
@@ -23,7 +23,6 @@
                         </a>
                         <div class="visual__progress">
                             <span class="visual__progress-episode current" v-bind:style="{left: getProgress(v) + '%'}">{{v.current_episode}}</span>
-                            <!--<span class="visual__progress-episode total">{{v.episodes}}</span>-->
                             <mu-linear-progress mode="determinate" :value="getProgress(v)"/>
                         </div>
                         <router-link :to="{ name: 'edit', params: { id: v.id }}">Edit</router-link>
