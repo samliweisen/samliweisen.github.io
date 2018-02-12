@@ -17,13 +17,6 @@
     margin-bottom: 10px;
 }
 
-@media (max-width: 625px) {
-    #main,
-    #aside {
-        width: 100%;
-    }
-}
-
 .loading {
     animation-name: spin;
     animation-duration: 4000ms;
