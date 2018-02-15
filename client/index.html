@@ -29,7 +29,6 @@
         
         <link href="https://fonts.googleapis.com/css?family=Dosis|Josefin+Sans" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
-        <link rel="stylesheet" href="style.css?v=1.0.8" type="text/css" />
         <style>
             * {
                 box-sizing: border-box;
@@ -65,6 +64,40 @@
                 #main,
                 #aside {
                     width: 100%;
+                }
+            }
+            .experience,
+            .project {
+                padding-left: 20px;
+                border-left: 3px solid #FF9C9C;
+                border-radius: 5px;
+                margin-bottom: 10px;
+            }
+            .project__type {
+                font-size: 14px;
+                opacity: 0.7;
+                font-style: italic;
+            }
+            .skills__group {
+                margin-bottom: 20px;
+            }
+            .skills__title {
+                margin-bottom: 10px;
+            }
+            
+            .loading {
+                animation-name: spin;
+                animation-duration: 4000ms;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+            }
+            
+            @keyframes spin {
+                from {
+                    transform:rotate(0deg);
+                }
+                to {
+                    transform:rotate(360deg);
                 }
             }
         </style>
