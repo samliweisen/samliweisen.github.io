@@ -13,7 +13,7 @@
                             <img class="visual__rating icon" src="https://img3.doubanio.com/f/talion/2f3c0bc0f35b031d4535fd993ae3936f4e40e6c8/pics/icon/dou32.png" alt="douban icon" />
                             <span class="visual__rating">{{v.douban_rating}}</span>
                         </a>
-                        <a>
+                        <a class="visual__rating link" v-bind:href="getLink(v, 'imdb')" target="_blank">
                             <img class="visual__rating icon" src="https://a4.mzstatic.com/us/r30/Purple71/v4/eb/6a/9d/eb6a9d94-4631-194c-3e24-852a06dc4ced/icon175x175.jpeg" alt="imdb icon" />
                             <span class="visual__rating">{{v.imdb_rating}}</span>
                         </a>
@@ -53,6 +53,12 @@
             getLink(v, type) {
                 if (type == 'douban') {
                     return 'https://movie.douban.com/subject/' + v.douban_id;
+                } else if (type == 'imdb') {
+                    if (v.imdb_id) {
+                        return 'https://www.imdb.com/title/' + v.imdb_id;   
+                    } else {
+                        return 'https://www.imdb.com/';
+                    }
                 }
             },
             getProgress(v) {
