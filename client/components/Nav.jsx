@@ -20,7 +20,7 @@ export default class Nav extends React.Component {
                     <span>Navigations</span>
                 </BoxTitle>
                 <BoxBody>
-                    <NavLink href="/vue/#/visuals">Visuals</NavLink>
+                    <NavLink href="/vue/#/visuals">What I Watched</NavLink>
                 </BoxBody>
             </Box>
         );
