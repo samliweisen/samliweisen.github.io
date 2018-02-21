@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { createStore,bindActionCreators } from 'redux';
 import { Provider ,connect} from 'react-redux';
 
+import Nav from './Nav.jsx';
 import Experiences from './Experiences.jsx';
 import Skills from './Skills.jsx';
 import Projects from './Projects.jsx';
@@ -40,6 +41,7 @@ class App extends React.Component {
                         <p>{userInfo.title}</p>
                         </Intro>
                     </Box>
+                    <Nav />
                     <Experiences />
                     <Projects />
                 </main>
