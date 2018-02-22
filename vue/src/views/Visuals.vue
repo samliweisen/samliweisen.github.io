@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2>List Visual</h2>
+        <h2>I have watched {{list.length}}</h2>
         <mu-circular-progress :size="90" color="red" v-if="list.length == 0"/>
         <mu-row gutter v-if="list.length > 0">
             <mu-col class="visual" v-for="v in list" :key="v.id" desktop="20" tablet="25" width="50">
@@ -25,7 +25,7 @@
                             <span class="visual__progress-episode current" v-bind:style="{left: getProgress(v) + '%'}">{{v.current_episode}}</span>
                             <mu-linear-progress mode="determinate" :value="getProgress(v)"/>
                         </div>
-                        <router-link :to="{ name: 'edit', params: { id: v.id }}">Edit</router-link>
+                        <router-link v-if="admin" :to="{ name: 'edit', params: { id: v.id }}">Edit</router-link>
                     </mu-card-actions>
                 </mu-card>
             </mu-col>
@@ -37,13 +37,20 @@
         data() {
             return {
                 list: [],
-                loading: true
+                loading: true,
+                admin: false
             };
         },
         mounted() {
             this.getVisuals();
+            this.checkAdmin();
         },
         methods: {
+            checkAdmin() {
+                if (window.location.hash.indexOf('admin') != -1) {
+                    this.admin = true;
+                }
+            },
             getVisuals() {
                 this.$http.get(this.$store.state.api.visualList).then(res => {
                     this.list = res.body.results;

@@ -3,7 +3,11 @@ import {experiences} from './state.js';
 import {Box, BoxTitle, BoxBody, ExperienceDate} from './style.jsx';
 
 export default class Experiences extends React.Component {
+    constructor(props) {
+        super(props);
+    }
     render() {
+        console.log(this.props);
         const exs = experiences.map((e, i) => {
             const duties = e.duty.map((d, j) => {
                 return (

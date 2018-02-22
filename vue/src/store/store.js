@@ -13,7 +13,8 @@ const state = {
         visualDetail: whatIWatched + 'api/visual/',
         visualSubmit: whatIWatched + 'api/visual/submit',
         visualImdb: whatIWatched + 'api/get_imdb_id',
-    }
+    },
+    admin: false
 };
 
 export default new Vuex.Store({

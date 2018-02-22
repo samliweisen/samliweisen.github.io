@@ -1,6 +1,7 @@
 <template>
     <div class="form">
         <h2>Form</h2>
+        <mu-auto-complete label="Search From Douban" labelFloat @input="handleInput" :dataSource="searchs" :dataSourceConfig="{text: 'text', value: 'value'}" @change="handleSelect" />
         <mu-row gutter>
             <mu-col width="100" tablet="50" desktop="25">
                 <mu-text-field fullWidth label="Title" labelFloat v-model="visual.title" />
@@ -55,6 +56,7 @@
     export default {
         data() {
             return {
+                searchs: [1,2,3],
                 visual: {
                     id: 0,
                     title: '',
@@ -83,6 +85,9 @@
             }
         },
         methods: {
+            handleSelect() {
+                
+            },
             handleSubmit() {
                 const options = this.visual;
                 this.$http.post(this.$store.state.api.visualSubmit, options).then(res => {
@@ -95,6 +100,20 @@
                 this.$http.get(this.$store.state.api.visualDetail + id).then(res => {
                     this.visual = res.body.result;
                     console.log(res);
+                });
+            },
+            handleInput(val) {
+                this.$http.jsonp('https://api.douban.com/v2/movie/search?q=' + val).then(res => {
+                    this.searchs = [];
+                    if (res.status == 200) {
+                        res.body.subjects.map((subject) => {
+                            const visual = {
+                                value: subject.id,
+                                text: subject.title + ' ' + subject.original_title
+                            };
+                            this.searchs.push(visual);
+                        });
+                    }
                 });
             },
             renderDouban() {
