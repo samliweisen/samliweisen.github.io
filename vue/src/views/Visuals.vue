@@ -25,7 +25,10 @@
                             <span class="visual__progress-episode current" v-bind:style="{left: getProgress(v) + '%'}">{{v.current_episode}}</span>
                             <mu-linear-progress mode="determinate" :value="getProgress(v)"/>
                         </div>
-                        <router-link v-if="admin" :to="{ name: 'edit', params: { id: v.id }}">Edit</router-link>
+                        <div class="visual__action" v-if="admin">
+                            <router-link :to="{ name: 'edit', params: { id: v.id }}">Edit</router-link>
+                            <router-link :to="{ name: 'addSong', params: { id: v.id }}">Add Song</router-link>
+                        </div>
                     </mu-card-actions>
                 </mu-card>
             </mu-col>
