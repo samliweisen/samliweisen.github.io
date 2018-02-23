@@ -6,6 +6,7 @@ import { Provider ,connect} from 'react-redux';
 
 import Nav from './Nav.jsx';
 import Experiences from './Experiences.jsx';
+import Comments from './Comments.jsx';
 import Skills from './Skills.jsx';
 import Projects from './Projects.jsx';
 import Clock from './Clock.jsx';
@@ -44,6 +45,7 @@ class App extends React.Component {
                     <Nav />
                     <Experiences />
                     <Projects />
+                    <Comments />
                 </main>
                 <aside id="aside">
                     <Weather />

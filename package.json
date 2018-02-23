@@ -10,6 +10,7 @@
     "build": "webpack -p"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "html-webpack-plugin": "^2.30.1",
     "path": "^0.12.7",
     "react": "^16.1.1",
