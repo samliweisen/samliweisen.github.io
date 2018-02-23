@@ -3,12 +3,22 @@ import axios from 'axios';
 import {Box, BoxTitle, BoxBody} from './style.jsx';
 import styled from 'styled-components';
 
-export const NavLink = styled.a`
-    color: #06A763;
-    text-decoration: none;
-    transition: 1s ease-in;
+const Comment = styled.div`
+    margin-bottom: 10px;
+    border: 1px solid #06A763;
+    padding: 10px;
+    border-radius: 10px;
+`;
+
+const Button = styled.button`
+    border: none;
+    background-color: #06A763;
+    padding: 10px;
+    color: #ffffff;
+    cursor: pointer;
+    transition: 0.5 ease;
     &:hover {
-        text-decoration: underline;
+        background-color: #06B763;
     }
 `;
 
@@ -71,16 +81,17 @@ export default class Comments extends React.Component {
                 </BoxTitle>
                 <BoxBody>
                     {comments.map((c) => 
-                        <div key={c._id}>
-                            <span>{c.name}: {c.content} - {c.created_at}</span>
-                        </div>
+                        <Comment key={c._id}>
+                            <span>{c.name} - {c.created_at}</span>
+                            <p>{c.content}</p>
+                        </Comment>
                     )}
                     <form onSubmit={this.handleSubmit.bind(this)}>
                         <div>
-                            <input type="text" name="name" placeholder="Name" value={comment.name} onChange={this.handleChange.bind(this)} />
+                            <input style={{'width': '100%', 'padding': '10px', 'marginBottom': '10px', 'fontSize': '16px'}} type="text" name="name" placeholder="Name" value={comment.name} onChange={this.handleChange.bind(this)} />
                         </div>
-                        <textarea placeholder="Leave a Comment" name="content" value={comment.content} onChange={this.handleChange.bind(this)}></textarea>
-                        <button>Submit</button>
+                        <textarea style={{'width': '100%', 'height': '200px', 'padding': '10px'}} placeholder="Leave a Comment" name="content" value={comment.content} onChange={this.handleChange.bind(this)}></textarea>
+                        <Button>Submit</Button>
                     </form>
                 </BoxBody>
             </Box>
