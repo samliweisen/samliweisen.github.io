@@ -13,6 +13,8 @@ const state = {
         visualDetail: whatIWatched + 'api/visual/',
         visualSubmit: whatIWatched + 'api/visual/submit',
         visualImdb: whatIWatched + 'api/get_imdb_id',
+        songList: whatIWatched + 'api/songs',
+        songSubmit: whatIWatched + 'api/song/submit'
     },
     admin: false
 };

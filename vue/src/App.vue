@@ -6,8 +6,17 @@
             <router-link to="/visuals/add">Add</router-link>
             <router-view></router-view>
         </div>
+        <MusicPlayer />
     </div>
 </template>
+<script>
+import MusicPlayer from './views/MusicPlayer.vue';
+export default {
+    components: {
+        MusicPlayer
+    }
+};
+</script>
 <style type="text/css">
 html, body{
     background-color: rgb(236, 236, 236);
