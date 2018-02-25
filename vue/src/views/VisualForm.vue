@@ -1,7 +1,7 @@
 <template>
     <div class="form">
         <h2>Form</h2>
-        <mu-auto-complete label="Search From Douban" labelFloat @input="handleInput" :dataSource="searchs" :dataSourceConfig="{text: 'text', value: 'value'}" @change="handleSelect" />
+        <mu-auto-complete label="Search From Douban" labelFloat @input="handleInput" :dataSource="searchs" />
         <mu-row gutter>
             <mu-col width="100" tablet="50" desktop="25">
                 <mu-text-field fullWidth label="Title" labelFloat v-model="visual.title" />
@@ -49,6 +49,15 @@
             <mu-text-field fullWidth label="Summary" multiLine :rows="3" :rowsMax="6" labelFloat v-model="visual.summary" />
         </div>
         <mu-raised-button label="Submit" class="demo-raised-button" primary v-on:click="handleSubmit" />
+        
+        <div class="songs">
+            <mu-raised-button label="Add Song" class="demo-raised-button" primary v-on:click="gotoAddSong()" />
+            <mu-list>
+                <mu-list-item v-for="s in songs" v-bind:title="s.title" key="s.id" v-on:click="editSong(s)">
+                    <mu-avatar v-bind:src="s.image" slot="rightAvatar"/>
+                </mu-list-item>
+            </mu-list>
+        </div>
     </div>
 </template>
 
@@ -75,18 +84,20 @@
                     episodes: 1,
                     current_episode: 0,
                     visual_type: 'movie'
-                }
+                },
+                songs: []
             };
         },
         mounted() {
             const id = this.$route.params.id;
             if (typeof id != 'undefined') {
                 this.getVisual(id);
+                this.getSongs(id);
             }
         },
         methods: {
-            handleSelect() {
-                
+            gotoAddSong() {
+                this.$router.push({path: '/visuals/' + this.$route.params.id + '/song/add'});
             },
             handleSubmit() {
                 const options = this.visual;
@@ -162,6 +173,17 @@
                     this.visual.poster = res.body.Poster;
                     this.visual.release_date = res.body.Year;
                 });
+            },
+            getSongs(visual_id) {
+                this.$http.get(this.$store.state.api.songList + '?visual_id=' + visual_id).then((res) => {
+                    if (res.status == 200) {
+                        this.songs = res.body.results;
+                    }
+                });
+            },
+            editSong(s) {
+                let visual_id = this.$route.params.id;
+                this.$router.push({ path: '/song/' + s.id + '/edit' });
             }
         }
     };

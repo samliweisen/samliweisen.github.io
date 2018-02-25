@@ -12,9 +12,9 @@
                     </mu-list>
                 </mu-col>
                 <mu-col width="100" tablet="50" desktop="50">
-                    <audio ref="audio" controls v-if="song.url">
-                        <source :src="song.url" type="audio/mpeg">
-                    </audio>
+                    <!--<audio ref="audio" controls v-if="song.url">-->
+                    <!--    <source :src="song.url" type="audio/mpeg">-->
+                    <!--</audio>-->
                 </mu-col>
             </mu-row>
         </div>
@@ -42,9 +42,19 @@ export default {
         };
     },
     mounted() {
-        
+        const id = this.$route.params.id;
+        if (typeof id != 'undefined') {
+            this.getSong(id);
+        }
     },
     methods: {
+        getSong(id) {
+            this.$http.get(this.$store.state.api.songDetail + id).then((res) => {
+                if (res.status == 200) {
+                    this.song = res.body.result;
+                }
+            });
+        },
         selectSong(s) {
             
             this.$http.get('https://api.imjad.cn/cloudmusic/?type=song&br=128000&id=' + s.id).then((res) => {
@@ -55,7 +65,7 @@ export default {
                     }
                 }
             });
-            this.$refs.audio.load();
+            //this.$refs.audio.load();
             this.song.title = s.title;
             this.song.artist = s.artist;
             this.song.image = s.image;
@@ -87,7 +97,7 @@ export default {
             const options = this.song;
             this.$http.post(this.$store.state.api.songSubmit, options).then(res => {
                 if (res.status == 200) {
-                    this.$router.push({ path: '/visuals/edit/' + this.$route.params.id });
+                    this.$router.push({ path: '/visuals/edit/' + this.song.visual_id });
                 }
             });
         }

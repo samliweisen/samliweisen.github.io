@@ -21,6 +21,6 @@ export default new VueRouter({
          { path: '/visuals/edit/:id', component: VisualForm, name: 'edit' },
          
          { path: '/visuals/:id/song/add', component: SongForm, name: 'addSong' },
-         { path: '/visuals/:id/song/:song_id/edit', component: SongForm, name: 'editSong' },
+         { path: '/song/:id/edit', component: SongForm, name: 'editSong' },
     ]
 });

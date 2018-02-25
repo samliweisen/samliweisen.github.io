@@ -14,6 +14,7 @@ const state = {
         visualSubmit: whatIWatched + 'api/visual/submit',
         visualImdb: whatIWatched + 'api/get_imdb_id',
         songList: whatIWatched + 'api/songs',
+        songDetail: whatIWatched + 'api/song/',
         songSubmit: whatIWatched + 'api/song/submit'
     },
     admin: false
