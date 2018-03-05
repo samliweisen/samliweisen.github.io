@@ -24,6 +24,7 @@ export default class Clock extends React.Component {
         this.intervalId = setInterval(
             () => this.tick(), 1000
         );
+        console.log(this.intervalId);
     }
     tick() {
         const date = new Date();
@@ -42,7 +43,7 @@ export default class Clock extends React.Component {
     render() {
         const {year, month, date, hour, min, sec} = this.state;
         return (
-            <Box>
+            <Box className="col-3">
                 <BoxTitle>
                     <i className="fa fa-clock-o" aria-hidden="true"></i>
                     <span>Clock</span>

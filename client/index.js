@@ -3,7 +3,7 @@ import {render} from 'react-dom';
 import { createStore,bindActionCreators } from 'redux';
 import { Provider ,connect} from 'react-redux';
 
-import App from './components/App.jsx';
+import Main from './Main.jsx';
 
 //reducer
 const initialState = {
@@ -31,7 +31,7 @@ let store = createStore(myApp);
 
 render(
     <Provider store={store}>
-        <App />
+        <Main />
     </Provider>,
     document.getElementById('root')
 );

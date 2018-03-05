@@ -9,23 +9,6 @@ import Experiences from './Experiences.jsx';
 import Comments from './Comments.jsx';
 import Skills from './Skills.jsx';
 import Projects from './Projects.jsx';
-import Clock from './Clock.jsx';
-import Weather from './Weather.jsx';
-import {Box} from './style.jsx';
-import {userInfo} from './state.js';
-
-const Container = styled.div`
-    max-width: 1200px;
-    width: 100%;
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-`;
-const Intro = styled.div`
-    padding: 20px;
-    background-color: #06A763;
-    color: #ffffff;
-`;
 
 class App extends React.Component {
     constructor(props) {
@@ -34,25 +17,17 @@ class App extends React.Component {
     render() {
         const { actions, text} = this.props;
         return (
-            <Container>
+            <div className="container">
                 <main id="main">
-                    <Box>
-                        <Intro>
-                        <h1><span onClick={actions.changeText}>{text}</span>, I am {userInfo.name}</h1>
-                        <p>{userInfo.title}</p>
-                        </Intro>
-                    </Box>
                     <Nav />
                     <Experiences />
                     <Projects />
                     <Comments />
                 </main>
                 <aside id="aside">
-                    <Weather />
-                    <Clock />
                     <Skills />
                 </aside>
-            </Container>
+            </div>
         );
     }
 }

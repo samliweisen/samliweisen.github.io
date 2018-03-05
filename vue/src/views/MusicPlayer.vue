@@ -36,7 +36,7 @@ export default {
         },
         selectSong(s) {
             this.song = s;
-            console.log(this.song);
+            console.log(this.song.title);
             this.$refs.player.load();
             this.$refs.player.play();
         }

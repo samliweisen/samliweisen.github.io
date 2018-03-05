@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
+export const Intro = styled.div`
+    padding: 20px;
+    background-color: #06A763;
+    color: #ffffff;
+`;
+
 export const Box = styled.div`
     background-color: white;
     border-radius: 10px;

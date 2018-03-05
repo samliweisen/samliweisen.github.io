@@ -61,7 +61,7 @@ export default class Weather extends React.Component {
     }
     render() {
         return (
-            <Box>
+            <Box className="col-3">
                 <BoxTitle>
                     <i className="fa fa-clock-o" aria-hidden="true"></i>
                     <span>Weather</span>
