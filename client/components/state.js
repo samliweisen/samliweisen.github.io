@@ -39,6 +39,17 @@ export const projects = [
         ]
     },
     {
+        name: 'Where We Work',
+        type: 'Web application',
+        link: 'https://where-we-work.herokuapp.com/',
+        steps: [
+            'Create SPA with Vue, Vue router, Vue Resource, Vuex',
+            'Build reusable and extensible Vue components',
+            'Implement style with Material Style',
+            'Create RESTful API with NodeJs, Express and MongoDB'
+        ]
+    },
+    {
         name: 'Movie Paradise',
         type: 'Angular App',
         link: 'https://movie-angular.herokuapp.com/',
