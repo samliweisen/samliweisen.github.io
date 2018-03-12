@@ -22,7 +22,6 @@ class App extends React.Component {
                     <Nav />
                     <Experiences />
                     <Projects />
-                    <Comments />
                 </main>
                 <aside id="aside">
                     <Skills />
