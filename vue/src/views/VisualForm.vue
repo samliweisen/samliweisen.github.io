@@ -31,6 +31,7 @@
                 <mu-text-field fullWidth label="Current Episode" labelFloat v-model="visual.current_episode" />
             </mu-col>
         </mu-row>
+        <mu-raised-button label="Get IMDB Data" class="demo-raised-button" v-on:click="renderIMDB" secondary/>
         <mu-row>
             <mu-col width="100" tablet="50" desktop="25">
                 <mu-text-field fullWidth label="Release Date" labelFloat v-model="visual.release_date" />
@@ -133,7 +134,6 @@
                     return;
                 }
                 this.$http.jsonp('https://api.douban.com/v2/movie/subject/' + this.visual.douban_id).then(res => {
-                    this.getImdbId();
                     console.log(res);
                     const douban = res.body;
                     this.visual.title = douban.title;
@@ -166,12 +166,12 @@
                     }
                 };
                 this.$http.jsonp('https://www.omdbapi.com/', options).then(res => {
-                    console.log(res);
                     this.visual.original_title = res.body.Title;
                     this.visual.imdb_rating = res.body.imdbRating;
-                    this.visual.rotten_rating = res.body.Ratings[1].Value.replace('%', '');
+                    if (res.body.Ratings[1]) {
+                        this.visual.rotten_rating = res.body.Ratings[1].Value.replace('%', '');   
+                    }
                     this.visual.poster = res.body.Poster;
-                    this.visual.release_date = res.body.Year;
                 });
             },
             getSongs(visual_id) {
