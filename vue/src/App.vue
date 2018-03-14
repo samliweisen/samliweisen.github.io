@@ -1,6 +1,7 @@
 <template>
     <div class="container">
         <h1>What I watched</h1>
+        <p>This page is built by Vue</p>
         <div class="layout">
             <router-link to="/visuals">Visuals</router-link>
             <router-link to="/visuals/add">Add</router-link>

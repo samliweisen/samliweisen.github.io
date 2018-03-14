@@ -20,6 +20,7 @@ export default class Main extends React.Component {
                         <Intro>
                             <h1>Hey, I am {userInfo.name}</h1>
                             <p>{userInfo.title}</p>
+                            <h3>This Page is made with React</h3>
                         </Intro>
                     </Box>
                     <Weather />
