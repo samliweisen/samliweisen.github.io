@@ -3,7 +3,7 @@
         <h2>I have watched {{list.length}}</h2>
         <mu-circular-progress :size="90" color="red" v-if="list.length == 0"/>
         <mu-row gutter v-if="list.length > 0">
-            <mu-col class="visual" v-for="v in list" :key="v.id" desktop="20" tablet="25" width="50">
+            <mu-col class="visual" v-for="v in list" :key="v.id" desktop="25" tablet="33" width="50">
                 <mu-card>
                     <mu-card-media title="" subTitle="">
                         <img class="visual__poster" :src="v.poster" />
