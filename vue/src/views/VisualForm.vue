@@ -168,7 +168,7 @@
                 this.$http.jsonp('https://www.omdbapi.com/', options).then(res => {
                     this.visual.original_title = res.body.Title;
                     this.visual.imdb_rating = res.body.imdbRating;
-                    if (res.body.Ratings[1]) {
+                    if (res.body.Ratings[1] && res.body.Ratings[1].Source == 'Rotten Tomatoes') {
                         this.visual.rotten_rating = res.body.Ratings[1].Value.replace('%', '');   
                     }
                     this.visual.poster = res.body.Poster;
