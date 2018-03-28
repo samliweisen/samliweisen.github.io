@@ -23,6 +23,7 @@ export default class Nav extends React.Component {
                 <BoxBody>
                     <Navigation href="/vue/#/visuals">What I Watched</Navigation>
                     <NavLink className="" to="/musicplayer">Music Player</NavLink>
+                    <NavLink className="" to="/todo">Todo</NavLink>
                 </BoxBody>
             </Box>
         );

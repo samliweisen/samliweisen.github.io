@@ -6,6 +6,7 @@ import Weather from './components/Weather.jsx';
 import App from './components/App.jsx';
 import FullPageClock from './pages/FullPageClock.jsx';
 import MusicPlayer from './pages/MusicPlayer.jsx';
+import Todo from './pages/Todo.jsx';
 
 import {Box, Intro} from './components/style.jsx';
 import {userInfo} from './components/state.js';
@@ -31,6 +32,7 @@ export default class Main extends React.Component {
                     <Switch>
                         <Route exact path='/' component={App} />
                         <Route exact path='/fullpageclock' component={FullPageClock} />
+                        <Route path='/todo' component={Todo} />
                         <Route path='/musicplayer/recommend' component={MusicPlayer} />
                         <Route path='/musicplayer/ranking' component={MusicPlayer} />
                         <Route path='/musicplayer/search' component={MusicPlayer} />

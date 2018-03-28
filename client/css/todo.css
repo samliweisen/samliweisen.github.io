@@ -1,0 +1,19 @@
+.todos__title {
+    text-align: center;
+    font-size: 2em;
+    width: 100%;
+}
+.todos__container {
+    padding: 30px;
+    background-color: #ffffff;
+    width: 100%;
+    border: 1px solid #f2f2f2;
+}
+.todo {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #4bd828;
+}
+.todo__title {
+    font-size: 2.5em;
+}
