@@ -4,20 +4,25 @@
     width: 100%;
 }
 .todos__container {
-    padding: 30px;
-    background-color: #ffffff;
     width: 100%;
-    border: 1px solid #f2f2f2;
+}
+#todoName {
+    width: 100%;
+    padding: 10px;
 }
 .todo {
+    background-color: #ffffff;
     margin-top: 30px;
     padding: 0 0 10px 10px;
     border-bottom: 1px solid #4bd828;
     border-left: 5px solid red;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 .todo:hover {
     border-left-width: 10px;
+}
+.todo__title:focus {
+    border: none;
 }
 .todo.done {
     border-left-color: green;
@@ -26,4 +31,36 @@
     font-size: 2.5em;
     border: none;
     width: 100%;
+}
+.todo__remove {
+    cursor: pointer;
+    background-color: red;
+    color: #ffffff;
+    padding: 5px;
+    border-radius: 5%;
+    display: inline-block;
+}
+
+.loader {
+    margin: auto;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid blue;
+    border-right: 16px solid green;
+    border-bottom: 16px solid red;
+    border-left: 16px solid pink;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
