@@ -40,6 +40,16 @@
     border-radius: 5%;
     display: inline-block;
 }
+.todo__complete {
+    cursor: pointer;
+    background-color: green;
+    color:#ffffff;
+    padding: 5px;
+    display: inline-block;
+}
+.todo__complete:hover {
+    opacity: 0.8;
+}
 
 .loader {
     margin: auto;

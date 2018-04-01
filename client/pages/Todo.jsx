@@ -90,6 +90,18 @@ export default class Todo extends React.Component {
         });
         this.setState({todos: newTodos});
     }
+    handleComplete(idx) {
+        let todos = this.state.todos;
+        todos[idx].status = 'done';
+        let todo = todos[idx];
+        axios.put(this.state.api.update + todo._id, todo).then((res) => {
+            if (res.status == 200) {
+                this.setState({
+                    todos: todos
+                });
+            }
+        });
+    }
     handleRemove(idx, id) {
         axios.delete(this.state.api.remove + id).then((res) => {
             if (res.status == 200) {
@@ -107,7 +119,7 @@ export default class Todo extends React.Component {
     render() {
         const todoList = this.state.todos.map((todo, idx) => 
                         <div className={this.getStatus(todo)} key={todo._id}>
-                            <div className="todo__status">{todo.status}</div>
+                            <div className="todo__status">{todo.status} <span className="todo__complete" onClick={this.handleComplete.bind(this, idx)}>Mark Complete</span></div>
                             <input className="todo__title" value={todo.name} onChange={this.handleUpdate.bind(this, idx)} onKeyPress={this.handleKeyPress.bind(this, todo)} />
                             <div className="todo__remove" onClick={this.handleRemove.bind(this, idx, todo._id)}>Remove</div>
                         </div>
