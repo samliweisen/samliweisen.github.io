@@ -119,16 +119,21 @@ export default class Todo extends React.Component {
     render() {
         const todoList = this.state.todos.map((todo, idx) => 
                         <div className={this.getStatus(todo)} key={todo._id}>
-                            <div className="todo__status">{todo.status} <span className="todo__complete" onClick={this.handleComplete.bind(this, idx)}>Mark Complete</span></div>
+                            <div className="todo__status">{todo.status}</div>
+                            {todo.status != 'done' ?
+                            <span className="todo__complete" onClick={this.handleComplete.bind(this, idx)}>Mark Complete</span>
+                            :null}
                             <input className="todo__title" value={todo.name} onChange={this.handleUpdate.bind(this, idx)} onKeyPress={this.handleKeyPress.bind(this, todo)} />
+                            {todo.status != 'done' ?
                             <div className="todo__remove" onClick={this.handleRemove.bind(this, idx, todo._id)}>Remove</div>
+                            :null}
                         </div>
                     );
         return (
             <div className="container">
                 <h2 className="todos__title">Todo</h2>
                 <div className="todos__container">
-                    <input id="todoName" value={this.state.newTodo.name} onChange={this.handleChange.bind(this)} onKeyPress={this.handleKeyPress.bind(this, 'add')} />
+                    <input placeholder="Add New Todo" id="todoName" value={this.state.newTodo.name} onChange={this.handleChange.bind(this)} onKeyPress={this.handleKeyPress.bind(this, 'add')} />
                     {this.state.loading ? 
                         <div className="loader"></div>
                         :
