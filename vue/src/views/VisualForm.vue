@@ -10,7 +10,7 @@
                 <mu-text-field fullWidth label="Original Title" labelFloat v-model="visual.original_title" />
             </mu-col>
             <mu-col width="100" tablet="50" desktop="25">
-                <mu-text-field fullWidth label="Douban Id" labelFloat v-model="visual.douban_id" />
+                <mu-text-field fullWidth label="Douban Id" labelFloat v-model="visual.douban_id" v-on:change="renderDouban" />
             </mu-col>
             <mu-col width="100" tablet="50" desktop="25">
                 <mu-text-field fullWidth label="Douban Rating" labelFloat v-model="visual.douban_rating" />
@@ -19,7 +19,7 @@
         <mu-raised-button label="Get Douban Data" class="demo-raised-button" v-on:click="renderDouban" secondary/>
         <mu-row gutter>
             <mu-col width="100" tablet="50" desktop="25">
-                <mu-text-field fullWidth label="IMDB ID" labelFloat v-model="visual.imdb_id" />
+                <mu-text-field fullWidth label="IMDB ID" labelFloat v-model="visual.imdb_id" v-on:change="renderIMDB" />
             </mu-col>
             <mu-col width="100" tablet="50" desktop="25">
                 <mu-text-field fullWidth label="IMDB Rating" labelFloat v-model="visual.imdb_rating" />

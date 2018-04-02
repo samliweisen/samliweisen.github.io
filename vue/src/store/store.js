@@ -13,6 +13,7 @@ const state = {
         visualDetail: whatIWatched + 'api/visual/',
         visualSubmit: whatIWatched + 'api/visual/submit',
         visualImdb: whatIWatched + 'api/get_imdb_id',
+        visualCheck: whatIWatched + 'api/visual/check',
         increaseEpisode: whatIWatched + 'api/visual/increase_episode',
         songList: whatIWatched + 'api/songs',
         songDetail: whatIWatched + 'api/song/',
