@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2>I have watched {{list.length}}</h2>
+        <h2 v-on:dblclick="gotoAdmin()">I have watched {{list.length}}</h2>
         <mu-circular-progress :size="90" color="red" v-if="list.length == 0"/>
         <mu-row gutter v-if="list.length > 0">
             <mu-col class="visual" v-for="v in list" :key="v.id" desktop="25" tablet="33" width="50">
@@ -42,18 +42,17 @@
             return {
                 list: [],
                 loading: true,
-                admin: false
+                admin: window.localStorage.getItem('admin') || false
             };
         },
         mounted() {
             this.getVisuals();
-            this.checkAdmin();
+            this.gotoAdmin();
         },
         methods: {
-            checkAdmin() {
-                if (window.location.hash.indexOf('admin') != -1) {
-                    this.admin = true;
-                }
+            gotoAdmin() {
+                window.localStorage.setItem('admin', true);
+                this.admin = true;
             },
             increaseEpisode(id) {
                 this.$http.get(this.$store.state.api.increaseEpisode + '?id=' + id).then(res => {
