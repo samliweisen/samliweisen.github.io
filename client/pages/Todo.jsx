@@ -18,7 +18,8 @@ export default class Todo extends React.Component {
                 add: 'https://samliweisen.herokuapp.com/api/todos/',
                 update: 'https://samliweisen.herokuapp.com/api/todos/',
                 remove: 'https://samliweisen.herokuapp.com/api/todos/'
-            }
+            },
+            admin: window.localStorage.getItem('admin') || false
         };
         this.submitTodo = this.submitTodo.bind(this);
     }
@@ -64,6 +65,13 @@ export default class Todo extends React.Component {
     }
     handleKeyPress(todo, e) {
         if (e.key === 'Enter') {
+            if (e.target.value == 'sam') {
+                window.localStorage.setItem('admin', true);
+                this.setState({
+                    admin: true
+                });
+                return false;
+            }
             if (todo != 'add') {
                 this.updateTodo(todo);
             } else {
@@ -117,14 +125,19 @@ export default class Todo extends React.Component {
         return 'todo ' + todo.status;
     }
     render() {
-        const todoList = this.state.todos.map((todo, idx) => 
+        const {admin, todos, newTodo, loading} = this.state;
+        const todoList = todos.map((todo, idx) => 
                         <div className={this.getStatus(todo)} key={todo._id}>
                             <div className="todo__status">{todo.status}</div>
-                            {todo.status != 'done' ?
+                            {todo.status != 'done' && admin ?
                             <span className="todo__complete" onClick={this.handleComplete.bind(this, idx)}>Mark Complete</span>
                             :null}
+                            {admin ?
                             <input className="todo__title" value={todo.name} onChange={this.handleUpdate.bind(this, idx)} onKeyPress={this.handleKeyPress.bind(this, todo)} />
-                            {todo.status != 'done' ?
+                            :
+                                <div className="todo__title">{todo.name}</div>
+                            }
+                            {todo.status != 'done' && admin ?
                             <div className="todo__remove" onClick={this.handleRemove.bind(this, idx, todo._id)}>Remove</div>
                             :null}
                         </div>
@@ -133,8 +146,8 @@ export default class Todo extends React.Component {
             <div className="container">
                 <h2 className="todos__title">Todo</h2>
                 <div className="todos__container">
-                    <input placeholder="Add New Todo" id="todoName" value={this.state.newTodo.name} onChange={this.handleChange.bind(this)} onKeyPress={this.handleKeyPress.bind(this, 'add')} />
-                    {this.state.loading ? 
+                    <input placeholder="Add New Todo" id="todoName" value={newTodo.name} onChange={this.handleChange.bind(this)} onKeyPress={this.handleKeyPress.bind(this, 'add')} />
+                    {loading ? 
                         <div className="loader"></div>
                         :
                         todoList}
