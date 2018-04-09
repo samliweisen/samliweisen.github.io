@@ -2,8 +2,12 @@
     <div>
         <h2 v-on:dblclick="gotoAdmin()">I have watched {{list.length}}</h2>
         <mu-circular-progress :size="90" color="red" v-if="list.length == 0"/>
+        <div class="filters">
+            <mu-checkbox name="type" label="Movie" nativeValue="movie" class="demo-checkbox" v-model="filters" />
+            <mu-checkbox name="type" label="Tv" nativeValue="tv" class="demo-checkbox" v-model="filters" />
+        </div>
         <mu-row gutter v-if="list.length > 0">
-            <mu-col class="visual" v-for="v in list" :key="v.id" desktop="25" tablet="33" width="50">
+            <mu-col class="visual" v-for="v in resultVisuals" :key="v.id" desktop="25" tablet="33" width="50">
                 <mu-card>
                     <mu-card-media title="" subTitle="">
                         <img class="visual__poster" :src="v.poster" />
@@ -41,9 +45,21 @@
         data() {
             return {
                 list: [],
+                filters: [],
                 loading: true,
                 admin: window.localStorage.getItem('admin') || false
             };
+        },
+        computed: {
+            resultVisuals() {
+                if (this.filters.length != 0) {
+                    return this.list.filter((v) => {
+                        return this.filters.indexOf(v.visual_type) != -1;
+                    });
+                } else {
+                    return this.list;   
+                }
+            }
         },
         mounted() {
             this.getVisuals();
