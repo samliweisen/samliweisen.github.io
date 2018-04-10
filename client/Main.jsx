@@ -29,7 +29,7 @@ export default class Main extends React.Component {
                     <Weather />
                     <Clock />
                 </div>
-                <div className="">
+                <div style={{maxWidth: '1200px', width: '100%', margin: 'auto'}}>
                     <Nav />
                 </div>
                 <HashRouter>
