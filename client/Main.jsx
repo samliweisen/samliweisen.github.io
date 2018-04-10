@@ -1,6 +1,7 @@
 import React from 'react';
 import { HashRouter, Switch, Route } from 'react-router-dom';
 
+import Nav from './components/Nav.jsx';
 import Clock from './components/Clock.jsx';
 import Weather from './components/Weather.jsx';
 import App from './components/App.jsx';
@@ -27,6 +28,9 @@ export default class Main extends React.Component {
                     </Box>
                     <Weather />
                     <Clock />
+                </div>
+                <div className="">
+                    <Nav />
                 </div>
                 <HashRouter>
                     <Switch>

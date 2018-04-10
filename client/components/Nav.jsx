@@ -1,9 +1,11 @@
 import React from 'react';
 import {Box, BoxTitle, BoxBody} from './style.jsx';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Navigation = styled.a`
+    display: inline-block;
+    margin-right: 10px;
     color: #06A763;
     text-decoration: none;
     transition: 1s ease-in;
@@ -21,9 +23,9 @@ export default class Nav extends React.Component {
                     <span>Navigations</span>
                 </BoxTitle>
                 <BoxBody>
+                    <Navigation href="/#/">Home</Navigation>
                     <Navigation href="/vue/#/visuals">What I Watched</Navigation>
-                    <NavLink className="" to="/musicplayer">Music Player</NavLink>
-                    <NavLink className="" to="/todo">Todo</NavLink>
+                    <Navigation href="/#/todo">Todos</Navigation>
                 </BoxBody>
             </Box>
         );
