@@ -1,5 +1,6 @@
 <template>
-    <div id="player">
+    <div id="player" v-bind:class="{opened: open}">
+        <div id="player__toggle" v-on:click="toggle()"></div>
         <mu-list>
             <mu-list-item v-for="s in songs" v-bind:title="s.title" key="s.id" v-on:click="selectSong(s)">
                 <mu-avatar v-bind:src="s.image" slot="rightAvatar"/>
@@ -15,6 +16,7 @@ export default {
     name: 'MusicPlayer',
     data() {
         return {
+            open: true,
             song: {
                 url: '',
                 image: '',
@@ -28,6 +30,9 @@ export default {
         this.getSongs();
     },
     methods: {
+        toggle() {
+            this.open = !this.open;
+        },
         getSongs() {
             this.$http.get(this.$store.state.api.songList).then((res) => {
                 this.songs = res.body.results;
@@ -51,5 +56,19 @@ export default {
     padding: 10px;
     background-color: #ffffff;
     border: 1px solid #cccccc;
+    transition: all 0.4s ease;
+    transform: translateX(322px);
+}
+#player.opened {
+    transform: translateX(0);
+}
+#player__toggle {
+    position: absolute;
+    width: 20px;
+    height: 40px;
+    background-color: #cccccc;
+    top: 50%;
+    left: -20px;
+    cursor: pointer;
 }
 </style>
