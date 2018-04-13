@@ -135,7 +135,6 @@ export default class Todo extends React.Component {
         const {admin, todos, newTodo, loading} = this.state;
         const todoList = todos.map((todo, idx) => 
                         <div className={this.getStatus(todo)} key={todo._id}>
-                            <div className="todo__status">{todo.status}</div>
                             {todo.status != 'done' && admin ?
                             <span className="todo__complete" onClick={this.handleComplete.bind(this, idx)}>Mark Complete</span>
                             :null}
