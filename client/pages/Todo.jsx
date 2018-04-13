@@ -65,10 +65,17 @@ export default class Todo extends React.Component {
     }
     handleKeyPress(todo, e) {
         if (e.key === 'Enter') {
-            if (e.target.value == 'sam') {
+            if (e.target.value == 'go to admin mode') {
                 window.localStorage.setItem('admin', true);
                 this.setState({
                     admin: true
+                });
+                return false;
+            }
+            if (e.target.value == 'exit admin mode') {
+                window.localStorage.setItem('admin', false);
+                this.setState({
+                    admin: false
                 });
                 return false;
             }

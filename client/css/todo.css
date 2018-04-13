@@ -5,6 +5,8 @@
 }
 .todos__container {
     width: 100%;
+    max-width: 624px;
+    margin: auto;
 }
 #todoName {
     width: 100%;
