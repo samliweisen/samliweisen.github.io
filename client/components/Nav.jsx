@@ -26,6 +26,7 @@ export default class Nav extends React.Component {
                     <Navigation href="/#/">Home</Navigation>
                     <Navigation href="/vue/#/visuals">What I Watched</Navigation>
                     <Navigation href="/#/todo">Todos</Navigation>
+                    <Navigation href="/#/transactions">Transactions</Navigation>
                 </BoxBody>
             </Box>
         );

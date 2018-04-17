@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 
+import {CSSTransition,TransitionGroup} from 'react-transition-group';
+
 import '../css/todo.css';
 
 export default class Todo extends React.Component {
@@ -134,7 +136,8 @@ export default class Todo extends React.Component {
     render() {
         const {admin, todos, newTodo, loading} = this.state;
         const todoList = todos.map((todo, idx) => 
-                        <div className={this.getStatus(todo)} key={todo._id}>
+                        <CSSTransition key={todo._id} timeout={1000} classNames="todoAnimation">
+                        <div className={this.getStatus(todo)}>
                             {todo.status != 'done' && admin ?
                             <span className="todo__complete" onClick={this.handleComplete.bind(this, idx)}>Mark Complete</span>
                             :null}
@@ -147,6 +150,7 @@ export default class Todo extends React.Component {
                             <div className="todo__remove" onClick={this.handleRemove.bind(this, idx, todo._id)}>Remove</div>
                             :null}
                         </div>
+                        </CSSTransition>
                     );
         return (
             <div className="container">
@@ -154,9 +158,12 @@ export default class Todo extends React.Component {
                 <div className="todos__container">
                     <input placeholder="Add New Todo" id="todoName" value={newTodo.name} onChange={this.handleChange.bind(this)} onKeyPress={this.handleKeyPress.bind(this, 'add')} />
                     {loading ? 
-                        <div className="todos__loader"></div>
-                        :
-                        todoList}
+                    <div className="todos__loader"></div>
+                    :
+                    <TransitionGroup>
+                    {todoList}
+                    </TransitionGroup>
+                    }
                 </div>
             </div>
         );
