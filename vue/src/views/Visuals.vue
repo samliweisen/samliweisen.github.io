@@ -6,7 +6,7 @@
             <mu-checkbox name="type" label="Movie" nativeValue="movie" class="demo-checkbox" v-model="filters" />
             <mu-checkbox name="type" label="Tv" nativeValue="tv" class="demo-checkbox" v-model="filters" />
         </div>
-        <mu-row gutter v-if="list.length > 0">
+        <transition-group v-if="list.length > 0" name="visual" class="row" appear>
             <mu-col class="visual" v-for="v in resultVisuals" :key="v.id" desktop="25" tablet="33" width="50">
                 <mu-card>
                     <mu-card-media title="" subTitle="">
@@ -37,7 +37,7 @@
                     </mu-card-actions>
                 </mu-card>
             </mu-col>
-        </mu-row>
+        </transition-group>
     </div>
 </template>
 <script>
@@ -126,5 +126,28 @@
     }
     .visual__progress-episode.total {
         right: 0;
+    }
+
+    /* moving */
+    .visual-move {
+        transition: all 600ms ease-in-out 50ms;
+    }
+    
+    /* appearing */
+    .visual-enter-active {
+        transition: all 300ms ease-out;
+        transform: translateX(20%);
+    }
+    
+    /* disappearing */
+    .visual-leave-active {
+        transition: all 200ms ease-in;
+    }
+    
+    /* appear at / disappear to */
+    .visual-enter,
+    .visual-leave-to {
+        opacity: 0;
+        transform: translateX(-20%);
     }
 </style>
