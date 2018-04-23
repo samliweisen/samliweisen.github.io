@@ -20,7 +20,6 @@ export default class Main extends React.Component {
     render() {
         return (
             <div>
-                <Header />
                 <div className="container">
                     <Box className="col-3">
                         <Intro>

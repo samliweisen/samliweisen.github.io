@@ -191,6 +191,10 @@ export const skills = [
             {
                 name: 'Ruby on Rails',
                 color: '#cc0000'
+            },
+            {
+                name: 'Node.js',
+                color: '#7fbe00'
             }
         ]
     },
