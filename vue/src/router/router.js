@@ -7,6 +7,7 @@ import Visuals from '../views/Visuals.vue';
 import VisualForm from '../views/VisualForm.vue';
 
 import SongForm from '../views/SongForm.vue';
+import ImageForm from '../views/ImageForm.vue';
 
 Vue.use(VueRouter);
 
@@ -22,5 +23,7 @@ export default new VueRouter({
          
          { path: '/visuals/:id/song/add', component: SongForm, name: 'addSong' },
          { path: '/song/:id/edit', component: SongForm, name: 'editSong' },
+         
+         { path: '/visuals/:id/image/add', component: ImageForm, name: 'addImage'}
     ]
 });

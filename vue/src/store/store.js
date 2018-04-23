@@ -4,6 +4,7 @@ import Vuex from 'vuex';
 Vue.use(Vuex);
 
 const whatIWatched = 'https://what-i-watched.herokuapp.com/';
+// const whatIWatched = 'https://what-i-watched-a09liweis-1.c9users.io/';
 
 const state = {
     urls: [],
@@ -17,7 +18,9 @@ const state = {
         increaseEpisode: whatIWatched + 'api/visual/increase_episode',
         songList: whatIWatched + 'api/songs',
         songDetail: whatIWatched + 'api/song/',
-        songSubmit: whatIWatched + 'api/song/submit'
+        songSubmit: whatIWatched + 'api/song/submit',
+        imageList: whatIWatched + 'api/images',
+        imageSubmit: whatIWatched + 'api/image/submit'
     },
     admin: window.localStorage.getItem('admin') | false
 };

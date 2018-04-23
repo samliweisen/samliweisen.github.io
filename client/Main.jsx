@@ -1,6 +1,7 @@
 import React from 'react';
 import { HashRouter, Switch, Route } from 'react-router-dom';
 
+import Header from './components/Header.jsx';
 import Nav from './components/Nav.jsx';
 import Clock from './components/Clock.jsx';
 import Weather from './components/Weather.jsx';
@@ -19,6 +20,7 @@ export default class Main extends React.Component {
     render() {
         return (
             <div>
+                <Header />
                 <div className="container">
                     <Box className="col-3">
                         <Intro>

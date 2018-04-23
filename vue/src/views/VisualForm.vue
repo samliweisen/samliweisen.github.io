@@ -1,6 +1,7 @@
 <template>
     <div class="form">
         <h2>Form</h2>
+        <mu-raised-button label="Add Image" class="demo-raised-button" primary v-on:click="gotoAddImage()" />
         <mu-auto-complete label="Search From Douban" labelFloat @input="handleInput" :dataSource="searchs" />
         <mu-row gutter>
             <mu-col width="100" tablet="50" desktop="25">
@@ -99,6 +100,9 @@
         methods: {
             gotoAddSong() {
                 this.$router.push({path: '/visuals/' + this.$route.params.id + '/song/add'});
+            },
+            gotoAddImage() {
+                this.$router.push({path: '/visuals/' + this.$route.params.id + '/image/add'});
             },
             handleSubmit() {
                 const options = this.visual;
