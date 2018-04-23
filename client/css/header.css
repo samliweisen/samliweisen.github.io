@@ -2,4 +2,13 @@
     max-width: 1200px;
     width: 100%;
     margin: auto;
+    background-color: #06A763;
+    color: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+#header section {
+    display: inline-block;
+    margin-right: 20px;
 }

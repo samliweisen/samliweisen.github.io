@@ -3,8 +3,6 @@ import { HashRouter, Switch, Route } from 'react-router-dom';
 
 import Header from './components/Header.jsx';
 import Nav from './components/Nav.jsx';
-import Clock from './components/Clock.jsx';
-import Weather from './components/Weather.jsx';
 import App from './components/App.jsx';
 import FullPageClock from './pages/FullPageClock.jsx';
 import MusicPlayer from './pages/MusicPlayer.jsx';
@@ -20,17 +18,7 @@ export default class Main extends React.Component {
     render() {
         return (
             <div>
-                <div className="container">
-                    <Box className="col-3">
-                        <Intro>
-                            <h1>Hey, I am {userInfo.name}</h1>
-                            <p>{userInfo.title}</p>
-                            <h3>This Page is made with React</h3>
-                        </Intro>
-                    </Box>
-                    <Weather />
-                    <Clock />
-                </div>
+                <Header />
                 <div style={{maxWidth: '1200px', width: '100%', margin: 'auto'}}>
                     <Nav />
                 </div>

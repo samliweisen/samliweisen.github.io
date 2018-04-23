@@ -4,10 +4,16 @@ import axios from 'axios';
 import {Box, BoxTitle, BoxBody} from './style.jsx';
 
 const Temp = styled.span`
-    font-size: 20px;
+    font-size: 1em;
+    margin-left: 10px;
+    padding-left: 20px;
+    background-image: url(${props => props.icon});
+    background-position: -14px -12px;;
+    background-repeat: no-repeat;
+    background-size: 85%;
 `;
-const City = styled.h3`
-    font-size: 30px;
+const City = styled.span`
+    font-size: 1em;
 `;
 
 const api = 'https://api.openweathermap.org/data/2.5/weather';
@@ -61,19 +67,15 @@ export default class Weather extends React.Component {
     }
     render() {
         return (
-            <Box className="col-3">
-                <BoxTitle>
-                    <i className="fa fa-clock-o" aria-hidden="true"></i>
-                    <span>Weather</span>
-                </BoxTitle>
+            <section>
                 {this.state.loading ?
                 <i className="fa fa-spinner loading" aria-hidden="true"></i>
                 :
-                <BoxBody>
-                    <City>{this.state.city}</City>
-                    <Temp><img alt="weather-icon" src={this.state.icon} /> {Math.ceil(this.state.temp)} <sup>o</sup>C</Temp>
-                </BoxBody>}
-            </Box>
+                <span>
+                    <i className="fa fa-map-marker" aria-hidden="true"></i><City>{this.state.city}</City>
+                    <Temp icon={this.state.icon}>{Math.ceil(this.state.temp)} <sup>o</sup>C</Temp>
+                </span>}
+            </section>
         );
     }
 }

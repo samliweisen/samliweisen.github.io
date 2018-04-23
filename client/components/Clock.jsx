@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Box, BoxTitle, BoxBody} from './style.jsx';
 
-const Dates = styled.div`
-    font-size: 35px;
+const Dates = styled.span`
+    font-size: 1em;
+    margin-right: 10px;
 `;
 
 export default class Clock extends React.Component {
@@ -43,16 +43,11 @@ export default class Clock extends React.Component {
     render() {
         const {year, month, date, hour, min, sec} = this.state;
         return (
-            <Box className="col-3">
-                <BoxTitle>
-                    <i className="fa fa-clock-o" aria-hidden="true"></i>
-                    <span>Clock</span>
-                </BoxTitle>
-                <BoxBody>
-                    <Dates>{year}-{month > 9 ? month: '0' + month}-{date > 9 ? date : '0' + date}</Dates>
-                    <span style={{fontSize: '30px', color: '#' + [hour, min, sec].join('') }}>{hour} : {min} : {sec}</span>
-                </BoxBody>
-            </Box>
+            <section>
+                <i className="fa fa-clock-o" aria-hidden="true"></i>
+                <Dates>{year}-{month > 9 ? month: '0' + month}-{date > 9 ? date : '0' + date}</Dates>
+                <span>{hour} : {min} : {sec}</span>
+            </section>
         );
     }
 }
