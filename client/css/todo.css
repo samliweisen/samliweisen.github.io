@@ -28,6 +28,7 @@
     padding: 10px;
     border-left: 5px solid red;
     transition: border 0.2s ease;
+    position: relative;
 }
 .todo:hover {
     border-left-width: 10px;
@@ -43,7 +44,7 @@
 .todo__title {
     font-size: 1.5em;
     border: none;
-    width: 100%;
+    width: 90%;
 }
 .todo__remove {
     cursor: pointer;
@@ -51,14 +52,21 @@
     color: #ffffff;
     padding: 5px;
     border-radius: 5%;
-    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 .todo__complete {
     cursor: pointer;
-    background-color: green;
-    color:#ffffff;
+    color: grey;
     padding: 5px;
+    font-size: 2em;
+    width: 32px;
+}
+.todo__complete,
+.todo__title {
     display: inline-block;
+    vertical-align: middle;
 }
 .todo__complete:hover {
     opacity: 0.8;

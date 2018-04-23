@@ -139,7 +139,7 @@ export default class Todo extends React.Component {
                         <CSSTransition key={todo._id} timeout={1000} classNames="todoAnimation">
                         <div className={this.getStatus(todo)}>
                             {todo.status != 'done' && admin ?
-                            <span className="todo__complete" onClick={this.handleComplete.bind(this, idx)}>Mark Complete</span>
+                            <span className="todo__complete fa fa-check-circle-o" onClick={this.handleComplete.bind(this, idx)}></span>
                             :null}
                             {admin ?
                             <input className="todo__title" value={todo.name} onChange={this.handleUpdate.bind(this, idx)} onKeyPress={this.handleKeyPress.bind(this, todo)} />
