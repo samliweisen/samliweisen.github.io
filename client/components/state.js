@@ -6,7 +6,7 @@ export const userInfo = {
 export const experiences = [
     {
         company: 'Canada Goose',
-        title: 'Front end developer',
+        title: 'Front End Developer',
         date: 'May 2017 - Present',
         duty: []
     },
