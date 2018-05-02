@@ -3,6 +3,11 @@ import axios from 'axios';
 
 import '../css/transaction.css';
 
+let apiDomain = 'https://samliweisen.herokuapp.com/';
+if (window.location.host.indexOf('a09liweis') > -1) {
+    apiDomain = 'https://samliweisen-a09liweis.c9users.io/';
+}
+
 export default class Transaction extends React.Component {
     constructor(props) {
         super(props);
@@ -13,13 +18,15 @@ export default class Transaction extends React.Component {
                 price: '',
                 place: ''
             },
+            modal: false,
             api: {
-                list: 'https://samliweisen.herokuapp.com/api/transactions'
+                list: apiDomain + 'api/transactions/',
             },
             transactions: []
         };
         this.handleChange = this.handleChange.bind(this);
         this.getList = this.getList.bind(this);
+        this.handleModalChange = this.handleModalChange.bind(this);
     }
     componentDidMount() {
         this.getList();
@@ -41,6 +48,19 @@ export default class Transaction extends React.Component {
             transaction: t
         });
     }
+    handleModal() {
+        this.handleModalChange();
+    }
+    handleModalChange() {
+        this.setState({
+            modal: !this.state.modal
+        });
+    }
+    handleDelete(t) {
+        axios.delete(this.state.api.list + t._id).then((res) => {
+            this.getList();
+        });
+    }
     handleSubmit(e) {
         e.preventDefault();
         const postApi = this.state.api.list;
@@ -48,6 +68,7 @@ export default class Transaction extends React.Component {
         axios.post(postApi, transaction).then((res) => {
             if (res.status == 200) {
                 this.getList();
+                this.handleModalChange();
                 this.setState({
                     transation: {
                         title: '',
@@ -63,21 +84,27 @@ export default class Transaction extends React.Component {
         const ts = this.state.transactions.map((t) => {
             return (
                 <div key={t._id}>
-                    {t.title}
+                    {t.date} - {t.title} - {t.price} <span className="fa fa-times" onClick={this.handleDelete.bind(this, t)}></span>
                 </div>
             );
         });
         const t = this.state.transaction;
+        const modalClass = this.state.modal ? 'modal active' : 'modal';
         return (
-            <section>
+            <section id="transactions">
                 <h1>Transactions</h1>
-                <form onSubmit={this.handleSubmit.bind(this)}>
-                    <input placeholder="Title" name="title" value={t.title} onChange={this.handleChange} />
-                    <input placeholder="Date" name="date" value={t.date} onChange={this.handleChange} />
-                    <input placeholder="Price" name="price" value={t.price} onChange={this.handleChange} />
-                    <input placeholder="Place" name="place" value={t.place} onChange={this.handleChange} />
-                    <button>Submit</button>
-                </form>
+                <div className={modalClass}>
+                    <div className="modal__bg" onClick={this.handleModal.bind(this)}></div>
+                    <form className="transaction__form" onSubmit={this.handleSubmit.bind(this)}>
+                        <h3>Transaction Form</h3>
+                        <input placeholder="Title" name="title" value={t.title} onChange={this.handleChange} />
+                        <input placeholder="Date" name="date" value={t.date} onChange={this.handleChange} />
+                        <input placeholder="Price" name="price" value={t.price} onChange={this.handleChange} />
+                        <input placeholder="Place" name="place" value={t.place} onChange={this.handleChange} />
+                        <button>Submit</button>
+                    </form>
+                </div>
+                <a className="transaction__new" onClick={this.handleModal.bind(this)}>+</a>
                 <div className="transaction__list">
                 {ts}
                 </div>
