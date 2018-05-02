@@ -5,9 +5,15 @@ export const userInfo = {
 
 export const experiences = [
     {
+        company: 'Canada Goose',
+        title: 'Front end developer',
+        date: 'May 2017 - Present',
+        duty: []
+    },
+    {
         company: 'JMIR Publications',
         title: 'Web Developer',
-        date: 'Aug  2017 - PRESENT',
+        date: 'Aug  2017 - April 2018',
         duty: [
             'Create REST web services and implement restful api with Ajax',
             'Build interactive user interface with angularJS and jQuery',
