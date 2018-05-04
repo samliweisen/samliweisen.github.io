@@ -84,7 +84,7 @@ export default class Transaction extends React.Component {
         const ts = this.state.transactions.map((t) => {
             return (
                 <div key={t._id}>
-                    {t.date} - {t.title} - {t.price} <span className="fa fa-times" onClick={this.handleDelete.bind(this, t)}></span>
+                    {t.date} {t.title} {t.price} <span className="fa fa-times" onClick={this.handleDelete.bind(this, t)}></span>
                 </div>
             );
         });
