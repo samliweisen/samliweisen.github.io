@@ -8,7 +8,6 @@
             <router-link to="/visuals/add">Add</router-link>
             <router-view></router-view>
         </div>
-        <MusicPlayer />
     </div>
 </template>
 <script>
