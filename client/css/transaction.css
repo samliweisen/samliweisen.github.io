@@ -21,6 +21,36 @@
 }
 #transactions {
     position: relative;
+    max-width: 425px;
+    width: 100%;
+    margin: auto;
+}
+.transactions__title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.transaction__item {
+    position: relative;
+    background-color: #ffffff;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12)
+}
+.transaction__price {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+.transaction__price.debit {
+    color: green;
+}
+.transaction__price.credit {
+    color: red;
+}
+.transaction__delete {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    cursor: pointer;
 }
 .transaction__form {
     position: absolute;
@@ -54,4 +84,5 @@
     background-color: #06A763;
     bottom: 10%;
     right: 10%;
+    z-index: 1;
 }

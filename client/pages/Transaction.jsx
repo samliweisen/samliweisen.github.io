@@ -4,9 +4,9 @@ import axios from 'axios';
 import '../css/transaction.css';
 
 let apiDomain = 'https://samliweisen.herokuapp.com/';
-if (window.location.host.indexOf('a09liweis') > -1) {
-    apiDomain = 'https://samliweisen-a09liweis.c9users.io/';
-}
+// if (window.location.host.indexOf('a09liweis') > -1) {
+//     apiDomain = 'https://samliweisen-a09liweis.c9users.io/';
+// }
 
 export default class Transaction extends React.Component {
     constructor(props) {
@@ -82,9 +82,12 @@ export default class Transaction extends React.Component {
     }
     render() {
         const ts = this.state.transactions.map((t) => {
+            const priceClass = (t.price > 0) ? 'transaction__price debit' : 'transaction__price credit';
             return (
-                <div key={t._id}>
-                    {t.date} {t.title} {t.price} <span className="fa fa-times" onClick={this.handleDelete.bind(this, t)}></span>
+                <div className="transaction__item" key={t._id}>
+                    <div className={priceClass}>${Math.abs(t.price)} - {t.title}</div>
+                    <div className="transaction__date">{t.date}</div>
+                    <span className="transaction__delete fa fa-times" onClick={this.handleDelete.bind(this, t)}></span>
                 </div>
             );
         });
@@ -92,7 +95,7 @@ export default class Transaction extends React.Component {
         const modalClass = this.state.modal ? 'modal active' : 'modal';
         return (
             <section id="transactions">
-                <h1>Transactions</h1>
+                <h1 className="transactions__title">Transactions</h1>
                 <div className={modalClass}>
                     <div className="modal__bg" onClick={this.handleModal.bind(this)}></div>
                     <form className="transaction__form" onSubmit={this.handleSubmit.bind(this)}>

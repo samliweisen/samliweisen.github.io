@@ -2,7 +2,7 @@
     <div class="form">
         <h2>Form</h2>
         <mu-raised-button label="Add Image" class="demo-raised-button" primary v-on:click="gotoAddImage()" />
-        <mu-auto-complete label="Search From Douban" labelFloat @input="handleInput" :dataSource="searchs" />
+        <mu-text-field fullWidth label="Search From Douban" labelFloat v-on:change="searchDouban" v-if="visual.id == 0" />
         <mu-row gutter>
             <mu-col width="100" tablet="50" desktop="25">
                 <mu-text-field fullWidth label="Title" labelFloat v-model="visual.title" />
@@ -67,7 +67,7 @@
     export default {
         data() {
             return {
-                searchs: [1,2,3],
+                searchs: [],
                 visual: {
                     id: 0,
                     title: '',
@@ -118,17 +118,12 @@
                     console.log(res);
                 });
             },
-            handleInput(val) {
+            searchDouban(e) {
+                const val = e.target.value;
                 this.$http.jsonp('https://api.douban.com/v2/movie/search?q=' + val).then(res => {
                     this.searchs = [];
                     if (res.status == 200) {
-                        res.body.subjects.map((subject) => {
-                            const visual = {
-                                value: subject.id,
-                                text: subject.title + ' ' + subject.original_title
-                            };
-                            this.searchs.push(visual);
-                        });
+                        this.searchs = res.body.subjects;
                     }
                 });
             },
