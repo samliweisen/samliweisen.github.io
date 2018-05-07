@@ -39,6 +39,17 @@ export const experiences = [
 
 export const projects = [
     {
+        name: 'Movie Paradise',
+        type: 'Angular App',
+        link: 'https://movie-angular.herokuapp.com/',
+        steps: [
+            'Upgraded to Angular 6 recently to keep up to date with core module',
+            'Built with reusable components',
+            'Use themoviedb api to popular movie data',
+            'Use Nodejs as backend host on Heroku'
+        ]
+    },
+    {
         name: 'La Promesse',
         type: 'Admin Dashboard',
         link: 'http://lapromesseca.com/admin',
@@ -58,16 +69,6 @@ export const projects = [
             'Build reusable and extensible Vue components',
             'Implement style with Material Style',
             'Create RESTful API with NodeJs, Express and MongoDB'
-        ]
-    },
-    {
-        name: 'Movie Paradise',
-        type: 'Angular App',
-        link: 'https://movie-angular.herokuapp.com/',
-        steps: [
-            'Build with Angular',
-            'Use themoviedb api to popular movie data',
-            'Use Nodejs as backend host on Heroku'
         ]
     },
     {

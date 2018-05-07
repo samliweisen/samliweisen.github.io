@@ -19,9 +19,7 @@ export default class Main extends React.Component {
         return (
             <div>
                 <Header />
-                <div style={{maxWidth: '1200px', width: '100%', margin: 'auto'}}>
-                    <Nav />
-                </div>
+                <Nav />
                 <HashRouter>
                     <Switch>
                         <Route exact path='/' component={App} />

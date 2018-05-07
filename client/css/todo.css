@@ -12,6 +12,9 @@
     width: 100%;
     padding: 10px;
     font-size: 1.5em;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+    border: none;
+    outline: none;
 }
 .todoAnimation-enter {
     opacity: 0.01;

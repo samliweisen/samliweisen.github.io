@@ -70,14 +70,22 @@ export default class Todo extends React.Component {
             if (e.target.value == 'go to admin mode') {
                 window.localStorage.setItem('admin', true);
                 this.setState({
-                    admin: true
+                    admin: true,
+                    newTodo: {
+                        name: '',
+                        status: 'pending'
+                    },
                 });
                 return false;
             }
             if (e.target.value == 'exit admin mode') {
                 window.localStorage.setItem('admin', '');
                 this.setState({
-                    admin: false
+                    admin: false,
+                    newTodo: {
+                        name: '',
+                        status: 'pending'
+                    },
                 });
                 return false;
             }
