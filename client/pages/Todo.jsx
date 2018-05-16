@@ -155,7 +155,7 @@ export default class Todo extends React.Component {
                                 <div className="todo__title">{todo.name}</div>
                             }
                             {todo.status != 'done' && admin ?
-                            <div className="todo__remove" onClick={this.handleRemove.bind(this, idx, todo._id)}>Remove</div>
+                            <div className="todo__remove" onClick={this.handleRemove.bind(this, idx, todo._id)}><span className="fa fa-times"></span></div>
                             :null}
                         </div>
                         </CSSTransition>
