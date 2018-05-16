@@ -117,7 +117,8 @@ export default class Todo extends React.Component {
     }
     handleComplete(idx) {
         let todos = this.state.todos;
-        todos[idx].status = 'done';
+        let status = todos[idx].status;
+        todos[idx].status = status == 'pending' ? 'working' : 'done';
         let todo = todos[idx];
         axios.put(this.state.api.update + todo._id, todo).then((res) => {
             if (res.status == 200) {
