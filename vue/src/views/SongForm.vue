@@ -12,9 +12,9 @@
                     </mu-list>
                 </mu-col>
                 <mu-col width="100" tablet="50" desktop="50">
-                    <!--<audio ref="audio" controls v-if="song.url">-->
-                    <!--    <source :src="song.url" type="audio/mpeg">-->
-                    <!--</audio>-->
+                    <audio ref="audio" controls v-if="song.url">
+                        <source :src="song.url" type="audio/mpeg">
+                    </audio>
                 </mu-col>
             </mu-row>
         </div>
@@ -42,7 +42,7 @@ export default {
         };
     },
     mounted() {
-        const id = this.$route.params.id;
+        const id = this.$route.params.songId;
         if (typeof id != 'undefined') {
             this.getSong(id);
         }
@@ -56,44 +56,30 @@ export default {
             });
         },
         selectSong(s) {
-            
-            this.$http.get('https://api.imjad.cn/cloudmusic/?type=song&br=128000&id=' + s.id).then((res) => {
-                if (res.status == 200) {
-                    const url = res.body.data[0].url;
-                    if (url != '') {
-                        this.song.url = res.body.data[0].url.replace('https', 'http');   
-                    }
-                }
-            });
-            //this.$refs.audio.load();
             this.song.title = s.title;
             this.song.artist = s.artist;
+            this.song.url = s.url;
             this.song.image = s.image;
+            this.$refs.audio.load();
         },
     
         handleSearch() {
+            const url = 'https://c.y.qq.com/soso/fcgi-bin/search_for_qq_cp?g_tk=5381&uin=0&format=jsonp&inCharset=utf-8&outCharset=utf-8&notice=0&platform=h5&needNewCode=1&w='+this.search+'&zhidaqu=1&catZhida=1&t=0&flag=1&ie=utf-8&sem=1&aggr=0&perpage=20&n=20&p=1&remoteplace=txt.mqq.all&_=1520833663464';
             this.dataSource = [];
-            this.$http.get('https://c.y.qq.com/soso/fcgi-bin/search_for_qq_cp?g_tk=5381&uin=0&format=jsonp&inCharset=utf-8&outCharset=utf-8&notice=0&platform=h5&needNewCode=1&w='+this.search+'&zhidaqu=1&catZhida=1&t=0&flag=1&ie=utf-8&sem=1&aggr=0&perpage=20&n=20&p=1&remoteplace=txt.mqq.all&_=1520833663464', {
-      params: {
-        callback: 'callback'
-      }
-    }).then((res) => {
-                console.log(res);
+            this.$http.jsonp(url, {
+                jsonpCallback: 'callback',
+            }).then(res => {
                 if (res.status == 200) {
-                    const songs = res.body.result.songs;
-                    let results = [];
+                    let songs = res.data.data.song.list;
                     songs.map((s) => {
-                        let artist = s.ar.map((a) => {
-                            return a.name;
-                        }).join(' ');
-                        results.push({
-                            artist: artist,
-                            title: s.name,
-                            id: s.id,
-                            image: s.al.picUrl
-                        }); 
+                        let song = {
+                            title: s.songname,
+                            artist: s.singer[0].name,
+                            image: '//y.gtimg.cn/music/photo_new/T002R300x300M000' + s.albummid +'.jpg?max_age=2592000',
+                            url: 'https://dl.stream.qqmusic.qq.com/C100'+s.songmid+'.m4a?fromtag=0&guid=126548448'
+                        };
+                        this.dataSource.push(song);
                     });
-                    this.dataSource = results;
                 }
             });
         },

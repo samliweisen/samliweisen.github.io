@@ -22,7 +22,7 @@ export default new VueRouter({
          { path: '/visuals/edit/:id', component: VisualForm, name: 'edit' },
          
          { path: '/visuals/:id/song/add', component: SongForm, name: 'addSong' },
-         { path: '/song/:id/edit', component: SongForm, name: 'editSong' },
+         { path: '/song/:songId/edit', component: SongForm, name: 'editSong' },
          
          { path: '/visuals/:id/image/add', component: ImageForm, name: 'addImage'}
     ]
