@@ -62,13 +62,17 @@
     transform: translateY(-50%);
     left: 0;
     right: 0;
-    padding: 20px;
+    padding: 30px;
     background-color: #ffffff;
 }
 .transaction__form input {
     display: block;
-    margin-bottom: 20px;
+    margin: 20px 0;
     width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
     padding: 10px;
 }
 .transaction__new {
