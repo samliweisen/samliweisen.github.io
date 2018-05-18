@@ -54,6 +54,7 @@ export default class Transaction extends React.Component {
         geocodeByAddress(address)
             .then(results => {
                 const place = {
+                    name: address,
                     place_id: results[0].place_id,
                     address: results[0].formatted_address,
                     lat: results[0].geometry.location.lat(),
