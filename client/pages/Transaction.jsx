@@ -1,12 +1,13 @@
 import React from 'react';
 import axios from 'axios';
+import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
 import '../css/transaction.css';
 
 let apiDomain = 'https://samliweisen.herokuapp.com/';
-// if (window.location.host.indexOf('a09liweis') > -1) {
-//     apiDomain = 'https://samliweisen-a09liweis.c9users.io/';
-// }
+if (window.location.host.indexOf('a09liweis') > -1) {
+    apiDomain = 'https://samliweisen-a09liweis.c9users.io/';
+}
 
 export default class Transaction extends React.Component {
     constructor(props) {
@@ -16,8 +17,9 @@ export default class Transaction extends React.Component {
                 title: '',
                 date: '',
                 price: '',
-                place: ''
+                place: {}
             },
+            address: '',
             modal: false,
             api: {
                 list: apiDomain + 'api/transactions/',
@@ -48,6 +50,23 @@ export default class Transaction extends React.Component {
             transaction: t
         });
     }
+    handleSelectAddress(address) {
+        geocodeByAddress(address)
+            .then(results => {
+                const place = {
+                    place_id: results[0].place_id,
+                    address: results[0].formatted_address,
+                    lat: results[0].geometry.location.lat(),
+                    lng: results[0].geometry.location.lng(),
+                };
+                let t = this.state.transaction;
+                t.place = place;
+                this.setState({
+                    transaction: t
+                });
+            })
+            .catch(error => console.error('Error', error));
+    }
     handleModal() {
         this.handleModalChange();
     }
@@ -61,24 +80,47 @@ export default class Transaction extends React.Component {
             this.getList();
         });
     }
+    handleUpdate(t) {
+        this.setState({
+            transaction: t
+        });
+        this.handleModalChange();
+    }
     handleSubmit(e) {
         e.preventDefault();
         const postApi = this.state.api.list;
         const transaction = this.state.transaction;
-        axios.post(postApi, transaction).then((res) => {
-            if (res.status == 200) {
-                this.getList();
-                this.handleModalChange();
-                this.setState({
-                    transation: {
-                        title: '',
-                        price: '',
-                        date: '',
-                        place: ''
-                    }
-                });
-            }
-        });
+        if (typeof transaction._id == 'undefined') {
+            axios.post(postApi, transaction).then((res) => {
+                if (res.status == 200) {
+                    this.getList();
+                    this.handleModalChange();
+                    this.setState({
+                        transation: {
+                            title: '',
+                            price: '',
+                            date: '',
+                            place: {}
+                        }
+                    });
+                }
+            });
+        } else {
+            axios.put(postApi + transaction._id, transaction).then((res) => {
+                if (res.status == 200) {
+                    this.getList();
+                    this.handleModalChange();
+                    this.setState({
+                        transation: {
+                            title: '',
+                            price: '',
+                            date: '',
+                            place: {}
+                        }
+                    });
+                }
+            });
+        }
     }
     render() {
         const ts = this.state.transactions.map((t) => {
@@ -87,6 +129,7 @@ export default class Transaction extends React.Component {
                 <div className="transaction__item" key={t._id}>
                     <div className={priceClass}>${Math.abs(t.price)} - {t.title}</div>
                     <div className="transaction__date">{t.date}</div>
+                    <span onClick={this.handleUpdate.bind(this, t)}>Edit</span>
                     <span className="transaction__delete fa fa-times" onClick={this.handleDelete.bind(this, t)}></span>
                 </div>
             );
@@ -103,7 +146,32 @@ export default class Transaction extends React.Component {
                         <input placeholder="Title" name="title" value={t.title} onChange={this.handleChange} />
                         <input placeholder="Date" name="date" value={t.date} onChange={this.handleChange} />
                         <input placeholder="Price" name="price" value={t.price} onChange={this.handleChange} />
-                        <input placeholder="Place" name="place" value={t.place} onChange={this.handleChange} />
+                        <PlacesAutocomplete value={this.state.address} onChange={value => this.setState({address: value}) } onSelect={this.handleSelectAddress.bind(this)}>
+                            {({ getInputProps, suggestions, getSuggestionItemProps }) => (
+                            <div>
+                                <input
+                                    {...getInputProps({
+                                        placeholder: 'Search Places ...',
+                                        className: 'location-search-input'
+                                    })}
+                                />
+                                <div className="autocomplete-dropdown-container">
+                                    {suggestions.map(suggestion => {
+                                        const className = suggestion.active ? 'suggestion-item--active' : 'suggestion-item';
+                                        // inline style for demonstration purpose
+                                        const style = suggestion.active
+                                        ? { backgroundColor: '#fafafa', cursor: 'pointer' }
+                                        : { backgroundColor: '#ffffff', cursor: 'pointer' };
+                                        return (
+                                        <div {...getSuggestionItemProps(suggestion, { className, style })}>
+                                            <span>{suggestion.description}</span>
+                                        </div>
+                                        );
+                                    })}
+                                </div>
+                            </div>
+                            )}
+                        </PlacesAutocomplete>
                         <button>Submit</button>
                     </form>
                 </div>
