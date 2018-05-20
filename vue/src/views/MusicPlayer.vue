@@ -28,6 +28,9 @@ export default {
     },
     mounted() {
         this.getSongs();
+        // this.$refs.player.addEventListener("ended", function(){
+        //     console.log("ended");
+        // });
     },
     methods: {
         toggle() {
@@ -41,7 +44,6 @@ export default {
         },
         selectSong(s) {
             this.song = s;
-            console.log(this.song.title);
             this.$refs.player.load();
             this.$refs.player.play();
         }

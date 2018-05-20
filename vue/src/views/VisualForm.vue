@@ -115,7 +115,6 @@
             getVisual(id) {
                 this.$http.get(this.$store.state.api.visualDetail + id).then(res => {
                     this.visual = res.body.result;
-                    console.log(res);
                 });
             },
             searchDouban(e) {
@@ -132,11 +131,13 @@
                     alert('Empty douban id');
                     return;
                 }
+                this.getImdbId();
                 this.$http.jsonp('https://api.douban.com/v2/movie/subject/' + this.visual.douban_id).then(res => {
-                    console.log(res);
                     const douban = res.body;
+                    if (this.visual.summary == '') {
+                        this.visual.summary = douban.summary;
+                    }
                     this.visual.title = douban.title;
-                    this.visual.summary = douban.summary;
                     this.visual.poster = douban.images.large;
                     this.visual.douban_rating = douban.rating.average;
                 }, res => {
@@ -165,12 +166,14 @@
                     }
                 };
                 this.$http.jsonp('https://www.omdbapi.com/', options).then(res => {
-                    this.visual.original_title = res.body.Title;
-                    this.visual.imdb_rating = res.body.imdbRating;
-                    if (res.body.Ratings[1] && res.body.Ratings[1].Source == 'Rotten Tomatoes') {
-                        this.visual.rotten_rating = res.body.Ratings[1].Value.replace('%', '');   
+                    if (res.body.Response != 'False') {
+                        this.visual.original_title = res.body.Title;
+                        this.visual.imdb_rating = res.body.imdbRating;
+                        if (res.body.Ratings[1] && res.body.Ratings[1].Source == 'Rotten Tomatoes') {
+                            this.visual.rotten_rating = res.body.Ratings[1].Value.replace('%', '');   
+                        }
+                        this.visual.poster = res.body.Poster;
                     }
-                    this.visual.poster = res.body.Poster;
                 });
             },
             getSongs(visual_id) {
