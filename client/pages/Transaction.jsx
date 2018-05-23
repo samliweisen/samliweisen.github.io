@@ -5,9 +5,9 @@ import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-au
 import '../css/transaction.css';
 
 let apiDomain = 'https://samliweisen.herokuapp.com/';
-if (window.location.host.indexOf('a09liweis') > -1) {
-    apiDomain = 'https://samliweisen-a09liweis.c9users.io/';
-}
+// if (window.location.host.indexOf('a09liweis') > -1) {
+//     apiDomain = 'https://samliweisen-a09liweis.c9users.io/';
+// }
 
 export default class Transaction extends React.Component {
     constructor(props) {
@@ -17,6 +17,7 @@ export default class Transaction extends React.Component {
                 title: '',
                 date: '',
                 price: '',
+                category: '',
                 place: {}
             },
             address: '',
@@ -147,6 +148,7 @@ export default class Transaction extends React.Component {
                         <input placeholder="Title" name="title" value={t.title} onChange={this.handleChange} />
                         <input placeholder="Date" name="date" value={t.date} onChange={this.handleChange} />
                         <input placeholder="Price" name="price" value={t.price} onChange={this.handleChange} />
+                        <input placeholder="Category" name="category" value={t.category} onChange={this.handleChange} />
                         <PlacesAutocomplete value={this.state.address} onChange={value => this.setState({address: value}) } onSelect={this.handleSelectAddress.bind(this)}>
                             {({ getInputProps, suggestions, getSuggestionItemProps }) => (
                             <div>
