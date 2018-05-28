@@ -16,22 +16,19 @@ import './css/resume.css';
 
 export default class Main extends React.Component {
     render() {
-        return (
-            <div>
-                <Header />
-                <Nav />
-                <HashRouter>
+        return ([
+                <Header key="header" />,
+                <Nav key="nav" />,
+                <HashRouter key="page">
                     <Switch>
                         <Route exact path='/' component={App} />
                         <Route exact path='/fullpageclock' component={FullPageClock} />
                         <Route path='/todo' component={Todo} />
                         <Route path='/transactions' component={Transaction} />
-                        <Route path='/musicplayer/recommend' component={MusicPlayer} />
-                        <Route path='/musicplayer/ranking' component={MusicPlayer} />
-                        <Route path='/musicplayer/search' component={MusicPlayer} />
+                        <Route path='/musicplayer' component={MusicPlayer} />
                     </Switch>
                 </HashRouter>
-            </div>
+                ]
         );
     }
 }

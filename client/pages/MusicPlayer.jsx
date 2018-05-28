@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import jsonpAdapter from 'axios-jsonp';
 
 import '../css/musicplayer.css';
 
@@ -14,13 +15,12 @@ export default class MusicPlayer extends React.Component {
         this.getTopList();
     }
     getTopList() {
-        const topListApi = 'https://where-we-work.herokuapp.com/api_proxy/toplist';
-        axios.get(topListApi).then((res) => {
-            if (res.status == 200) {
-                this.setState({
-                    topLists: res.data.data.topList
-                });
-            }
+        const topListApi = 'https://c.y.qq.com/v8/fcg-bin/fcg_v8_toplist_cp.fcg?g_tk=5381&uin=0&format=json&inCharset=utf-8&outCharset=utf-8&notice=0&platform=h5&needNewCode=1&tpl=3&page=detail&type=top&topid=36&_=1520777874472';
+        axios({
+            url: topListApi,
+            adapter: jsonpAdapter
+        }).then((res) => {
+            console.log(res);
         });
     }
     convertHttps(url) {

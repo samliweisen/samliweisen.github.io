@@ -1,7 +1,9 @@
 import React from 'react';
 import axios from 'axios';
+import flatpickr from "flatpickr";
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
+import 'flatpickr/dist/themes/material_green.css';
 import '../css/transaction.css';
 
 let apiDomain = 'https://samliweisen.herokuapp.com/';
@@ -32,6 +34,7 @@ export default class Transaction extends React.Component {
         this.handleModalChange = this.handleModalChange.bind(this);
     }
     componentDidMount() {
+        flatpickr("#date", {});
         this.getList();
     }
     getList() {
@@ -146,7 +149,7 @@ export default class Transaction extends React.Component {
                     <form className="transaction__form" onSubmit={this.handleSubmit.bind(this)}>
                         <h3>Transaction Form</h3>
                         <input placeholder="Title" name="title" value={t.title} onChange={this.handleChange} />
-                        <input placeholder="Date" name="date" value={t.date} onChange={this.handleChange} />
+                        <input placeholder="Date" id="date" name="date" value={t.date} onChange={this.handleChange} />
                         <input placeholder="Price" name="price" value={t.price} onChange={this.handleChange} />
                         <input placeholder="Category" name="category" value={t.category} onChange={this.handleChange} />
                         <PlacesAutocomplete value={this.state.address} onChange={value => this.setState({address: value}) } onSelect={this.handleSelectAddress.bind(this)}>
