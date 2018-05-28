@@ -34,7 +34,9 @@ export default class Transaction extends React.Component {
         this.handleModalChange = this.handleModalChange.bind(this);
     }
     componentDidMount() {
-        flatpickr("#date", {});
+        flatpickr("#date", {
+            dateFormat: "Y-m-d",
+        });
         this.getList();
     }
     getList() {
