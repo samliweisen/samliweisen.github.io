@@ -87,6 +87,7 @@
                     current_episode: 0,
                     visual_type: 'movie'
                 },
+                release_dates: [],
                 songs: []
             };
         },
@@ -152,6 +153,7 @@
                 };
                 this.$http.get(this.$store.state.api.visualImdb, options).then(res => {
                     this.visual.imdb_id = res.body.imdb_id;
+                    this.release_dates = res.body.release_dates;
                     this.renderIMDB();
                 }, res => {
                     
