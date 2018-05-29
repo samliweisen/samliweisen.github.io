@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import flatpickr from "flatpickr";
+import Flatpickr from 'react-flatpickr';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
 import 'flatpickr/dist/themes/material_green.css';
@@ -32,12 +32,13 @@ export default class Transaction extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.getList = this.getList.bind(this);
         this.handleModalChange = this.handleModalChange.bind(this);
+        this.handleDateChange = this.handleDateChange.bind(this);
     }
     componentDidMount() {
-        flatpickr('#date', {
-            dateFormat: 'Y-m-d',
-            disableMobile: 'true'
-        });
+        // flatpickr('#date', {
+        //     dateFormat: 'Y-m-d',
+        //     disableMobile: 'true'
+        // });
         this.getList();
     }
     getList() {
@@ -53,6 +54,13 @@ export default class Transaction extends React.Component {
         const p = e.target.name;
         let t = this.state.transaction;
         t[p] = v;
+        this.setState({
+            transaction: t
+        });
+    }
+    handleDateChange(selectedDates, dateStr, instance) {
+        let t = this.state.transaction;
+        t.date = dateStr;
         this.setState({
             transaction: t
         });
@@ -131,8 +139,15 @@ export default class Transaction extends React.Component {
         }
     }
     render() {
+        let spend = 0.0;
+        let income = 0.0;
         const ts = this.state.transactions.map((t) => {
             const priceClass = (t.price > 0) ? 'transaction__price debit' : 'transaction__price credit';
+            if (t.price > 0) {
+                income += t.price;
+            } else {
+                spend += t.price;
+            }
             return (
                 <div className="transaction__item" key={t._id}>
                     <div className={priceClass}>${Math.abs(t.price)} - {t.title}</div>
@@ -152,7 +167,7 @@ export default class Transaction extends React.Component {
                     <form className="transaction__form" onSubmit={this.handleSubmit.bind(this)}>
                         <h3>Transaction Form</h3>
                         <input placeholder="Title" name="title" value={t.title} onChange={this.handleChange} />
-                        <input placeholder="Date" id="date" name="date" value={t.date} onChange={this.handleChange} />
+                        <Flatpickr options={{dateFormat: 'Y-m-d', disableMobile: 'true'}} placeholder="Date" value={t.date} name="date" onChange={this.handleDateChange} />
                         <input placeholder="Price" name="price" value={t.price} onChange={this.handleChange} />
                         <input placeholder="Category" name="category" value={t.category} onChange={this.handleChange} />
                         <PlacesAutocomplete value={this.state.address} onChange={value => this.setState({address: value}) } onSelect={this.handleSelectAddress.bind(this)}>
@@ -186,6 +201,8 @@ export default class Transaction extends React.Component {
                 </div>
                 <a className="transaction__new" onClick={this.handleModal.bind(this)}>+</a>
                 <div className="transaction__list">
+                <h2 className="transaction__price credit">Total Spend: ${spend}</h2>
+                <h2 className="transaction__price debit">Total Income: ${income}</h2>
                 {ts}
                 </div>
             </section>
