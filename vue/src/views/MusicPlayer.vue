@@ -27,6 +27,7 @@ export default {
         };
     },
     mounted() {
+        this.open = window.localStorage.getItem('musicPlayerShow') == 'true';
         this.getSongs();
         // this.$refs.player.addEventListener("ended", function(){
         //     console.log("ended");
@@ -35,6 +36,7 @@ export default {
     methods: {
         toggle() {
             this.open = !this.open;
+            window.localStorage.setItem('musicPlayerShow', this.open);
         },
         getSongs() {
             this.$http.get(this.$store.state.api.songList).then((res) => {
