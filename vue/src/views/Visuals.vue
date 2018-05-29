@@ -31,7 +31,6 @@
                         </div>
                         <div class="visual__action" v-if="admin">
                             <router-link :to="{ name: 'edit', params: { id: v.id }}">Edit</router-link>
-                            <router-link :to="{ name: 'addSong', params: { id: v.id }}">Add Song</router-link>
                             <mu-raised-button v-if="v.episodes != v.current_episode" label="Finish 1 episode" v-on:click="increaseEpisode(v.id)" secondary/>
                         </div>
                     </mu-card-actions>
