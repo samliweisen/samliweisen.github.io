@@ -28,14 +28,19 @@
 .todo {
     background-color: #ffffff;
     margin-top: 30px;
-    padding: 10px;
     border-left: 5px solid #ff000096;
-    transition: border 0.2s ease;
+    transition: all 0.2s ease;
     position: relative;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
 }
 .todo:hover {
     border-left-width: 10px;
     border-bottom: 1px solid #4bd828;
+}
+.todo:hover .todo__actions {
+    transform: translateX(0);
 }
 .todo__title:focus {
     border: none;
@@ -50,34 +55,30 @@
 .todo__title {
     font-size: 1.5em;
     border: none;
-    width: 90%;
+    padding: 10px;
+    width: 80%;
 }
-.todo__remove {
-    cursor: pointer;
-    background-color: #f12626;
-    color: #ffffff;
-    padding: 5px;
-    border-radius: 5%;
-    position: absolute;
-    top: 0;
-    right: 0;
+.todo__actions {
+    transform: translateX(150px);
+    display: flex;
+    transition: all 0.2s ease;
 }
+.todo__remove,
 .todo__complete {
     cursor: pointer;
-    color: grey;
-    padding: 5px;
-    font-size: 2em;
-    width: 32px;
+    color: #ffffff;
+    padding: 10px;
 }
-.todo__complete,
-.todo__title {
-    display: inline-block;
-    vertical-align: middle;
-}
+.todo__remove:hover,
 .todo__complete:hover {
     opacity: 0.8;
 }
-
+.todo__remove {
+    background-color: #f12626;
+}
+.todo__complete {
+    background: #069406;
+}
 .todos__loader {
     margin: auto;
     -webkit-animation-fill-mode: both;

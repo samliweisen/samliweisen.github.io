@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import axios from 'axios';
 
@@ -147,16 +148,16 @@ export default class Todo extends React.Component {
         const todoList = todos.map((todo, idx) => 
                         <CSSTransition key={todo._id} timeout={1000} classNames="todoAnimation">
                         <div className={this.getStatus(todo)}>
-                            {todo.status != 'done' && admin ?
-                            <span className="todo__complete fa fa-check-circle-o" onClick={this.handleComplete.bind(this, idx)}></span>
-                            :null}
                             {admin ?
                             <input className="todo__title" value={todo.name} onChange={this.handleUpdate.bind(this, idx)} onKeyPress={this.handleKeyPress.bind(this, todo)} />
                             :
                                 <div className="todo__title">{todo.name}</div>
                             }
                             {todo.status != 'done' && admin ?
-                            <div className="todo__remove" onClick={this.handleRemove.bind(this, idx, todo._id)}>Remove</div>
+                            <div className="todo__actions">
+                                <div className="todo__complete" onClick={this.handleComplete.bind(this, idx)}>{todo.status == 'pending' ? 'Working' : 'done'}</div>
+                                <div className="todo__remove" onClick={this.handleRemove.bind(this, idx, todo._id)}>Remove</div>
+                            </div>
                             :null}
                         </div>
                         </CSSTransition>
