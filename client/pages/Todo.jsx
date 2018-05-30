@@ -130,10 +130,10 @@ export default class Todo extends React.Component {
         });
     }
     handleRemove(idx, id) {
+        let todos = this.state.todos;
+        todos.splice(idx, 1);
         axios.delete(this.state.api.remove + id).then((res) => {
             if (res.status == 200) {
-                let todos = this.state.todos;
-                todos.splice(idx, 1);
                 this.setState({
                     todos: todos
                 });
@@ -155,7 +155,7 @@ export default class Todo extends React.Component {
                             }
                             {todo.status != 'done' && admin ?
                             <div className="todo__actions">
-                                <div className="todo__complete" onClick={this.handleComplete.bind(this, idx)}>{todo.status == 'pending' ? 'Working' : 'done'}</div>
+                                <div className="todo__complete" onClick={this.handleComplete.bind(this, idx)}>{todo.status == 'pending' ? 'Working' : 'Done'}</div>
                                 <div className="todo__remove" onClick={this.handleRemove.bind(this, idx, todo._id)}>Remove</div>
                             </div>
                             :null}
