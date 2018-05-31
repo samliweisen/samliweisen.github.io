@@ -1,6 +1,5 @@
 <template>
     <div class="container">
-        <a href="/">Back to Resume</a>
         <h1>What I watched</h1>
         <p>This page is built by Vue</p>
         <div class="layout">
