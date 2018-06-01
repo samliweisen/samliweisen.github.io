@@ -109,34 +109,28 @@ export default class Transaction extends React.Component {
         if (typeof transaction._id == 'undefined') {
             axios.post(postApi, transaction).then((res) => {
                 if (res.status == 200) {
-                    this.getList();
-                    this.handleModalChange();
-                    this.setState({
-                        transation: {
-                            title: '',
-                            price: '',
-                            date: '',
-                            place: {}
-                        }
-                    });
+                    this.reset();
                 }
             });
         } else {
             axios.put(postApi + transaction._id, transaction).then((res) => {
                 if (res.status == 200) {
-                    this.getList();
-                    this.handleModalChange();
-                    this.setState({
-                        transation: {
-                            title: '',
-                            price: '',
-                            date: '',
-                            place: {}
-                        }
-                    });
+                    this.reset();
                 }
             });
         }
+    }
+    reset() {
+        this.getList();
+        this.handleModalChange();
+        this.setState({
+            transation: {
+                title: '',
+                price: '',
+                date: '',
+                place: {}
+            }
+        });
     }
     render() {
         let spend = 0.0;
@@ -201,8 +195,8 @@ export default class Transaction extends React.Component {
                 </div>
                 <a className="transaction__new" onClick={this.handleModal.bind(this)}>+</a>
                 <div className="transaction__list">
-                <h2 className="transaction__price credit">Total Spend: ${spend}</h2>
-                <h2 className="transaction__price debit">Total Income: ${income}</h2>
+                <h2 className="transaction__price credit">Total Spend: ${spend.toFixed(2)}</h2>
+                <h2 className="transaction__price debit">Total Income: ${income.toFixed(2)}</h2>
                 {ts}
                 </div>
             </section>
