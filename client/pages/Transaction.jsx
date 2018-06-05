@@ -27,7 +27,8 @@ export default class Transaction extends React.Component {
             api: {
                 list: apiDomain + 'api/transactions/',
             },
-            transactions: []
+            transactions: [],
+            admin: window.localStorage.getItem('admin') || false
         };
         this.handleChange = this.handleChange.bind(this);
         this.getList = this.getList.bind(this);
@@ -146,8 +147,12 @@ export default class Transaction extends React.Component {
                 <div className="transaction__item" key={t._id}>
                     <div className={priceClass}>${Math.abs(t.price)} - {t.title}</div>
                     <div className="transaction__date">{t.date}</div>
+                    {this.state.admin ? 
                     <span onClick={this.handleUpdate.bind(this, t)}>Edit</span>
+                    : null}
+                    {this.state.admin ? 
                     <span className="transaction__delete fa fa-times" onClick={this.handleDelete.bind(this, t)}></span>
+                    :null}
                 </div>
             );
         });
@@ -193,7 +198,9 @@ export default class Transaction extends React.Component {
                         <button>Submit</button>
                     </form>
                 </div>
+                {this.state.admin ? 
                 <a className="transaction__new" onClick={this.handleModal.bind(this)}>+</a>
+                : null}
                 <div className="transaction__list">
                 <h2 className="transaction__price credit">Total Spend: ${spend.toFixed(2)}</h2>
                 <h2 className="transaction__price debit">Total Income: ${income.toFixed(2)}</h2>
