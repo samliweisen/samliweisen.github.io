@@ -11,6 +11,11 @@ let apiDomain = 'https://samliweisen.herokuapp.com/';
 //     apiDomain = 'https://samliweisen-a09liweis.c9users.io/';
 // }
 
+
+// Desktop design
+// https://dribbble.com/shots/3555301-Qonto-transactions-dashboard-V0/attachments/791018
+// Mobile Design
+// https://dribbble.com/shots/3061928-Finance-App-New-Transaction/attachments/643790
 export default class Transaction extends React.Component {
     constructor(props) {
         super(props);
@@ -20,7 +25,45 @@ export default class Transaction extends React.Component {
                 date: '',
                 price: '',
                 category: '',
-                place: {}
+                place: {},
+            },
+            icons: {
+                food: {
+                    icon: 'cutlery'
+                },
+                transportation: {
+                    icon: 'car'
+                },
+                education: {
+                    icon: 'book'
+                },
+                house: {
+                    icon: 'home'
+                },
+                photo: {
+                    icon: 'photo'
+                },
+                salary: {
+                    icon: 'money'
+                },
+                drink: {
+                    icon: 'glass'
+                },
+                sport: {
+                    icon: 'futbol-o'
+                },
+                movie: {
+                    icon: 'ticket'
+                },
+                donation: {
+                    icon: 'donation'
+                },
+                tax_return: {
+                    icon: 'tax'
+                },
+                penalty: {
+                    icon: 'penalty'
+                }
             },
             address: '',
             modal: false,
@@ -34,12 +77,9 @@ export default class Transaction extends React.Component {
         this.getList = this.getList.bind(this);
         this.handleModalChange = this.handleModalChange.bind(this);
         this.handleDateChange = this.handleDateChange.bind(this);
+        this.reset = this.reset.bind(this);
     }
     componentDidMount() {
-        // flatpickr('#date', {
-        //     dateFormat: 'Y-m-d',
-        //     disableMobile: 'true'
-        // });
         this.getList();
     }
     getList() {
@@ -134,6 +174,7 @@ export default class Transaction extends React.Component {
         });
     }
     render() {
+        const {icons} = this.state;
         let spend = 0.0;
         let income = 0.0;
         const ts = this.state.transactions.map((t) => {
@@ -143,15 +184,20 @@ export default class Transaction extends React.Component {
             } else {
                 spend += t.price;
             }
+            const iconClass = 'transaction__icon fa fa-' + icons[t.category.split(' ').join('_')].icon;
             return (
                 <div className="transaction__item" key={t._id}>
-                    <div className={priceClass}>${Math.abs(t.price)} - {t.title}</div>
-                    <div className="transaction__date">{t.date}</div>
+                    <div className={iconClass}></div>
+                    <div className="transaction__info">
+                        <div className="transaction__title">{t.title}</div>
+                        <div className="transaction__date">{t.date}</div>
+                    </div>
+                    <div className={priceClass}>${Math.abs(t.price)}</div>
                     {this.state.admin ? 
-                    <span onClick={this.handleUpdate.bind(this, t)}>Edit</span>
+                    <div onClick={this.handleUpdate.bind(this, t)}>Edit</div>
                     : null}
                     {this.state.admin ? 
-                    <span className="transaction__delete fa fa-times" onClick={this.handleDelete.bind(this, t)}></span>
+                    <div className="transaction__delete fa fa-times" onClick={this.handleDelete.bind(this, t)}></div>
                     :null}
                 </div>
             );
@@ -202,7 +248,7 @@ export default class Transaction extends React.Component {
                 <a className="transaction__new" onClick={this.handleModal.bind(this)}>+</a>
                 : null}
                 <div className="transaction__list">
-                <h2 className="transaction__price credit">Total Spend: ${spend.toFixed(2)}</h2>
+                <h2 className="transaction__price credit">Total Spend: ${Math.abs(spend).toFixed(2)}</h2>
                 <h2 className="transaction__price debit">Total Income: ${income.toFixed(2)}</h2>
                 {ts}
                 </div>
