@@ -39,6 +39,12 @@ export const experiences = [
 
 export const projects = [
     {
+        name: 'Events Toronto',
+        type: 'Vue app',
+        link: 'http://events-toronto.herokuapp.com',
+        steps: []
+    },
+    {
         name: 'Movie Paradise',
         type: 'Angular App',
         link: 'https://movie-angular.herokuapp.com/',
