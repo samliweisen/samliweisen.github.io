@@ -29,9 +29,71 @@
         
         <link href="https://fonts.googleapis.com/css?family=Dosis|Josefin+Sans" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
+        <style type="text/css">
+            .lds-heart {
+                display: inline-block;
+                position: absolute;
+                left: 0;
+                right: 0;
+                margin: auto;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 64px;
+                height: 64px;
+                transform: rotate(45deg);
+                transform-origin: 32px 32px;
+            }
+            .lds-heart div {
+                top: 23px;
+                left: 19px;
+                position: absolute;
+                width: 26px;
+                height: 26px;
+                background: #d24848;
+                animation: lds-heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+            }
+            .lds-heart div:after,
+            .lds-heart div:before {
+                content: " ";
+                position: absolute;
+                display: block;
+                width: 26px;
+                height: 26px;
+                background: #d24848;
+            }
+            .lds-heart div:before {
+                left: -17px;
+                border-radius: 50% 0 0 50%;
+            }
+            .lds-heart div:after {
+                top: -17px;
+                border-radius: 50% 50% 0 0;
+            }
+            @keyframes lds-heart {
+              0% {
+                transform: scale(0.95);
+              }
+              5% {
+                transform: scale(1.1);
+              }
+              39% {
+                transform: scale(0.85);
+              }
+              45% {
+                transform: scale(1);
+              }
+              60% {
+                transform: scale(0.95);
+              }
+              100% {
+                transform: scale(0.9);
+              }
+            }
+        </style>
     </head>
     <body>
         <div id="root">
+            <div class="lds-heart"><div></div></div>
             <noscript style="position:fixed;left:35%;top:30%;background: #ffa500; z-index: 99999;
     padding: 10px 10px 10px 10px;
     border-top: #ffa500;
@@ -40,9 +102,9 @@
         </div>
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA74jvNet0DufU8aoTe39dELLy2rVMeuos&libraries=places"></script>
         <script>
-            if ('serviceWorker' in navigator) {
+            if ('serviceWorker' in window.navigator) {
             window.addEventListener('load', function() {
-                navigator.serviceWorker.register('sw.js').then(function(registration) {
+                window.navigator.serviceWorker.register('sw.js').then(function(registration) {
                     console.log('Worker registration successful', registration.scope);
                 }, function(err) {
                     console.log('Worker registration failed', err);
@@ -54,5 +116,5 @@
                 console.log('Service Worker is not supported by browser.');
             }
         </script>
-    <script type="text/javascript" src="index_bundle.js?v=863"></script></body>
+    <script type="text/javascript" src="index_bundle.js?v=28"></script></body>
 </html>

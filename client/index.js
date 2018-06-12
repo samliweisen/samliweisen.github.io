@@ -28,10 +28,9 @@ function myApp(state = initialState, action) {
 
 //store
 let store = createStore(myApp);
-
-render(
+setTimeout(render(
     <Provider store={store}>
         <Main />
     </Provider>,
     document.getElementById('root')
-);
+), 50000);
