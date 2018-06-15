@@ -6,4 +6,4 @@ import Main from './Main.jsx';
 setTimeout(function() {render(
     <Main />,
     document.getElementById('root')
-);}, 3000);
+);}, 2000);

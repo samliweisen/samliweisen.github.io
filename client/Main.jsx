@@ -11,6 +11,8 @@ import { getCharacters } from './reducer/characters/actions';
 
 import Header from './components/Header.jsx';
 import Nav from './components/Nav.jsx';
+import Footer from './components/Footer.jsx';
+
 import Home from './pages/Home.jsx';
 import FullPageClock from './pages/FullPageClock.jsx';
 import MusicPlayer from './pages/MusicPlayer.jsx';
@@ -39,7 +41,8 @@ export default class Main extends React.Component {
                             <Route path='/musicplayer' component={MusicPlayer} />
                         </Switch>
                     </HashRouter>
-                </Provider>
+                </Provider>,
+                <Footer key="footer" />
             ]
         );
     }

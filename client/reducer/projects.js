@@ -1,8 +1,18 @@
 const initialProjects = [
     {
         name: 'Events Toronto',
+        link: 'https://events-toronto.herokuapp.com/',
+        type: 'Web Application',
+        steps: [
+            'Retrieve data from Toronto open source with cron job daily',
+            'Implement Google Map with event location',
+            'Increase user experience with Vuejs'
+        ]
+    },
+    {
+        name: 'What I Watech',
         type: 'Vue app',
-        link: 'http://events-toronto.herokuapp.com',
+        link: 'https://porfolio-a09liweis.c9users.io/vue/#/visuals',
         steps: []
     },
     {
@@ -47,17 +57,7 @@ const initialProjects = [
             'Implement model relationships',
             'Write reusable react components on Rails'
         ]
-    },
-    // {
-    //     name: 'Events Toronto',
-    //     link: 'http://events-toronto.herokuapp.com/',
-    //     type: 'Web Application',
-    //     steps: [
-    //         'Retrieve data from Toronto open source with cron job daily',
-    //         'Implement Google Oauth with authentication',
-    //         'Increase user experience with AngularJS'
-    //     ]
-    // }
+    }
 ];
 
 const projects = (state = initialProjects, action) => {

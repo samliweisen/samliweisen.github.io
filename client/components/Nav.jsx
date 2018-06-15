@@ -26,10 +26,9 @@ export const Navigation = styled.nav`
 export default class Nav extends React.Component {
     render() {
         return(
-            <Navigation className="experiences">
+            <Navigation>
                 <BoxBody>
                     <NavigationLink href="/#/">Home</NavigationLink>
-                    <NavigationLink href="/vue/#/visuals">What I Watched</NavigationLink>
                     <NavigationLink href="/#/todo">Todos</NavigationLink>
                     <NavigationLink href="/#/transactions">Transactions</NavigationLink>
                 </BoxBody>
