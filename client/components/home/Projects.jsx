@@ -8,9 +8,8 @@ import {Box, BoxTitle, BoxBody} from '../style.jsx';
 const Link = styled.a`
     color: #000000;
     text-decoration: none;
-    transition: 0.3s ease-in;
+    transition: 0.2s ease-in;
     &:hover {
-        text-decoration: underline;
         color: #06A763;
     }
 `;

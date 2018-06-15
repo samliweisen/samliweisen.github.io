@@ -31,10 +31,25 @@
 .todo:hover .todo__actions {
     transform: translateX(0);
 }
-.todo.done {
+.todo__statics {
+    text-align: center;
+    margin-top: 30px;
+}
+.todo__statics span {
+    display: inline-block;
+    border-left-width: 5px;
+    border-left-style: solid;
+    padding: 10px;
+    margin-right: 15px;
+    background-color: #ffffff;
+}
+.pending {
+    border-left-color: #ff000096;
+}
+.done {
     border-left-color: #34b934;
 }
-.todo.working {
+.working {
     border-left-color: #8080ea;
 }
 .todo__title {
@@ -73,7 +88,7 @@
     opacity: 0.8;
 }
 .todos__loader {
-    margin: auto;
+    margin: 40px auto;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
     width: 50px;

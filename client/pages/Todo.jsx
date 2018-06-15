@@ -167,6 +167,11 @@ export default class Todo extends React.Component {
                 <h2 className="todos__title">Todo List</h2>
                 <div className="todos__container">
                     <input placeholder="Add New Todo" id="todoName" value={newTodo.name} onChange={this.handleChange.bind(this)} onKeyPress={this.handleKeyPress.bind(this, 'add')} />
+                    <div className="todo__statics">
+                        <span className="done">Done</span>
+                        <span className="working">In Progress</span>
+                        <span className="pending">Pending</span>
+                    </div>
                     {loading ? 
                     <div className="todos__loader"></div>
                     :
