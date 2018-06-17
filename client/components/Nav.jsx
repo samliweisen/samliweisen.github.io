@@ -30,7 +30,9 @@ export default class Nav extends React.Component {
                 <BoxBody>
                     <NavigationLink href="/#/">Home</NavigationLink>
                     <NavigationLink href="/#/todo">Todos</NavigationLink>
+                    { window.localStorage.getItem('admin') ?
                     <NavigationLink href="/#/transactions">Transactions</NavigationLink>
+                    :null}
                 </BoxBody>
             </Navigation>
         );
