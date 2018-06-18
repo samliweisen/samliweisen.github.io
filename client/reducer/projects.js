@@ -12,7 +12,7 @@ const initialProjects = [
     {
         name: 'What I Watech',
         type: 'Vue app',
-        link: 'https://porfolio-a09liweis.c9users.io/vue/#/visuals',
+        link: 'https://samliweisen.github.io/vue/#/visuals',
         steps: []
     },
     {
