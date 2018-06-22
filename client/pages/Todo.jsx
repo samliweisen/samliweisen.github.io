@@ -15,6 +15,7 @@ export default class Todo extends React.Component {
                 name: '',
                 status: 'pending'
             },
+            filter: 'all',
             loading: false,
             api: {
                 list: 'https://samliweisen.herokuapp.com/api/todos/',
@@ -140,12 +141,21 @@ export default class Todo extends React.Component {
             }
         });
     }
+    setFilter(filter) {
+        this.setState({
+            filter: filter
+        });
+    }
     getStatus(todo) {
         return 'todo ' + todo.status;
     }
     render() {
-        const {admin, todos, newTodo, loading} = this.state;
-        const todoList = todos.map((todo, idx) => 
+        const {admin, todos, newTodo, loading, filter} = this.state;
+        let todosFilter = todos;
+        if (filter != 'all') {
+            todosFilter = todos.filter(todo => todo.status == filter);
+        }
+        const todoList = todosFilter.map((todo, idx) => 
                         <CSSTransition key={todo._id} timeout={1000} classNames="todoAnimation">
                         <div className={this.getStatus(todo)}>
                             {admin ?
@@ -168,9 +178,9 @@ export default class Todo extends React.Component {
                 <div className="todos__container">
                     <input placeholder="Add New Todo" id="todoName" value={newTodo.name} onChange={this.handleChange.bind(this)} onKeyPress={this.handleKeyPress.bind(this, 'add')} />
                     <div className="todo__statics">
-                        <span className="done">Done</span>
-                        <span className="working">In Progress</span>
-                        <span className="pending">Pending</span>
+                        <span className="done" onClick={this.setFilter.bind(this, 'done')}>Done</span>
+                        <span className="working" onClick={this.setFilter.bind(this, 'working')}>In Progress</span>
+                        <span className="pending" onClick={this.setFilter.bind(this, 'pending')}>Pending</span>
                     </div>
                     {loading ? 
                     <div className="todos__loader"></div>
