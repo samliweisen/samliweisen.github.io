@@ -1,13 +1,5 @@
-Code Learning Website:
-http://www.nowamagic.net/
-http://toutiao.io/
-
-https://dribbble.com/shots/2380700-New-Portfolio-Site-Live/attachments/458038
 http://www.vicinityrewards.ca/
-https://www.uplabs.com/posts/minimal-resume-design-for-personal-website
 
-
-https://lisa-gringl.com/#all
 
 く__,.ヘヽ.　　　　/　,ー､ 〉
 　　　　　＼ ', !-─‐-i　/　/´
@@ -26,3 +18,8 @@ https://lisa-gringl.com/#all
 　　　　　　 ﾚ'ヽL__|___i,___,ンﾚ|ノ
 　　　　　 　　　ﾄ-,/　|___./
 　　　　　 　　　'ｰ'　　!_,.:
+
+## Todo
+* Implement function to add sub todos for each todo
+* Sticky header and navigation
+* Scroll to top

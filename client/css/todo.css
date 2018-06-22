@@ -8,6 +8,7 @@
     width: 100%;
     max-width: 624px;
     margin: auto;
+    padding: 0 15px;
 }
 #todoName {
     width: 100%;
