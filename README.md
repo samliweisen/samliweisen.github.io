@@ -26,9 +26,3 @@ https://lisa-gringl.com/#all
 　　　　　　 ﾚ'ヽL__|___i,___,ンﾚ|ノ
 　　　　　 　　　ﾄ-,/　|___./
 　　　　　 　　　'ｰ'　　!_,.:
-
-Development:
-ng serve --host 0.0.0.0 --port 8080 -public-host https://porfolio-a09liweis.c9users.io/angular
-Production Build:
-ng build --prod --base-href "https://porfolio-a09liweis.c9users.io/angular/"
-ng build --prod --base-href "https://samliweisen.bitbucket.io/angular/"
