@@ -21,5 +21,6 @@ http://www.vicinityrewards.ca/
 
 ## Todo
 * Implement function to add sub todos for each todo
+* Add clock reminder
 * Sticky header and navigation
 * Scroll to top

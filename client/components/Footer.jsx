@@ -4,6 +4,6 @@ import '../css/footer.css';
 
 const Footer = () => 
     <footer id="footer">
-        Made By Sam Li © {new Date().getFullYear()} Sam
+        Made with React and By Sam Li © {new Date().getFullYear()}
     </footer>;
 export default Footer;

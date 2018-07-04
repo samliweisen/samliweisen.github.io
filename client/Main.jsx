@@ -14,10 +14,10 @@ import Nav from './components/Nav.jsx';
 import Footer from './components/Footer.jsx';
 
 import Home from './pages/Home.jsx';
-import FullPageClock from './pages/FullPageClock.jsx';
 import MusicPlayer from './pages/MusicPlayer.jsx';
 import Todo from './pages/Todo.jsx';
 import Transaction from './pages/Transaction.jsx';
+import Clock from './pages/Clock.jsx';
 
 const store = createStore(reducer, compose(
     applyMiddleware(thunk),
@@ -35,8 +35,8 @@ export default class Main extends React.Component {
                     <HashRouter key="page">
                         <Switch>
                             <Route exact path='/' component={Home} />
-                            <Route exact path='/fullpageclock' component={FullPageClock} />
                             <Route path='/todo' component={Todo} />
+                            <Route path='/clock' component={Clock} />
                             <Route path='/transactions' component={Transaction} />
                             <Route path='/musicplayer' component={MusicPlayer} />
                         </Switch>
