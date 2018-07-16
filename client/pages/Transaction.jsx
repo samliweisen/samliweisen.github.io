@@ -65,7 +65,7 @@ export default class Transaction extends React.Component {
                     icon: 'penalty'
                 },
                 entertainment: {
-                    icon: 'laugh'
+                    icon: 'smile-o'
                 }
             },
             address: '',
