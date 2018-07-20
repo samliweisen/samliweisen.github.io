@@ -1,6 +1,5 @@
 import React from 'react';
-import {Box, BoxBody} from './style.jsx';
-import { Link } from 'react-router-dom';
+import {BoxBody} from './style.jsx';
 import styled from 'styled-components';
 
 export const NavigationLink = styled.a`
@@ -30,7 +29,6 @@ export default class Nav extends React.Component {
                 <BoxBody>
                     <NavigationLink href="/#/">Home</NavigationLink>
                     <NavigationLink href="/#/todo">Todos</NavigationLink>
-                    <NavigationLink href="/#/clock">Clock</NavigationLink>
                     { window.localStorage.getItem('admin') ?
                     <NavigationLink href="/#/transactions">Transactions</NavigationLink>
                     :null}
