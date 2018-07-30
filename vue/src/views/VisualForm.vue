@@ -2,7 +2,17 @@
     <div class="form">
         <h2>Form</h2>
         <mu-raised-button label="Add Image" class="demo-raised-button" primary v-on:click="gotoAddImage()" />
-        <mu-text-field fullWidth label="Search From Douban" labelFloat v-on:change="searchDouban" v-if="visual.id == 0" />
+        
+        <mu-raised-button slot="actions" flat color="primary" @click="toggleSearch" v-if="visual.id == 0">Search on Douban</mu-raised-button>
+        <mu-dialog title="Dialog" width="360" scrollable :open.sync="searchOpen">
+            <mu-text-field fullWidth label="Search From Douban" labelFloat v-on:change="searchDouban" />
+            <mu-list>
+                <mu-list-item v-for="s in searchs" v-bind:title="s.title" key="s.id" v-on:click="renderFromSearch(s.id)">
+                    <mu-avatar v-bind:src="s.images.large" slot="rightAvatar"/>
+                </mu-list-item>
+            </mu-list>
+            <mu-raised-button slot="actions" flat color="primary" @click="toggleSearch">Close</mu-raised-button>
+        </mu-dialog>
         <mu-row gutter>
             <mu-col width="100" tablet="50" desktop="25">
                 <mu-text-field fullWidth label="Title" labelFloat v-model="visual.title" />
@@ -35,7 +45,10 @@
         <mu-raised-button label="Get IMDB Data" class="demo-raised-button" v-on:click="renderIMDB" secondary/>
         <mu-row>
             <mu-col width="100" tablet="50" desktop="25">
-                <mu-text-field fullWidth label="Release Date" labelFloat v-model="visual.release_date" />
+                <!--<mu-text-field fullWidth label="Release Date" labelFloat v-model="visual.release_date" />-->
+                <mu-select-field label="Release Date" readonly v-model="visual.release_date" full-width>
+                    <mu-menu-item v-for="release_date in release_dates" :key="release_date" :label="release_date" :value="release_date.substring(0, 10)" :title="release_date"></mu-menu-item>
+                </mu-select-field>
             </mu-col>
             <mu-col width="100" tablet="50" desktop="25">
                 <mu-text-field fullWidth label="Poster" labelFloat v-model="visual.poster" />
@@ -67,6 +80,7 @@
     export default {
         data() {
             return {
+                searchOpen: false,
                 searchs: [],
                 visual: {
                     id: 0,
@@ -99,11 +113,19 @@
             }
         },
         methods: {
+            toggleSearch() {
+                this.searchOpen = !this.searchOpen;
+            },
             gotoAddSong() {
                 this.$router.push({path: '/visuals/' + this.$route.params.id + '/song/add'});
             },
             gotoAddImage() {
                 this.$router.push({path: '/visuals/' + this.$route.params.id + '/image/add'});
+            },
+            renderFromSearch(id) {
+                this.toggleSearch();
+                this.visual.douban_id = id;
+                this.renderDouban();
             },
             handleSubmit() {
                 const options = this.visual;
@@ -125,6 +147,7 @@
                     if (res.status == 200) {
                         this.searchs = res.body.subjects;
                     }
+                    console.log(this.searchs);
                 });
             },
             renderDouban() {
