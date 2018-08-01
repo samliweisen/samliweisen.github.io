@@ -31,7 +31,9 @@ ul li:hover {
 .col-3 {
     width: 31.6%;
     margin: 0 10px 20px 10px;
-    
+}
+#root {
+    position: relative;
 }
 #main, #aside {
     padding: 0 10px;

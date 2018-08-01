@@ -1,6 +1,5 @@
 import React from 'react';
 import '../css/header.css';
-
 import Clock from './Clock.jsx';
 import Weather from './Weather.jsx';
 

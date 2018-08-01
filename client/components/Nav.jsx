@@ -1,5 +1,4 @@
 import React from 'react';
-import {BoxBody} from './style.jsx';
 import styled from 'styled-components';
 
 export const NavigationLink = styled.a`

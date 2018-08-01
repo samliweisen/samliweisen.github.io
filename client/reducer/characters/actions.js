@@ -1,12 +1,11 @@
 import { API_URL } from '../../constants';
+import axios from 'axios';
 
 export const SET_CHARACTERS = 'SET_CHARACTERS';
 
 export function getCharacters() {
     return dispatch => {
-        fetch(`${API_URL}/people`)
-        .then(res => res.json())
-        .then(res => res.results)
+        axios.get(`${API_URL}/people`)
         .then(characters =>
             dispatch(setCharacters(characters))
         );

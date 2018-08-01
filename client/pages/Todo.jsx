@@ -156,7 +156,7 @@ export default class Todo extends React.Component {
             todosFilter = todos.filter(todo => todo.status == filter);
         }
         const todoList = todosFilter.map((todo, idx) => 
-                        <CSSTransition key={todo._id} timeout={1000} classNames="todoAnimation">
+                        <CSSTransition key={todo._id} timeout={500} classNames="todoAnimation">
                         <div className={this.getStatus(todo)}>
                             {admin ?
                             <input className="todo__title" value={todo.name} onChange={this.handleUpdate.bind(this, idx)} onKeyPress={this.handleKeyPress.bind(this, todo)} />
