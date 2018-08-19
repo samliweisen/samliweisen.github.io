@@ -187,12 +187,13 @@ export default class Transaction extends React.Component {
             } else {
                 spend += t.price;
             }
-            const iconClass = 'transaction__icon fa fa-' + icons[t.category.split(' ').join('_')].icon;
+            //const iconClass = 'transaction__icon fa fa-' + icons[t.category.split(' ').join('_')].icon;
+            const iconClass = '';
             return (
                 <div className="transaction__item" key={t._id}>
                     <div className={iconClass}></div>
                     <div className="transaction__info">
-                        <div className="transaction__title">{t.title}</div>
+                        <div className="transaction__title">{t.title + ' - ' + t.category}</div>
                         <div className="transaction__date">{t.date}</div>
                     </div>
                     <div className={priceClass}>${Math.abs(t.price)}</div>
