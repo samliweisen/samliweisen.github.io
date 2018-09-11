@@ -165,6 +165,7 @@
                     this.visual.douban_rating = douban.rating.average;
                     if (douban.episodes_count) {
                         this.visual.episodes = douban.episodes_count;
+                        this.visual.visual_type = 'tv';
                     }
                 }, res => {
                     //error
