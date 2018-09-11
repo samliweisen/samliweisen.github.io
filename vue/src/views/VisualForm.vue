@@ -147,7 +147,6 @@
                     if (res.status == 200) {
                         this.searchs = res.body.subjects;
                     }
-                    console.log(this.searchs);
                 });
             },
             renderDouban() {
@@ -164,7 +163,9 @@
                     this.visual.title = douban.title;
                     this.visual.poster = douban.images.large;
                     this.visual.douban_rating = douban.rating.average;
-                    this.visual.episodes = douban.episodes_count;
+                    if (douban.episodes_count) {
+                        this.visual.episodes = douban.episodes_count;
+                    }
                 }, res => {
                     //error
                 });
