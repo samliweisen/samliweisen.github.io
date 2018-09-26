@@ -10,6 +10,7 @@
             <mu-col class="visual" v-for="v in resultVisuals" :key="v.id" desktop="25" tablet="33" width="50">
                 <mu-card>
                     <mu-card-media title="" subTitle="">
+                        <span class="visual__progress-episodes">{{v.current_episode}} / {{v.episodes}}</span>
                         <img class="visual__poster" :src="v.poster" />
                     </mu-card-media>
                     <mu-card-actions>
@@ -26,7 +27,6 @@
                             <span class="visual__rating">{{v.rotten_rating}}</span>
                         </a>
                         <div class="visual__progress">
-                            <span class="visual__progress-episode current" v-bind:style="{left: getProgress(v) + '%'}">{{v.current_episode}}</span>
                             <mu-linear-progress mode="determinate" :value="getProgress(v)"/>
                         </div>
                         <div class="visual__action" v-if="admin">
@@ -119,11 +119,17 @@
         position: relative;
         margin: 15px 0;
     }
-    .visual__progress-episode {
+    .visual__progress-episodes {
         position: absolute;
+        top: 10px;
+        left: 10px;
+        background: #FFFFFF;
+        color: #000000;
+        padding: 5px;
+        border-radius: 5px;
     }
-    .visual__progress-episode.total {
-        right: 0;
+    .mu-linear-progress-determinate {
+        background: #57c263;
     }
 
     /* moving */
