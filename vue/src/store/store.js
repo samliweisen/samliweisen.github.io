@@ -22,12 +22,24 @@ const state = {
         imageList: whatIWatched + 'api/images',
         imageSubmit: whatIWatched + 'api/image/submit'
     },
-    admin: window.localStorage.getItem('admin') | false
+    admin: window.localStorage.getItem('admin') | false,
+    lang: 'en',
+    languages: {
+        en: {
+            title: 'What I Watched'
+        },
+        zh: {
+            title: '我看过啥'
+        }
+    }
 };
 
 const mutations = {
     loginAdmin(state) {
         state.admin = true;
+    },
+    changeLang(state, lang) {
+        state.lang = lang;
     }
 };
 
