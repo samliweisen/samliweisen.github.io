@@ -96,8 +96,6 @@
                 } else if (type == 'imdb') {
                     if (v.imdb_id) {
                         return 'https://www.imdb.com/title/' + v.imdb_id;   
-                    } else {
-                        return 'https://www.imdb.com/';
                     }
                 }
             },
