@@ -172,6 +172,7 @@ export default class Transaction extends React.Component {
                 title: '',
                 price: '',
                 date: '',
+                category: '',
                 place: {}
             }
         });
