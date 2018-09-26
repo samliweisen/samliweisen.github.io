@@ -66,9 +66,7 @@ export default {
         handleSearch() {
             const url = 'https://c.y.qq.com/soso/fcgi-bin/search_for_qq_cp?g_tk=5381&uin=0&format=jsonp&inCharset=utf-8&outCharset=utf-8&notice=0&platform=h5&needNewCode=1&w='+this.search+'&zhidaqu=1&catZhida=1&t=0&flag=1&ie=utf-8&sem=1&aggr=0&perpage=20&n=20&p=1&remoteplace=txt.mqq.all&_=1520833663464';
             this.dataSource = [];
-            this.$http.jsonp(url, {
-                jsonpCallback: 'callback',
-            }).then(res => {
+            this.$http.jsonp(url).then(res => {
                 if (res.status == 200) {
                     let songs = res.data.data.song.list;
                     songs.map((s) => {
