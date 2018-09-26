@@ -168,7 +168,7 @@ export default class Transaction extends React.Component {
         this.getList();
         this.handleModalChange();
         this.setState({
-            transation: {
+            transaction: {
                 title: '',
                 price: '',
                 date: '',
