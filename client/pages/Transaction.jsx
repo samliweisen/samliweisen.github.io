@@ -252,9 +252,9 @@ export default class Transaction extends React.Component {
                 {this.state.admin ? 
                 <a className="transaction__new" onClick={this.handleModal.bind(this)}>+</a>
                 : null}
-                <div className="transaction__list">
                 <h2 className="transaction__price credit">Total Spend: ${Math.abs(spend).toFixed(2)}</h2>
                 <h2 className="transaction__price debit">Total Income: ${income.toFixed(2)}</h2>
+                <div className="transaction__list">
                 {ts}
                 </div>
             </section>

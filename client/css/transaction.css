@@ -21,7 +21,7 @@
 }
 #transactions {
     position: relative;
-    max-width: 425px;
+    max-width: 1024px;
     width: 100%;
     margin: auto;
 }
@@ -29,11 +29,16 @@
     text-align: center;
     margin-bottom: 20px;
 }
+.transaction__list {
+    display: flex;
+    flex-wrap: wrap;
+}
 .transaction__item {
+    width: 100%;
     position: relative;
     background-color: #ffffff;
     padding: 10px;
-    margin-bottom: 20px;
+    margin: 0 10px 20px;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12)
 }
 .transaction__icon,
@@ -101,4 +106,16 @@
     bottom: 10%;
     right: 10%;
     z-index: 1;
+}
+
+@media (min-width: 768px) {
+    .transaction__item {
+        width: 46%;
+    }
+}
+
+@media (min-width: 992px) {
+    .transaction__item {
+        width: 23%;
+    }
 }
