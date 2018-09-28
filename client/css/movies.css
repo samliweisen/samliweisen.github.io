@@ -1,0 +1,27 @@
+.visual__list {
+    display: flex;
+    flex-wrap: wrap;
+}
+.visual {
+    padding: 0 10px;
+    width: 50%;
+    margin-bottom: 20px;
+}
+.visual__image {
+    width: 100%;
+    border-radius: 10px;
+    vertical-align: middle;
+}
+.visual__title {
+    margin-top: 10px;
+}
+@media (min-width: 768px) {
+    .visual {
+        width: 25%;
+    }
+}
+@media (min-width: 1024px) {
+    .visual {
+        width: 20%;
+    }
+}

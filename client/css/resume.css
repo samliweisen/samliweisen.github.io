@@ -25,6 +25,8 @@ ul li:hover {
     max-width: 1200px;
     width: 100%;
     margin: auto;
+}
+.home {
     display: flex;
     flex-wrap: wrap;
 }

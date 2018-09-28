@@ -8,7 +8,7 @@ import Projects from '../components/home/Projects.jsx';
 import '../css/resume.css';
 
 const Home  = ({characters}) => 
-    <div className="container">
+    <div className="container home">
         <main id="main">
             <Experiences />
             <Projects />

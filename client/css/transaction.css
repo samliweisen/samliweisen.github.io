@@ -21,9 +21,6 @@
 }
 #transactions {
     position: relative;
-    max-width: 1024px;
-    width: 100%;
-    margin: auto;
 }
 .transactions__title {
     text-align: center;

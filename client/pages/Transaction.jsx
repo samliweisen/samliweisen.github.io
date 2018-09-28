@@ -210,7 +210,7 @@ export default class Transaction extends React.Component {
         const t = this.state.transaction;
         const modalClass = this.state.modal ? 'modal active' : 'modal';
         return (
-            <section id="transactions">
+            <section id="transactions" className="container">
                 <h1 className="transactions__title">Transactions</h1>
                 <div className={modalClass}>
                     <div className="modal__bg" onClick={this.handleModal.bind(this)}></div>
