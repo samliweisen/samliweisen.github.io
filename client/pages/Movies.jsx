@@ -24,17 +24,34 @@ export default class Movies extends React.Component {
         });
     }
     render() {
-        const visuals = this.state.visuals.map((v) =>
-            <div className="visual" key={v.id}>
-                <div className="visual__container">
-                    <img className="visual__image" src={v.poster} />
+        const visuals = this.state.visuals.map((v) => {
+            let status;
+            if (v.current_episode == v.episodes) {
+                status = 'done';
+            }
+            if (v.current_episode < v.episodes) {
+                status = 'in_progress';
+                if (v.current_episode == 0) {
+                    status = 'not_started';
+                }
+            }
+            status += ' visual__container';
+            
+            return (
+                <div className="visual" key={v.id}>
+                    <div className={status}>
+                        <img className="visual__image" src={v.poster} />
+                        <div className="visual__detail">
+                            <h3 className="visual__title">{v.title}</h3>
+                        </div>
+                    </div>
                 </div>
-                <h3 className="visual__title">{v.title}</h3>
-            </div>
+            );
+        }
         );
         return (
             <div className="container">
-                <h2>What I Watched</h2>
+                <h2 className="visuals__title">What I Watched</h2>
                 <div className="visual__list">
                     {visuals}
                 </div>

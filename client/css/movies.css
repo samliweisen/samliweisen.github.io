@@ -1,3 +1,7 @@
+.visuals__title {
+    text-align: center;
+    margin: 40px 0;
+}
 .visual__list {
     display: flex;
     flex-wrap: wrap;
@@ -7,10 +11,28 @@
     width: 50%;
     margin-bottom: 20px;
 }
+.visual__container {
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    box-shadow: 0 1px 6px rgba(0,0,0,.117647), 0 1px 4px rgba(0,0,0,.117647);
+    border-bottom: 5px solid transparent;
+}
+.visual__container.done {
+    border-color: green;
+}
+.visual__container.in_progress {
+    border-color: yellow;
+}
+.visual__container.not_started {
+    border-color: red;
+}
 .visual__image {
     width: 100%;
-    border-radius: 10px;
     vertical-align: middle;
+    border-radius: 5px 5px 0px 0px;
+}
+.visual__detail {
+    padding: 15px;
 }
 .visual__title {
     margin-top: 10px;

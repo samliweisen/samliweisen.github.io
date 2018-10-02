@@ -1,0 +1,118 @@
+body {
+    font-family: Helvetica;
+}
+figure {
+    margin: 0;
+}
+p {
+    margin: 0;
+}
+.clear {
+    clear: both;
+}
+.inline-block {
+    display: inline-block;
+    vertical-align: middle;
+}
+#header  {
+    
+}
+.logo {
+    font-size: 26px;
+}
+.tooth {
+    color: #2aa2c3;
+}
+.meister {
+    color: #b3bdcb;
+}
+.nav-container {
+    padding: 0;
+    margin: 0;
+}
+.nav-link {
+    display: inline-block;
+    color: #646D82;
+    margin: 10px;
+    padding: 15px;
+    font-size: 14px;
+}
+.nav-link.active {
+    border-bottom: 4px solid #42d1e3;
+}
+.header-right {
+    
+}
+.my-feed {
+    font-size: 38px;
+    color: #040E28;
+}
+.feed-list {
+    width: 1024px;
+    margin: auto;
+}
+.feed {
+    width: 33%;
+    border-radius: 5px;
+    box-shadow: 1px 1px 6px 0px #736666;
+}
+.feed-tag {
+    font-size: 12px;
+    color: #ffffff;
+    background-color: #a97ef1;
+    padding: 10px 25px;
+}
+.feed-image .image {
+    width: 100%;
+}
+.feed-content {
+    padding: 25px;
+}
+.feed-title {
+    font-size: 18px;
+    color: #040E28;
+}
+.feed-date,
+.feed-status {
+    font-size: 12px;
+    color: #A6B1C2;
+}
+.feed-description {
+    font-size: 14px;
+    color: #646D82;
+}
+.feed-doctor {
+    background-color: #f7f9fc;
+    padding: 10px 25px;
+}
+.doctor-name {
+    font-size: 14px;
+    color: #040E28;
+}
+.doctor-location {
+    font-size: 12px;
+    color: #040E28;
+}
+.doctor-title {
+    font-size: 10px;
+    color: #646D82;
+}
+.member-group,
+.member-number {
+    font-size: 12px;
+    color: #a6b1c2;
+}
+.member-title {
+    font-size: 18px;
+    color: #040E28;
+}
+.footer {
+    color: #A6B1C2;
+}
+.footer-title {
+    font-size: 26px;
+}
+.footer-email {
+    font-size: 14px;
+    color: #E4E7EC;
+}
