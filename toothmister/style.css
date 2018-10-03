@@ -1,5 +1,6 @@
 body {
     font-family: Helvetica;
+    background-color: #edf0f5;
 }
 figure {
     margin: 0;
@@ -15,7 +16,8 @@ p {
     vertical-align: middle;
 }
 #header  {
-    
+    background-color: #FFFFFF;
+    box-shadow: 1px 1px 6px 0px #736666;
 }
 .logo {
     font-size: 26px;
@@ -52,9 +54,11 @@ p {
     margin: auto;
 }
 .feed {
-    width: 33%;
-    border-radius: 5px;
+    border-radius: 2px;
     box-shadow: 1px 1px 6px 0px #736666;
+    margin-bottom: 20px;
+    min-height: 200px;
+    background-color: #FFFFFF;
 }
 .feed-tag {
     font-size: 12px;
@@ -67,6 +71,30 @@ p {
 }
 .feed-content {
     padding: 25px;
+    position: relative
+}
+.feed-number {
+    position: absolute;
+    right: 10px;
+    top: -10px;
+    border-radius: 50%;
+    color: #FFFFFF;
+    background-color: #22ce8b;
+    font-size: 12px;
+    padding: 5px 10px;
+}
+.feed-categories {
+    margin-bottom: 10px;
+}
+.feed-category {
+    display: inline-block;
+    background-color: #42d1e3;
+    color: #FFFFFF;
+    border-radius: 10px;
+    padding: 1px 4px;
+    font-size: 12px;
+    margin-right: 5px;
+    text-transform: uppercase;
 }
 .feed-title {
     font-size: 18px;
@@ -108,6 +136,13 @@ p {
 }
 .footer {
     color: #A6B1C2;
+    background-color: #646d82;
+}
+.footer-container {
+    width: 100%;
+    max-width: 992px;
+    margin: auto;
+    padding: 60px 0 20px;
 }
 .footer-title {
     font-size: 26px;
@@ -115,4 +150,12 @@ p {
 .footer-email {
     font-size: 14px;
     color: #E4E7EC;
+}
+.footer-linktitle {
+    color: #ffffff;
+}
+.footer-link {
+    color: #a1acbd;
+    display: block;
+    margin-bottom: 10px;
 }
