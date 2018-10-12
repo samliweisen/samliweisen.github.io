@@ -28,6 +28,7 @@ export default class Nav extends React.Component {
             <Navigation>
                 <NavigationLink href="/#/">Home</NavigationLink>
                 <NavigationLink href="/#/movies">Movies</NavigationLink>
+                <NavigationLink href="/#/blogs">Blogs</NavigationLink>
                 <NavigationLink href="/#/todo">Todos</NavigationLink>
                 { window.localStorage.getItem('admin') ?
                 <NavigationLink href="/#/transactions">Transactions</NavigationLink>

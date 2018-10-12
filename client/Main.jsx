@@ -19,6 +19,7 @@ import Todo from './pages/Todo.jsx';
 import Transaction from './pages/Transaction.jsx';
 import Clock from './pages/Clock.jsx';
 import Movies from './pages/Movies.jsx';
+import Blogs from './pages/Blogs.jsx';
 
 const store = createStore(reducer, compose(
     applyMiddleware(thunk),
@@ -38,6 +39,7 @@ export default class Main extends React.Component {
                             <Route exact path='/' component={Home} />
                             <Route path='/todo' component={Todo} />
                             <Route path='/movies' component={Movies} />
+                            <Route path='/blogs' component={Blogs} />
                             <Route path='/clock' component={Clock} />
                             <Route path='/transactions' component={Transaction} />
                             <Route path='/musicplayer' component={MusicPlayer} />
