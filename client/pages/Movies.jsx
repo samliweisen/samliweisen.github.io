@@ -8,17 +8,20 @@ export default class Movies extends React.Component {
         super(props);
         this.state = {
             visuals: [],
-            api: 'https://what-i-watched.herokuapp.com/api/visuals'
+            api: 'https://what-i-watched.herokuapp.com/api/visuals',
+            loading: true
         };
     }
     componentDidMount() {
         this.getVisuals();
     }
     getVisuals() {
+        this.setState({loading: true});
         axios.get(this.state.api).then((res) => {
             if (res.status == 200) {
                 this.setState({
-                    visuals: res.data.results
+                    visuals: res.data.results,
+                    loading: false
                 });
             }
         });
@@ -49,11 +52,16 @@ export default class Movies extends React.Component {
             );
         }
         );
+        const loading = this.state.loading;
         return (
             <div className="container">
                 <h2 className="visuals__title">What I Watched</h2>
                 <div className="visual__list">
-                    {visuals}
+                    {loading ?
+                        <div class="lds-hourglass"></div>
+                        :
+                        visuals   
+                    }
                 </div>
             </div>
         );
