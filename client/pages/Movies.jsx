@@ -38,13 +38,19 @@ export default class Movies extends React.Component {
                     status = 'not_started';
                 }
             }
-            status += ' visual__container';
-            
+            status += ' visual__status';
             return (
                 <div className="visual" key={v.id}>
-                    <div className={status}>
+                    <div className="visual__container">
+                        <div className={status}>{v.current_episode}/{v.episodes}</div>
                         <img className="visual__image" src={v.poster} />
                         <div className="visual__detail">
+                            <div className="visual__ratings">
+                                <a className="visual__rating" target="_blank" href={'https://movie.douban.com/subject/' + v.douban_id}>
+                                    <img className="visual__rating-icon" src="https://img3.doubanio.com/f/talion/2f3c0bc0f35b031d4535fd993ae3936f4e40e6c8/pics/icon/dou32.png" alt="" />
+                                    <span className="visual__rating-point">{v.douban_rating}</span>
+                                </a>
+                            </div>
                             <h3 className="visual__title">{v.title}</h3>
                         </div>
                     </div>
@@ -58,7 +64,7 @@ export default class Movies extends React.Component {
                 <h2 className="visuals__title">What I Watched</h2>
                 <div className="visual__list">
                     {loading ?
-                        <div class="lds-hourglass"></div>
+                        <div className="lds-hourglass"></div>
                         :
                         visuals   
                     }
