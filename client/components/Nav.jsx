@@ -13,13 +13,19 @@ export const NavigationLink = styled.a`
     }
 `;
 export const Navigation = styled.nav`
+    position: fixed;
+    bottom: 0;
+    z-index: 1;
     background-color: #ffffff;
     max-width: 1200px;
     width: 100%;
     margin: auto;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
-    margin-bottom: 20px;
     padding: 10px;
+    @media (min-width: 768px) {
+        margin-bottom: 20px;
+        position: static;
+    }
 `;
 
 export default class Nav extends React.Component {
