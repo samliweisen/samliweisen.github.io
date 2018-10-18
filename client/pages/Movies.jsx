@@ -45,13 +45,19 @@ export default class Movies extends React.Component {
                         <div className={status}>{v.current_episode}/{v.episodes}</div>
                         <img className="visual__image" src={v.poster} />
                         <div className="visual__detail">
-                            <p>{v.release_date}</p>
+                            <div>{v.release_date}</div>
                             <h3 className="visual__title">{v.title}</h3>
                             <div className="visual__ratings">
                                 <a className="visual__rating" target="_blank" href={'https://movie.douban.com/subject/' + v.douban_id}>
                                     <img className="visual__rating-icon" src="https://img3.doubanio.com/f/talion/2f3c0bc0f35b031d4535fd993ae3936f4e40e6c8/pics/icon/dou32.png" alt="" />
                                     <span className="visual__rating-point">{v.douban_rating}</span>
                                 </a>
+                                {v.imdb_id ?
+                                <a className="visual__rating" target="_blank" href={'https://www.imdb.com/title/' + v.imdb_id}>
+                                    <img className="visual__rating-icon" src="https://cdn0.iconfinder.com/data/icons/social-media-2091/100/social-31-512.png" alt="" />
+                                    <span className="visual__rating-point">{v.imdb_rating}</span>
+                                </a>
+                                : null}
                             </div>
                         </div>
                     </div>

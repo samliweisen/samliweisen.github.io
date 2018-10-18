@@ -47,6 +47,9 @@
     display: inline-block;
     vertical-align: middle;
 }
+.visual__rating {
+    margin-right: 10px;
+}
 .visual__rating-icon {
     width: 20px;
     height: 20px;
@@ -58,7 +61,7 @@
     vertical-align: middle;
 }
 .visual__title {
-    margin-top: 10px;
+    margin: 10px 0;
     color: #4b8a2c;
 }
 @media (min-width: 768px) {
