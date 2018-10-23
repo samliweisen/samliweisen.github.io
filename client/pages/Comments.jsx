@@ -27,7 +27,7 @@ export default class Comments extends React.Component {
         super(props);
         this.state = {
             //domain: 'https://where-we-work-a09liweis.c9users.io',
-            domain: 'https://where-we-work.herokuapp.com',
+            domain: 'https://samliweisen.herokuapp.com',
             comments: [],
             comment: {
                 name: '',
@@ -39,7 +39,7 @@ export default class Comments extends React.Component {
         this.getComments();
     }
     getComments() {
-        axios.get(this.state.domain + '/comments').then((res) => {
+        axios.get(this.state.domain + '/api/comments').then((res) => {
             if (res.status == 200) {
                 this.setState({
                     comments: res.data
@@ -59,7 +59,7 @@ export default class Comments extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const comment = this.state.comment;
-        axios.post(this.state.domain + '/comments', comment).then((res) => {
+        axios.post(this.state.domain + '/api/comments', comment).then((res) => {
             if (res.status == 200) {
                 this.getComments();
                 this.setState({
