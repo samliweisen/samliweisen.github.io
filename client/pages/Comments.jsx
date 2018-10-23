@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import {Box, BoxTitle, BoxBody} from './style.jsx';
+import {Box, BoxTitle, BoxBody} from '../components/style.jsx';
 import styled from 'styled-components';
 
 const Comment = styled.div`
@@ -74,7 +74,7 @@ export default class Comments extends React.Component {
     render() {
         const {comment, comments} = this.state;
         return(
-            <Box className="comments">
+            <Box className="comments container">
                 <BoxTitle>
                     <i className="fa fa-comments" aria-hidden="true"></i>
                     <span>Comments</span>
